@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SQL | TCS Interview Prep</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #c8d1e3;
+      color: #222;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #1f4fd8;
+      text-decoration: none;
+    }
+
+    /* CARD DESIGN */
+    .topic {
+      background: #ffffff;
+      padding: 18px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border-left: 5px solid #1f4fd8;
+
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    .content {
+      flex: 1;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .topic-link {
+      color: #1f4fd8;
+      text-decoration: none;
+    }
+
+    .topic-link:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-left: 18px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* CUSTOM CHECKBOX */
+    .cb-wrap input {
+      display: none;
+    }
+
+    .cb {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 2px solid #1f4fd8;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .cb::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 0px;
+      width: 6px;
+      height: 11px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg) scale(0);
+      transition: 0.2s;
+    }
+
+    .cb-wrap input:checked + .cb {
+      background: #1f4fd8;
+    }
+
+    .cb-wrap input:checked + .cb::after {
+      transform: rotate(45deg) scale(1);
+    }
+
+    /* COMPLETED STYLE */
+    .completed .content {
+      opacity: 0.6;
+    }
+
+    .completed h2 {
+      text-decoration: line-through;
+    }
+
+    .reset-box {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 10px 22px;
+      border: none;
+      border-radius: 6px;
+      background: #1f4fd8;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #163bb8;
+    }
+
+    .topic {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 5px solid #1f4fd8;
+
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+.cb-wrap {
+  display: inline-flex;   /* 🔥 REQUIRED */
+  align-items: center;
+  flex-shrink: 0;
+}
+
+
+
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <a class="back" href="../index.html">⬅ Back to Home</a>
+  <h1>SQL – Interview Preparation</h1>
+
+  <!-- BASIC SQL -->
+  <div class="topic">
+    <div class="content">
+      <h2>
+        <a href="SQLNote.html" class="topic-link">SQL Basics</a>
+      </h2>
+      <ul>
+        <li>What is SQL?</li>
+        <li>DDL, DML, DCL, TCL</li>
+        <li>CREATE, INSERT, UPDATE, DELETE</li>
+        <li>SELECT statement</li>
+        <li>WHERE clause</li>
+        <li>ORDER BY, GROUP BY, HAVING</li>
+        <li>Constraints (PRIMARY KEY, FOREIGN KEY)</li>
+      </ul>
+    </div>
+    <label class="cb-wrap">
+      <input type="checkbox" class="chk" id="sql-basic">
+      <span class="cb"></span>
+    </label>
+  </div>
+
+  <!-- SQL QUESTIONS -->
+  <div class="topic">
+    <div class="content">
+      <h2>
+        <a href="SQLQuestions.html" class="topic-link">Most Asked SQL Interview Questions</a>
+      </h2>
+      <ul>
+        <li>Difference between WHERE and HAVING</li>
+        <li>DELETE vs TRUNCATE vs DROP</li>
+        <li>What is JOIN? Types of JOIN</li>
+        <li>What is subquery?</li>
+        <li>Find Nth highest salary</li>
+        <li>Difference between INNER JOIN and LEFT JOIN</li>
+        <li>What is index?</li>
+      </ul>
+    </div>
+    <label class="cb-wrap">
+      <input type="checkbox" class="chk" id="sql-questions">
+      <span class="cb"></span>
+    </label>
+  </div>
+
+  <!-- RESET -->
+  <div class="reset-box">
+    <button id="resetBtn">Reset Progress</button>
+  </div>
+
+</div>
+
+<script>
+  const topics = document.querySelectorAll(".topic");
+
+  topics.forEach(topic => {
+    const cb = topic.querySelector(".chk");
+    const key = cb.id;
+
+    cb.checked = localStorage.getItem(key) === "true";
+    if (cb.checked) topic.classList.add("completed");
+
+    cb.addEventListener("change", () => {
+      localStorage.setItem(key, cb.checked);
+      topic.classList.toggle("completed", cb.checked);
+    });
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", () => {
+    topics.forEach(topic => {
+      const cb = topic.querySelector(".chk");
+      cb.checked = false;
+      topic.classList.remove("completed");
+      localStorage.removeItem(cb.id);
+    });
+  });
+</script>
+
+</body>
+</html>

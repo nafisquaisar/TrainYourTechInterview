@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TCS SQL Most Asked Questions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #c8d1e3;
+      color: #222;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #1f4fd8;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    /* CARD */
+    .qa-card, .table-card {
+      background: #fff;
+      border-left: 5px solid #1f4fd8;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      display: flex;
+      gap: 12px;
+      justify-content: space-between;
+    }
+
+    .qa-content {
+      flex: 1;
+    }
+
+    .question {
+      font-weight: bold;
+      cursor: pointer;
+      color: #1f4fd8;
+    }
+
+    .question:hover {
+      text-decoration: underline;
+    }
+
+    .answer {
+      display: none;
+      margin-top: 10px;
+      background: #f6f8fc;
+      padding: 12px;
+      border-radius: 6px;
+      font-family: Consolas, monospace;
+      font-size: 14px;
+      white-space: pre-wrap;
+    }
+
+    /* FIXED CHECKBOX */
+    .cb-wrap {
+      display: inline-flex;   /* 🔥 FIX */
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .cb-wrap input {
+      display: none;
+    }
+
+    .cb {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 2px solid #1f4fd8;
+      position: relative;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .cb::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 0;
+      width: 6px;
+      height: 11px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg) scale(0);
+      transition: 0.2s;
+    }
+
+    .cb-wrap input:checked + .cb {
+      background: #1f4fd8;
+    }
+
+    .cb-wrap input:checked + .cb::after {
+      transform: rotate(45deg) scale(1);
+    }
+
+    .done .question {
+      opacity: 0.6;
+      text-decoration: line-through;
+    }
+
+    .reset-box {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 10px 22px;
+      border: none;
+      border-radius: 6px;
+      background: #1f4fd8;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* Table style */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-family: Consolas, monospace;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background: #eef2fb;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <a href="../index.html" class="back">⬅ Back to Home</a>
+  <h1>🔥 TCS SQL MOST ASKED QUERIES (WITH ANSWERS)</h1>
+
+  <!-- ASSUMED TABLES -->
+  <div class="table-card">
+    <div class="qa-content">
+      <b>Assumed Tables</b>
+
+      <table>
+        <tr>
+          <th>Employee</th>
+          <th>Department</th>
+        </tr>
+        <tr>
+          <td>emp_id</td>
+          <td>dept_id</td>
+        </tr>
+        <tr>
+          <td>name</td>
+          <td>dept_name</td>
+        </tr>
+        <tr>
+          <td>salary</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>dept_id</td>
+          <td>-</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div id="qaList"></div>
+
+  <div class="reset-box">
+    <button id="resetBtn">Reset Progress</button>
+  </div>
+
+</div>
+
+<script>
+const questions = [
+{
+  q: "1️⃣ Find the second highest salary",
+  a: `
+-- Query 1: Using MAX() with subquery (Most common)
+SELECT MAX(salary)
+FROM Employee
+WHERE salary < (SELECT MAX(salary) FROM Employee);
+
+Reason:
+First finds the highest salary.
+Then selects the maximum salary that is less than the highest.
+Works in all SQL databases and handles duplicates correctly.
+
+
+-- Query 2: Using DISTINCT + ORDER BY + LIMIT
+SELECT DISTINCT salary
+FROM Employee
+ORDER BY salary DESC
+LIMIT 1 OFFSET 1;
+
+Reason:
+Orders salaries in descending order.
+OFFSET skips the highest salary.
+DISTINCT ensures duplicate salaries are ignored.
+Best for MySQL and PostgreSQL.
+
+
+-- Query 3: Using DENSE_RANK() (Best interview answer)
+SELECT salary
+FROM (
+    SELECT salary,
+           DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk
+    FROM Employee
+) t
+WHERE rnk = 2;
+
+Reason:
+DENSE_RANK assigns same rank to duplicate salaries.
+Rank 2 always represents the second highest distinct salary.
+Preferred in real-world and advanced SQL interviews.
+
+
+-- Query 4: Using NOT IN
+SELECT MAX(salary)
+FROM Employee
+WHERE salary NOT IN (SELECT MAX(salary) FROM Employee);
+
+Reason:
+Removes the highest salary from the result set.
+Then finds the maximum from remaining salaries.
+Simple and commonly accepted in interviews.
+`
+},
+ {
+  q: "2️⃣ Find highest salary in each department",
+  a: `
+-- Query 1: Basic GROUP BY (only salary)
+SELECT dept_id, MAX(salary)
+FROM Employee
+GROUP BY dept_id;
+
+Reason:
+Groups employees department-wise.
+MAX(salary) finds the highest salary in each department.
+Returns only dept_id and salary, not employee details.
+
+
+-- Query 2: Highest salary with employee name (safe & correct)
+SELECT e.dept_id, e.name, e.salary
+FROM Employee e
+WHERE (e.dept_id, e.salary) IN (
+    SELECT dept_id, MAX(salary)
+    FROM Employee
+    GROUP BY dept_id
+);
+
+Reason:
+Subquery finds the highest salary per department.
+Outer query fetches employee name matching that salary.
+Handles multiple employees having same highest salary.
+
+
+-- Query 3: Using DENSE_RANK() (Best interview answer)
+SELECT dept_id, name, salary
+FROM (
+    SELECT dept_id, name, salary,
+           DENSE_RANK() OVER (PARTITION BY dept_id ORDER BY salary DESC) rnk
+    FROM Employee
+) t
+WHERE rnk = 1;
+
+Reason:
+Ranks salaries within each department.
+Rank 1 always represents highest salary.
+Works correctly even with duplicate top salaries.
+
+
+-- Query 4: Using JOIN with derived table
+SELECT e.dept_id, e.name, e.salary
+FROM Employee e
+JOIN (
+    SELECT dept_id, MAX(salary) AS max_salary
+    FROM Employee
+    GROUP BY dept_id
+) m
+ON e.dept_id = m.dept_id AND e.salary = m.max_salary;
+
+Reason:
+Derived table calculates max salary per department.
+Join maps employees to that salary.
+Clean and widely used in production queries.
+`
+},
+  {
+    q: "3️⃣ Find employee with maximum salary",
+    a: `SELECT *
+FROM Employee
+WHERE salary = (SELECT MAX(salary) FROM Employee);`
+  },
+  {
+    q: "4️⃣ Find total number of employees",
+    a: `SELECT COUNT(*) FROM Employee;`
+  },
+  {
+    q: "5️⃣ Find average salary",
+    a: `SELECT AVG(salary) FROM Employee;`
+  },
+  {
+    q: "6️⃣ Find employees whose salary is greater than average salary",
+    a: `SELECT *
+FROM Employee
+WHERE salary > (SELECT AVG(salary) FROM Employee);`
+  },
+  {
+    q: "7️⃣ Fetch employees from IT department",
+    a: `SELECT *
+FROM Employee
+WHERE dept_id = 101;
+
+OR
+
+SELECT e.*
+FROM Employee e
+JOIN Department d
+ON e.dept_id = d.dept_id
+WHERE d.dept_name = 'IT';`
+  },
+  {
+    q: "8️⃣ Fetch employee name and department name (JOIN)",
+    a: `SELECT e.name, d.dept_name
+FROM Employee e
+INNER JOIN Department d
+ON e.dept_id = d.dept_id;`
+  },
+  {
+    q: "9️⃣ Find duplicate records",
+    a: `SELECT name, COUNT(*)
+FROM Employee
+GROUP BY name
+HAVING COUNT(*) > 1;`
+  },
+{
+  q: "🔟 Delete duplicate records",
+  a: `
+-- Method 1: Self JOIN (Most common & important)
+DELETE e1
+FROM Employees e1
+JOIN Employees e2
+ON e1.name = e2.name
+AND e1.emp_id > e2.emp_id;
+
+Reason:
+Matches duplicate rows using the same name.
+Deletes the row with higher emp_id.
+Keeps one record per name.
+
+
+-- Method 2: Using ROW_NUMBER() (Best modern SQL)
+DELETE FROM Employees
+WHERE emp_id IN (
+    SELECT emp_id
+    FROM (
+        SELECT emp_id,
+               ROW_NUMBER() OVER (PARTITION BY name ORDER BY emp_id) AS rn
+        FROM Employees
+    ) t
+    WHERE rn > 1
+);
+
+Reason:
+ROW_NUMBER assigns a unique sequence within each duplicate group.
+Deletes all rows except the first.
+Very clean and interview-preferred.
+
+
+-- Method 3: Using GROUP BY + MIN (Safe & logical)
+DELETE FROM Employees
+WHERE emp_id NOT IN (
+    SELECT emp_id
+    FROM (
+        SELECT MIN(emp_id) AS emp_id
+        FROM Employees
+        GROUP BY name
+    ) t
+);
+
+
+Reason:
+Keeps the smallest emp_id for each name.
+Deletes remaining duplicates.
+Easy to understand and commonly asked.
+
+
+-- Method 4: Using Temporary Table (Production safe)
+CREATE TEMPORARY TABLE temp_emp AS
+SELECT MIN(emp_id) AS emp_id
+FROM Employees
+GROUP BY name;
+
+DELETE FROM Employees
+WHERE emp_id NOT IN (SELECT emp_id FROM temp_emp);
+
+Reason:
+Avoids direct self-delete complexity.
+Useful in large datasets and production systems.
+`
+},
+  {
+    q: "1️⃣1️⃣ Find employees without department",
+    a: `SELECT *
+FROM Employee
+WHERE dept_id IS NULL;`
+  },
+  {
+    q: "1️⃣2️⃣ Find departments having more than 2 employees",
+    a: `SELECT dept_id
+FROM Employee
+GROUP BY dept_id
+HAVING COUNT(*) > 2;`
+  },
+ {
+  q: "1️⃣3️⃣ Fetch top 3 highest salaries",
+  a: `
+-- ✅ Method 1: DISTINCT + ORDER BY + LIMIT
+SELECT DISTINCT salary
+FROM Employee
+ORDER BY salary DESC
+LIMIT 3;
+
+🟢 Why use this:
+Simple and fast.
+Works well in MySQL and PostgreSQL.
+Good when you only need salary values.
+
+
+-- 🔁 Method 2: Using DENSE_RANK() (Recommended)
+SELECT salary
+FROM (
+    SELECT salary,
+           DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk
+    FROM Employee
+) t
+WHERE rnk <= 3;
+
+🟢 Why use this:
+Handles duplicate salaries correctly.
+No salary ranking is skipped.
+Best and safest interview answer.
+`
+},
+ {
+  q: "1️⃣4️⃣ Find Nth highest salary (general)",
+  a: `
+-- ✅ Method 1: Using COUNT(DISTINCT) (Classic logic)
+SELECT salary
+FROM Employee e1
+WHERE N - 1 = (
+    SELECT COUNT(DISTINCT salary)
+    FROM Employee e2
+    WHERE e2.salary > e1.salary
+);
+
+🟢 Why this works:
+Counts how many distinct salaries are greater than the current salary.
+If exactly N-1 salaries are greater, the salary is the Nth highest.
+Works in all SQL databases.
+
+
+-- 🔁 Method 2: Using DENSE_RANK() (Best & modern)
+SELECT salary
+FROM (
+    SELECT salary,
+           DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk
+    FROM Employee
+) t
+WHERE rnk = N;
+
+🟢 Why this works:
+Ranks salaries without gaps.
+Nth rank directly maps to Nth highest salary.
+Most preferred interview answer.
+
+
+-- ⚙️ Method 3: Using LIMIT + OFFSET (When N is known)
+SELECT DISTINCT salary
+FROM Employee
+ORDER BY salary DESC
+LIMIT 1 OFFSET N - 1;
+
+🟢 Why this works:
+Skips top N-1 salaries.
+Fetches the next one.
+Simple and fast for MySQL/PostgreSQL.
+`
+},
+  {
+    q: "1️⃣5️⃣ Update salary of employee",
+    a: `UPDATE Employee
+SET salary = salary + 5000
+WHERE emp_id = 101;`
+  },
+  {
+    q: "1️⃣6️⃣ Find employees whose name starts with ‘A’",
+    a: `SELECT *
+FROM Employee
+WHERE name LIKE 'A%';`
+  },
+  {
+    q: "1️⃣7️⃣ Find employees between salary range",
+    a: `SELECT *
+FROM Employee
+WHERE salary BETWEEN 30000 AND 60000;`
+  },
+  {
+    q: "1️⃣8️⃣ Count employees in each department",
+    a: `SELECT dept_id, COUNT(*)
+FROM Employee
+GROUP BY dept_id;
+
+    =---------- method 2 ---------------
+
+Select d.dept_name,count(*)
+from employees e 
+join departments d 
+on e.dept_id=d.dept_id 
+group by d.dept_name;
+`      
+  },
+  {
+    q: "1️⃣9️⃣ WHERE vs HAVING (Correct Example)",
+    a: `❌ Wrong:
+SELECT dept_id, COUNT(*)
+FROM Employee
+WHERE COUNT(*) > 2;
+
+✅ Correct:
+SELECT dept_id, COUNT(*)
+FROM Employee
+GROUP BY dept_id
+HAVING COUNT(*) > 2;`
+  },
+  {
+    q: "2️⃣0️⃣ Create Index",
+    a: `CREATE INDEX idx_salary
+ON Employee(salary);`
+  },
+{
+  q: "21️⃣ Find employees who earn the same salary",
+  a: `
+-- ✅ Method 1: Using GROUP BY + HAVING (Core logic)
+SELECT name, salary
+FROM Employee
+WHERE salary IN (
+    SELECT salary
+    FROM Employee
+    GROUP BY salary
+    HAVING COUNT(*) > 1
+);
+
+🟢 Why this works:
+HAVING finds salaries that appear more than once.
+Outer query fetches all employees having those salaries.
+Clear, correct, and interview-approved.
+
+
+-- 🔁 Method 2: Using Self JOIN (Very common)
+SELECT DISTINCT e1.name, e1.salary
+FROM Employee e1
+JOIN Employee e2
+ON e1.salary = e2.salary
+AND e1.emp_id <> e2.emp_id;
+
+🟢 Why this works:
+Self join compares employees with each other.
+Same salary but different employee IDs means duplicate salary.
+DISTINCT avoids repeated rows.
+
+
+-- ⭐ Method 3: Using Window Function (Best modern solution)
+SELECT name, salary
+FROM (
+    SELECT name, salary,
+           COUNT(*) OVER (PARTITION BY salary) AS cnt
+    FROM Employee
+) t
+WHERE cnt > 1;
+
+🟢 Why this works:
+Counts employees per salary without grouping rows.
+Keeps full employee detail.
+Most professional solution.
+`
+},
+  {
+    q: "22️⃣ Find employees having the same salary",
+    a: `SELECT *
+FROM Employee
+WHERE salary IN (
+  SELECT salary
+  FROM Employee
+  GROUP BY salary
+  HAVING COUNT(*) > 1
+);`
+  },
+  {
+    q: "23️⃣ Find department with highest number of employees",
+    a: `SELECT dept_id
+FROM Employee
+GROUP BY dept_id
+ORDER BY COUNT(*) DESC
+LIMIT 1;`
+  },
+  {
+    q: "24️⃣ Find employees who do not belong to any department",
+    a: `SELECT *
+FROM Employee
+WHERE dept_id IS NULL;`
+  },
+  {
+    q: "25️⃣ Find employees whose salary is NULL",
+    a: `SELECT *
+FROM Employee
+WHERE salary IS NULL;`
+  },
+  {
+    q: "26️⃣ Fetch last record from Employee table",
+    a: `SELECT *
+FROM Employee
+ORDER BY emp_id DESC
+LIMIT 1;`
+  },
+  {
+    q: "27️⃣ Fetch first record from Employee table",
+    a: `SELECT *
+FROM Employee
+ORDER BY emp_id ASC
+LIMIT 1;`
+  },
+  {
+    q: "28️⃣ Find employees whose name ends with ‘n’",
+    a: `SELECT *
+FROM Employee
+WHERE name LIKE '%n';`
+  },
+  {
+    q: "29️⃣ Find employees who joined in year 2023",
+    a: `SELECT *
+FROM Employee
+WHERE YEAR(join_date) = 2023;`
+  },
+  {
+    q: "30️⃣ Fetch common records from two tables",
+    a: `SELECT *
+FROM Table1
+INNER JOIN Table2
+ON Table1.id = Table2.id;`
+  },
+  {
+  q: "31️⃣ Find third highest salary",
+  a: `
+-- ✅ Method 1: Using DENSE_RANK() (Best & recommended)
+SELECT salary
+FROM (
+    SELECT salary,
+           DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk
+    FROM Employee
+) t
+WHERE rnk = 3;
+
+🟢 Why this works:
+DENSE_RANK handles duplicate salaries correctly.
+Rank 3 always represents the third highest distinct salary.
+Most professional interview answer.
+
+
+-- 🔁 Method 2: Using subquery + MAX (Classic logic)
+SELECT MAX(salary)
+FROM Employee
+WHERE salary < (
+    SELECT MAX(salary)
+    FROM Employee
+    WHERE salary < (SELECT MAX(salary) FROM Employee)
+);
+
+🟢 Why this works:
+Removes highest salary first.
+Then removes second highest salary.
+Finally picks the next maximum.
+Commonly asked in theory rounds.
+
+
+-- ⚙️ Method 3: Using LIMIT + OFFSET (When duplicates don’t matter)
+SELECT DISTINCT salary
+FROM Employee
+ORDER BY salary DESC
+LIMIT 1 OFFSET 2;
+
+🟢 Why this works:
+Skips top two salaries.
+Fetches the third one.
+Simple and fast for MySQL/PostgreSQL.
+`
+},
+  {
+    q: "32️⃣ Find employees earning more than manager",
+    a: `SELECT e.name
+FROM Employee e
+JOIN Employee m
+ON e.manager_id = m.emp_id
+WHERE e.salary > m.salary;`
+  },
+  {
+    q: "33️⃣ Display even records",
+    a: `SELECT *
+FROM Employee
+WHERE MOD(emp_id, 2) = 0;`
+  },
+  {
+    q: "34️⃣ Display odd records",
+    a: `SELECT *
+FROM Employee
+WHERE MOD(emp_id, 2) <> 0;`
+  },
+  {
+    q: "35️⃣ What is an Index?",
+    a: `An index improves query performance
+by reducing data search time.`
+  },
+  {
+    q: "36️⃣ What happens if index is created?",
+    a: `SELECT becomes faster,
+but INSERT / UPDATE becomes slower.`
+  },
+  {
+    q: "37️⃣ What is a View?",
+    a: `CREATE VIEW emp_view AS
+SELECT name, salary
+FROM Employee;`
+  },
+  {
+    q: "38️⃣ Can we update a View?",
+    a: `Yes, but only if the view is simple
+and does not contain joins or aggregates.`
+  },
+  {
+  q: "39️⃣ Difference between INNER JOIN and LEFT JOIN",
+  a: `INNER JOIN returns matching records from both tables.
+LEFT JOIN returns all records from left table and matched records from right table.`
+},
+{
+  q: "40️⃣ Difference between NULL and NOT NULL",
+  a: `NULL means no value.
+NOT NULL ensures column must have a value.`
+},
+{
+  q: "41️⃣ PRIMARY KEY vs UNIQUE KEY",
+  a: `PRIMARY KEY:
+• Only one per table
+• Cannot be NULL
+
+UNIQUE KEY:
+• Multiple allowed
+• Can contain NULL`
+},
+{
+  q: "42️⃣ What is a FOREIGN KEY?",
+  a: `A foreign key links two tables
+and enforces referential integrity.`
+},
+{
+  q: "43️⃣ What is a Subquery?",
+  a: `A query inside another query.
+
+Example:
+SELECT *
+FROM Employee
+WHERE salary > (
+  SELECT AVG(salary) FROM Employee
+);`
+},
+{
+  q: "44️⃣ Difference between CHAR and VARCHAR",
+  a: `CHAR:
+• Fixed length
+• Faster
+
+VARCHAR:
+• Variable length
+• Saves space`
+},
+{
+  q: "45️⃣ What is GROUP BY?",
+  a: `
+GROUP BY is an SQL clause used to group rows that have the same values in one or more columns
+and apply aggregate functions on each group.
+
+It converts many rows into a single summary row per group.
+
+-- Example
+SELECT dept_id, COUNT(*)
+FROM Employee
+GROUP BY dept_id;
+
+This groups employees by department and counts employees in each department.
+
+
+🟢 Why GROUP BY is used:
+To perform calculations (COUNT, SUM, MAX, MIN, AVG) on groups of data.
+
+
+🟢 Important rules:
+1) Every column in SELECT must be either:
+   - present in GROUP BY, or
+   - inside an aggregate function
+
+2) GROUP BY is applied before HAVING.
+
+
+🟢 Difference between WHERE and HAVING:
+- WHERE filters rows before grouping
+- HAVING filters groups after aggregation
+
+
+🟢 Simple example:
+SELECT salary, COUNT(*)
+FROM Employee
+GROUP BY salary
+HAVING COUNT(*) > 1;
+
+Finds salaries that appear more than once.
+
+
+🧠 One-line memory trick:
+GROUP BY makes one row per group, not per record.
+
+
+🎤 Interview one-liner:
+“GROUP BY groups rows with the same values and allows aggregate functions to be applied on each group.”
+`
+},
+{
+  q: "46️⃣ What is ORDER BY?",
+  a: `Used to sort result set.
+
+SELECT *
+FROM Employee
+ORDER BY salary DESC;`
+},
+{
+  q: "47️⃣ UNION vs UNION ALL",
+  a: `UNION removes duplicates.
+UNION ALL keeps duplicates and is faster.`
+},
+{
+  q: "48️⃣ What is EXISTS?",
+  a: `Checks existence of records.
+
+SELECT *
+FROM Employee e
+WHERE EXISTS (
+  SELECT 1 FROM Department d
+  WHERE d.dept_id = e.dept_id
+);`
+},
+{
+  q: "49️⃣ DELETE vs TRUNCATE",
+  a: `DELETE:
+• Can use WHERE
+• Can rollback
+
+TRUNCATE:
+• Faster
+• Cannot rollback`
+},
+{
+  q: "50️⃣ What is DISTINCT?",
+  a: `
+DISTINCT is an SQL keyword used to remove duplicate values from the result set.
+
+It ensures that only unique rows are returned.
+
+-- Example
+SELECT DISTINCT salary
+FROM Employee;
+
+This returns each salary only once, even if multiple employees have the same salary.
+
+
+🟢 Why DISTINCT is used:
+To fetch unique values.
+To eliminate duplicate rows from query output.
+
+
+🟢 Important points:
+1) DISTINCT applies to the entire selected row, not just one column.
+2) It is applied after the SELECT clause is processed.
+3) DISTINCT can be used with multiple columns.
+
+
+-- Multiple column example
+SELECT DISTINCT dept_id, salary
+FROM Employee;
+
+This returns unique combinations of dept_id and salary.
+
+
+🟢 DISTINCT vs GROUP BY:
+- DISTINCT removes duplicate rows only.
+- GROUP BY groups rows and supports aggregate functions.
+
+
+🧠 One-line memory trick:
+DISTINCT removes duplicate rows from SELECT results.
+
+
+🎤 Interview one-liner:
+“DISTINCT is used to return only unique rows from a query result.”
+`
+},
+{
+  q: "51 Correct order of execution",
+  a: `.
+🧠 SQL Query Execution Order (ACTUAL order)
+
+SQL is written one way but executed another way.
+
+✅ Correct execution order
+
+1️⃣ FROM
+2️⃣ JOIN / ON
+3️⃣ WHERE
+4️⃣ GROUP BY
+5️⃣ HAVING
+6️⃣ SELECT
+7️⃣ ORDER BY
+8️⃣ LIMIT / OFFSET;`
+}
+
+];
+
+
+const qaList = document.getElementById("qaList");
+
+questions.forEach((item, index) => {
+  const id = "sql_q_" + index;
+
+  const card = document.createElement("div");
+  card.className = "qa-card";
+
+  card.innerHTML = `
+    <div class="qa-content">
+      <div class="question">${item.q}</div>
+      <div class="answer">${item.a}</div>
+    </div>
+    <label class="cb-wrap">
+      <input type="checkbox" id="${id}">
+      <span class="cb"></span>
+    </label>
+  `;
+
+  qaList.appendChild(card);
+});
+
+/* Toggle answer */
+document.addEventListener("click", e => {
+  if (e.target.classList.contains("question")) {
+    const ans = e.target.nextElementSibling;
+    ans.style.display = ans.style.display === "block" ? "none" : "block";
+  }
+});
+
+/* Checkbox storage */
+document.querySelectorAll(".qa-card").forEach(card => {
+  const cb = card.querySelector("input");
+  cb.checked = localStorage.getItem(cb.id) === "true";
+  if (cb.checked) card.classList.add("done");
+
+  cb.addEventListener("change", () => {
+    localStorage.setItem(cb.id, cb.checked);
+    card.classList.toggle("done", cb.checked);
+  });
+});
+
+/* Reset */
+document.getElementById("resetBtn").addEventListener("click", () => {
+  document.querySelectorAll(".qa-card").forEach(card => {
+    const cb = card.querySelector("input");
+    cb.checked = false;
+    card.classList.remove("done");
+    localStorage.removeItem(cb.id);
+  });
+});
+</script>
+
+</body>
+</html>

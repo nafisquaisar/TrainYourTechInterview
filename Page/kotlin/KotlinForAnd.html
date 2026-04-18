@@ -1,0 +1,508 @@
+<!DOCTYPE html><html><head>
+      <title>KotlinForAnd</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\nafis\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.20\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h2 id="-kotlin-concurrency">🟤 KOTLIN CONCURRENCY </h2>
+<h3 id="2️⃣3️⃣-coroutines-very-important">2️⃣3️⃣ Coroutines (VERY IMPORTANT) </h3>
+<ul>
+<li>What are coroutines</li>
+<li>suspend function</li>
+<li>Coroutine builders (launch, async)</li>
+<li>Dispatchers</li>
+<li>Job &amp; Deferred</li>
+<li>Structured concurrency</li>
+<li>Coroutine scopes</li>
+<li>Exception handling</li>
+</ul>
+<h3 id="2️⃣4️⃣-flow">2️⃣4️⃣ Flow </h3>
+<ul>
+<li>Cold flow</li>
+<li>Hot flow</li>
+<li>flow { }</li>
+<li>collect</li>
+<li>Operators (map, filter)</li>
+<li>StateFlow &amp; SharedFlow</li>
+</ul>
+<h2 id="-kotlin-android--jvm-specific">⚫ KOTLIN ANDROID / JVM SPECIFIC </h2>
+<h3 id="2️⃣5️⃣-annotations--reflection">2️⃣5️⃣ Annotations &amp; Reflection </h3>
+<ul>
+<li>Built-in annotations</li>
+<li>Custom annotations</li>
+<li>Kotlin reflection basics</li>
+</ul>
+<h3 id="2️⃣6️⃣-kotlin-jvm-internals">2️⃣6️⃣ Kotlin JVM Internals </h3>
+<ul>
+<li>Bytecode generation</li>
+<li>Kotlin vs Java bytecode</li>
+<li>SAM conversions</li>
+</ul>
+<h3 id="2️⃣7️⃣-interoperability-with-java">2️⃣7️⃣ Interoperability with Java </h3>
+<ul>
+<li>Calling Java from Kotlin</li>
+<li>Calling Kotlin from Java</li>
+<li>@JvmStatic</li>
+<li>@JvmOverloads</li>
+<li>@JvmField</li>
+</ul>
+<h2 id="-kotlin-design--best-practices">🧠 KOTLIN DESIGN &amp; BEST PRACTICES </h2>
+<h3 id="2️⃣8️⃣-design-patterns-in-kotlin">2️⃣8️⃣ Design Patterns in Kotlin </h3>
+<ul>
+<li>Singleton</li>
+<li>Factory</li>
+<li>Builder</li>
+<li>Observer</li>
+<li>Repository pattern</li>
+</ul>
+<h3 id="2️⃣9️⃣-kotlin-best-practices">2️⃣9️⃣ Kotlin Best Practices </h3>
+<ul>
+<li>Immutability</li>
+<li>Functional programming style</li>
+<li>Avoiding !!</li>
+<li>Performance considerations</li>
+</ul>
+<h2 id="-bonus-interview-favorites">🚀 BONUS (INTERVIEW FAVORITES) </h2>
+<h3 id="3️⃣0️⃣-kotlin-interview-traps">3️⃣0️⃣ Kotlin Interview Traps </h3>
+<p>== vs ===</p>
+<ul>
+<li>lateinit vs lazy</li>
+<li>List vs MutableList</li>
+<li>object vs companion object</li>
+<li>Flow vs LiveData</li>
+</ul>
+<hr>
+<br>
+<br>
+<br>
+<hr>
+<h1 id="-kotlin-concurrency-1">🟤 KOTLIN CONCURRENCY </h1>
+<hr>
+<h2 id="-benefits-of-kotlin-concurrency">🔰 Benefits of Kotlin Concurrency </h2>
+<p>Kotlin concurrency tools (Coroutines &amp; Flow) help you write <strong>asynchronous, non-blocking, and scalable code</strong> in a simple and readable way.</p>
+<h3 id="-key-benefits">✅ Key Benefits </h3>
+<ul>
+<li>Lightweight compared to threads</li>
+<li>Improves app responsiveness (especially Android)</li>
+<li>Easier async code with sequential style</li>
+<li>Built-in cancellation support</li>
+<li>Structured and safer concurrency</li>
+</ul>
+<hr>
+<h2 id="2️⃣3️⃣-coroutines-very-important-1">2️⃣3️⃣ Coroutines (VERY IMPORTANT) </h2>
+<h3 id="-what-are-coroutines">🔹 What are Coroutines </h3>
+<p>Coroutines are <strong>lightweight threads</strong> that allow you to run long-running tasks (network, database, file I/O) <strong>without blocking the main thread</strong>.</p>
+<p>They run asynchronously but look like normal sequential code.</p>
+<hr>
+<h3 id="-suspend-function">🔹 suspend Function </h3>
+<p>A <code>suspend</code> function can pause and resume execution <strong>without blocking a thread</strong>.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-suspend">suspend</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">fetchData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> String <span class="token punctuation">{</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> <span class="token string-literal singleline"><span class="token string">"Data loaded"</span></span>
+<span class="token punctuation">}</span>
+</code></pre><p>👉 Can only be called from another suspend function or coroutine.</p>
+<hr>
+<h3 id="-coroutine-builders">🔹 Coroutine Builders </h3>
+<h4 id="️-launch">▫️ launch </h4>
+<ul>
+<li>Starts a coroutine</li>
+<li>Does not return a result</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code>launch <span class="token punctuation">{</span>
+    <span class="token function">fetchData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h4 id="️-async">▫️ async </h4>
+<ul>
+<li>Starts a coroutine</li>
+<li>Returns a <code>Deferred&lt;T&gt;</code> (future result)</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> result <span class="token operator">=</span> async <span class="token punctuation">{</span> <span class="token function">fetchData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+<span class="token function">println</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span><span class="token function">await</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre><hr>
+<h3 id="-dispatchers">🔹 Dispatchers </h3>
+<p>Dispatchers decide <strong>which thread</strong> the coroutine runs on.</p>
+<ul>
+<li><code>Dispatchers.Main</code> → UI thread</li>
+<li><code>Dispatchers.IO</code> → Network, DB, file operations</li>
+<li><code>Dispatchers.Default</code> → CPU-intensive work</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token function">launch</span><span class="token punctuation">(</span>Dispatchers<span class="token punctuation">.</span>IO<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">fetchData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="-job--deferred">🔹 Job &amp; Deferred </h3>
+<ul>
+<li><code>Job</code> → Controls coroutine lifecycle (cancel, join)</li>
+<li><code>Deferred</code> → Job with result</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> job<span class="token operator">:</span> Job <span class="token operator">=</span> launch <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+job<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><hr>
+<h3 id="-structured-concurrency">🔹 Structured Concurrency </h3>
+<p>Ensures child coroutines are <strong>cancelled automatically</strong> when the parent is cancelled.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code>coroutineScope <span class="token punctuation">{</span>
+    launch <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+    launch <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="-coroutine-scopes">🔹 Coroutine Scopes </h3>
+<p>Defines the lifecycle of coroutines.</p>
+<ul>
+<li><code>GlobalScope</code> ❌ (avoid)</li>
+<li><code>viewModelScope</code> (Android)</li>
+<li><code>lifecycleScope</code> (Android)</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code>viewModelScope<span class="token punctuation">.</span><span class="token function">launch</span> <span class="token punctuation">{</span>
+    <span class="token function">fetchData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="-exception-handling">🔹 Exception Handling </h3>
+<p>Use <code>try-catch</code> or <code>CoroutineExceptionHandler</code>.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> handler <span class="token operator">=</span> CoroutineExceptionHandler <span class="token punctuation">{</span> _<span class="token punctuation">,</span> e <span class="token operator">-&gt;</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>message<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">launch</span><span class="token punctuation">(</span>handler<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="2️⃣4️⃣-flow-1">2️⃣4️⃣ Flow </h2>
+<p>Flow is used to handle <strong>streams of data asynchronously</strong>.</p>
+<hr>
+<h3 id="-cold-flow">🔹 Cold Flow </h3>
+<ul>
+<li>Starts only when collected</li>
+<li>Emits values fresh for each collector</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> flow <span class="token operator">=</span> flow <span class="token punctuation">{</span>
+    <span class="token function">emit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token function">emit</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="-hot-flow">🔹 Hot Flow </h3>
+<ul>
+<li>Emits values continuously</li>
+<li>Shared among collectors</li>
+</ul>
+<p>Examples: <code>StateFlow</code>, <code>SharedFlow</code></p>
+<hr>
+<h3 id="-flow">🔹 flow </h3>
+<p>Builder to create a flow.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> dataFlow <span class="token operator">=</span> flow <span class="token punctuation">{</span>
+    <span class="token function">emit</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"A"</span></span><span class="token punctuation">)</span>
+    <span class="token function">emit</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"B"</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="-collect">🔹 collect </h3>
+<p>Collects values emitted by a flow.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code>dataFlow<span class="token punctuation">.</span><span class="token function">collect</span> <span class="token punctuation">{</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="-operators-map-filter">🔹 Operators (map, filter) </h3>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code>flow
+    <span class="token punctuation">.</span><span class="token function">map</span> <span class="token punctuation">{</span> it <span class="token operator">*</span> <span class="token number">2</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">.</span><span class="token function">filter</span> <span class="token punctuation">{</span> it <span class="token operator">&gt;</span> <span class="token number">2</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">.</span><span class="token function">collect</span> <span class="token punctuation">{</span> <span class="token function">println</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="-stateflow--sharedflow">🔹 StateFlow &amp; SharedFlow </h3>
+<h4 id="️-stateflow">▫️ StateFlow </h4>
+<ul>
+<li>Holds the latest value</li>
+<li>Used for UI state</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> state <span class="token operator">=</span> <span class="token function">MutableStateFlow</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+</code></pre><hr>
+<h4 id="️-sharedflow">▫️ SharedFlow </h4>
+<ul>
+<li>Emits events</li>
+<li>No default value</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> events <span class="token operator">=</span> MutableSharedFlow<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><hr>
+<h2 id="-summary">✅ Summary </h2>
+<ul>
+<li>Coroutines handle async tasks efficiently</li>
+<li>Flow manages continuous data streams</li>
+<li>StateFlow is best for UI state</li>
+<li>SharedFlow is best for one-time events</li>
+</ul>
+<hr>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<h1 id="-kotlin-android--jvm-specific-1">⚫ KOTLIN ANDROID / JVM SPECIFIC </h1>
+<hr>
+<h2 id="-introduction">🔰 Introduction </h2>
+<p>These topics explain how Kotlin works <strong>under the hood on the JVM</strong> and how it interacts with Java. They are important for Android development, performance understanding, and senior-level interviews.</p>
+<hr>
+<h2 id="2️⃣5️⃣-annotations--reflection-1">2️⃣5️⃣ Annotations &amp; Reflection </h2>
+<hr>
+<h3 id="-built-in-annotations">🔹 Built-in Annotations </h3>
+<p>Kotlin provides many built-in annotations used by the compiler and runtime.</p>
+<p>Common examples:</p>
+<ul>
+<li><code>@Deprecated</code> → Marks code as deprecated</li>
+<li><code>@Suppress</code> → Suppresses compiler warnings</li>
+<li><code>@JvmStatic</code> → Creates static methods for Java</li>
+<li><code>@JvmField</code> → Exposes field directly to Java</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token annotation builtin">@Deprecated</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Use newMethod()"</span></span><span class="token punctuation">)</span>
+<span class="token keyword keyword-fun">fun</span> <span class="token function">oldMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="-custom-annotations">🔹 Custom Annotations </h3>
+<p>You can create your own annotations.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token annotation builtin">@Target</span><span class="token punctuation">(</span>AnnotationTarget<span class="token punctuation">.</span>CLASS<span class="token punctuation">,</span> AnnotationTarget<span class="token punctuation">.</span>FUNCTION<span class="token punctuation">)</span>
+<span class="token annotation builtin">@Retention</span><span class="token punctuation">(</span>AnnotationRetention<span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span>
+<span class="token keyword keyword-annotation">annotation</span> <span class="token keyword keyword-class">class</span> LogExecution
+</code></pre><p>👉 Commonly used in frameworks and libraries.</p>
+<hr>
+<h3 id="-kotlin-reflection-basics">🔹 Kotlin Reflection Basics </h3>
+<p>Reflection allows inspection of classes, functions, and properties at runtime.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> kClass <span class="token operator">=</span> String<span class="token operator">::</span><span class="token keyword keyword-class">class</span>
+<span class="token function">println</span><span class="token punctuation">(</span>kClass<span class="token punctuation">.</span>simpleName<span class="token punctuation">)</span>
+</code></pre><p>⚠️ Reflection is powerful but slower; use carefully.</p>
+<hr>
+<h2 id="2️⃣6️⃣-kotlin-jvm-internals-1">2️⃣6️⃣ Kotlin JVM Internals </h2>
+<hr>
+<h3 id="-bytecode-generation">🔹 Bytecode Generation </h3>
+<p>Kotlin code is compiled into <strong>JVM bytecode</strong>, just like Java.</p>
+<ul>
+<li>Kotlin → Bytecode → JVM</li>
+<li>Fully compatible with Java</li>
+</ul>
+<hr>
+<h3 id="-kotlin-vs-java-bytecode">🔹 Kotlin vs Java Bytecode </h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Kotlin</th>
+<th>Java</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Null safety</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Default arguments</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Data classes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>👉 Kotlin generates extra bytecode for safety features.</p>
+<hr>
+<h3 id="-sam-conversions">🔹 SAM Conversions </h3>
+<p>SAM = Single Abstract Method (Java interfaces).</p>
+<p>Kotlin allows passing lambdas instead of anonymous classes.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code>button<span class="token punctuation">.</span><span class="token function">setOnClickListener</span> <span class="token punctuation">{</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Clicked"</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="2️⃣7️⃣-interoperability-with-java-1">2️⃣7️⃣ Interoperability with Java </h2>
+<p>Kotlin is designed for <strong>100% Java interoperability</strong>.</p>
+<hr>
+<h3 id="-calling-java-from-kotlin">🔹 Calling Java from Kotlin </h3>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> list <span class="token operator">=</span> ArrayList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Hello"</span></span><span class="token punctuation">)</span>
+</code></pre><p>Kotlin treats Java code naturally.</p>
+<hr>
+<h3 id="-calling-kotlin-from-java">🔹 Calling Kotlin from Java </h3>
+<p>Kotlin code may look different in Java due to default parameters and properties.</p>
+<hr>
+<h3 id="-jvmstatic">🔹 @JvmStatic </h3>
+<p>Makes functions behave like static methods in Java.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-class">class</span> Utils <span class="token punctuation">{</span>
+    <span class="token keyword keyword-companion">companion</span> <span class="token keyword keyword-object">object</span> <span class="token punctuation">{</span>
+        <span class="token annotation builtin">@JvmStatic</span>
+        <span class="token keyword keyword-fun">fun</span> <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="-jvmoverloads">🔹 @JvmOverloads </h3>
+<p>Generates overloaded methods for Java.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-fun">fun</span> <span class="token function">greet</span><span class="token punctuation">(</span>name<span class="token operator">:</span> String <span class="token operator">=</span> <span class="token string-literal singleline"><span class="token string">"User"</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="-jvmfield">🔹 @JvmField </h3>
+<p>Exposes Kotlin property as a field for Java.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token annotation builtin">@JvmField</span>
+<span class="token keyword keyword-val">val</span> VERSION <span class="token operator">=</span> <span class="token string-literal singleline"><span class="token string">"1.0"</span></span>
+</code></pre><hr>
+<h2 id="-summary-1">✅ Summary </h2>
+<ul>
+<li>Annotations add metadata to code</li>
+<li>Reflection inspects code at runtime</li>
+<li>Kotlin compiles to JVM bytecode</li>
+<li>Interoperability with Java is seamless</li>
+</ul>
+<hr>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<h1 id="-kotlin-design--best-practices-1">🧠 KOTLIN DESIGN &amp; BEST PRACTICES </h1>
+<hr>
+<h2 id="-introduction-1">🔰 Introduction </h2>
+<p>Design patterns and best practices help you write <strong>clean, maintainable, scalable, and testable</strong> Kotlin code. These topics are very important for Android architecture discussions and interviews.</p>
+<hr>
+<h2 id="2️⃣8️⃣-design-patterns-in-kotlin-1">2️⃣8️⃣ Design Patterns in Kotlin </h2>
+<hr>
+<h3 id="-singleton-pattern">🔹 Singleton Pattern </h3>
+<p>Ensures that only <strong>one instance</strong> of a class exists.</p>
+<p>Kotlin provides a built-in way using <code>object</code>.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-object">object</span> UserManager <span class="token punctuation">{</span>
+    <span class="token keyword keyword-fun">fun</span> <span class="token function">login</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"User logged in"</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>👉 Thread-safe by default.</p>
+<hr>
+<h3 id="-factory-pattern">🔹 Factory Pattern </h3>
+<p>Used to create objects <strong>without exposing the creation logic</strong>.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-sealed">sealed</span> <span class="token keyword keyword-class">class</span> Shape <span class="token punctuation">{</span>
+    <span class="token keyword keyword-class">class</span> Circle <span class="token operator">:</span> <span class="token function">Shape</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-class">class</span> Square <span class="token operator">:</span> <span class="token function">Shape</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-object">object</span> ShapeFactory <span class="token punctuation">{</span>
+    <span class="token keyword keyword-fun">fun</span> <span class="token function">create</span><span class="token punctuation">(</span>type<span class="token operator">:</span> String<span class="token punctuation">)</span><span class="token operator">:</span> Shape <span class="token punctuation">{</span>
+        <span class="token keyword keyword-return">return</span> <span class="token keyword keyword-when">when</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token string-literal singleline"><span class="token string">"circle"</span></span> <span class="token operator">-&gt;</span> Shape<span class="token punctuation">.</span><span class="token function">Circle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword keyword-else">else</span> <span class="token operator">-&gt;</span> Shape<span class="token punctuation">.</span><span class="token function">Square</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="-builder-pattern">🔹 Builder Pattern </h3>
+<p>Used to create complex objects step by step.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-class">class</span> User <span class="token keyword keyword-private">private</span> <span class="token keyword keyword-constructor">constructor</span><span class="token punctuation">(</span>
+    <span class="token keyword keyword-val">val</span> name<span class="token operator">:</span> String<span class="token punctuation">,</span>
+    <span class="token keyword keyword-val">val</span> age<span class="token operator">:</span> Int
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-class">class</span> Builder <span class="token punctuation">{</span>
+        <span class="token keyword keyword-private">private</span> <span class="token keyword keyword-var">var</span> name<span class="token operator">:</span> String <span class="token operator">=</span> <span class="token string-literal singleline"><span class="token string">""</span></span>
+        <span class="token keyword keyword-private">private</span> <span class="token keyword keyword-var">var</span> age<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">0</span>
+
+        <span class="token keyword keyword-fun">fun</span> <span class="token function">setName</span><span class="token punctuation">(</span>name<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token operator">=</span> apply <span class="token punctuation">{</span> <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name <span class="token punctuation">}</span>
+        <span class="token keyword keyword-fun">fun</span> <span class="token function">setAge</span><span class="token punctuation">(</span>age<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token operator">=</span> apply <span class="token punctuation">{</span> <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age <span class="token punctuation">}</span>
+
+        <span class="token keyword keyword-fun">fun</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">User</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="-observer-pattern">🔹 Observer Pattern </h3>
+<p>Used when multiple objects need to <strong>react to changes</strong>.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-interface">interface</span> Observer <span class="token punctuation">{</span>
+    <span class="token keyword keyword-fun">fun</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token keyword keyword-data">data</span><span class="token operator">:</span> String<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-class">class</span> Subject <span class="token punctuation">{</span>
+    <span class="token keyword keyword-private">private</span> <span class="token keyword keyword-val">val</span> observers <span class="token operator">=</span> mutableListOf<span class="token operator">&lt;</span>Observer<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-fun">fun</span> <span class="token function">register</span><span class="token punctuation">(</span>observer<span class="token operator">:</span> Observer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        observers<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-fun">fun</span> <span class="token function">notifyObservers</span><span class="token punctuation">(</span><span class="token keyword keyword-data">data</span><span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        observers<span class="token punctuation">.</span><span class="token function">forEach</span> <span class="token punctuation">{</span> it<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token keyword keyword-data">data</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>👉 In Android, Flow and LiveData follow this pattern.</p>
+<hr>
+<h3 id="-repository-pattern">🔹 Repository Pattern </h3>
+<p>Separates <strong>data layer</strong> from business logic.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-class">class</span> UserRepository <span class="token punctuation">{</span>
+    <span class="token keyword keyword-fun">fun</span> <span class="token function">getUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> String <span class="token punctuation">{</span>
+        <span class="token keyword keyword-return">return</span> <span class="token string-literal singleline"><span class="token string">"User Data"</span></span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>👉 Commonly used with ViewModel in MVVM.</p>
+<hr>
+<h2 id="2️⃣9️⃣-kotlin-best-practices-1">2️⃣9️⃣ Kotlin Best Practices </h2>
+<hr>
+<h3 id="-immutability">🔹 Immutability </h3>
+<p>Prefer immutable (<code>val</code>) over mutable (<code>var</code>).</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> name <span class="token operator">=</span> <span class="token string-literal singleline"><span class="token string">"Nafis"</span></span>  <span class="token comment">// Preferred</span>
+</code></pre><p>Benefits:</p>
+<ul>
+<li>Safer code</li>
+<li>Easier debugging</li>
+</ul>
+<hr>
+<h3 id="-functional-programming-style">🔹 Functional Programming Style </h3>
+<p>Use higher-order functions instead of loops.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> even <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">filter</span> <span class="token punctuation">{</span> it <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">}</span>
+</code></pre><p>Benefits:</p>
+<ul>
+<li>Cleaner code</li>
+<li>Fewer bugs</li>
+</ul>
+<hr>
+<h3 id="-avoiding-">🔹 Avoiding !! </h3>
+<p><code>!!</code> forces null and may crash the app.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token comment">// Avoid this</span>
+<span class="token keyword keyword-val">val</span> len <span class="token operator">=</span> name<span class="token operator">!!</span><span class="token punctuation">.</span>length
+
+<span class="token comment">// Prefer this</span>
+<span class="token keyword keyword-val">val</span> len <span class="token operator">=</span> name<span class="token operator">?</span><span class="token punctuation">.</span>length <span class="token operator">?:</span> <span class="token number">0</span>
+</code></pre><hr>
+<h3 id="-performance-considerations">🔹 Performance Considerations </h3>
+<ul>
+<li>Avoid unnecessary object creation</li>
+<li>Use <code>inline</code> for heavy lambdas</li>
+<li>Prefer <code>Sequence</code> for large collections</li>
+<li>Avoid reflection in performance-critical code</li>
+</ul>
+<hr>
+<h2 id="-summary-2">✅ Summary </h2>
+<ul>
+<li>Design patterns improve structure and reusability</li>
+<li>Kotlin reduces boilerplate for patterns</li>
+<li>Best practices lead to safer and faster apps</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

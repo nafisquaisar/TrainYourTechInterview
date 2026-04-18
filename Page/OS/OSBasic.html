@@ -1,0 +1,550 @@
+<!DOCTYPE html><html><head>
+      <title>Note</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\nafis\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.20\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="-os-basics--fundamentals-brief-notes">📝 OS Basics &amp; Fundamentals (Brief Notes) </h1>
+<h2 id="operating-system-os"><strong>Operating System (OS)</strong> </h2>
+<p>An Operating System is system software that acts as an intermediary between the user and computer hardware. It manages resources and provides services for application programs.</p>
+<hr>
+<h2 id="functions-of-os"><strong>Functions of OS</strong> </h2>
+<ol>
+<li><strong>Process Management:</strong> Creates, schedules, and terminates processes.</li>
+<li><strong>Memory Management:</strong> Allocates and deallocates memory space.</li>
+<li><strong>File System Management:</strong> Manages files, directories, and access permissions.</li>
+<li><strong>I/O Management:</strong> Controls and coordinates input/output devices.</li>
+<li><strong>Security &amp; Protection:</strong> Safeguards data and system integrity.</li>
+</ol>
+<hr>
+<h2 id="types-of-os"><strong>Types of OS</strong> </h2>
+<ul>
+<li><strong>Batch OS:</strong> Executes jobs in batches without user interaction.</li>
+<li><strong>Multitasking/Time-Sharing OS:</strong> Runs multiple tasks concurrently by switching CPU rapidly.</li>
+<li><strong>Real-Time OS (RTOS):</strong> Responds to inputs instantly, used in critical systems.</li>
+<li><strong>Distributed OS:</strong> Manages multiple computers and makes them appear as a single system.</li>
+</ul>
+<hr>
+<h2 id="system-calls"><strong>System Calls</strong> </h2>
+<ul>
+<li>
+<p>Interface between user programs and OS services.</p>
+</li>
+<li>
+<p>Categories:</p>
+<ul>
+<li><strong>Process Control:</strong> create, terminate, wait.</li>
+<li><strong>File Management:</strong> open, read, write, close.</li>
+<li><strong>Device Management:</strong> request, release.</li>
+<li><strong>Information Maintenance:</strong> get time, set time.</li>
+<li><strong>Communication:</strong> send/receive messages.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="kernel"><strong>Kernel</strong> </h2>
+<ul>
+<li>
+<p><strong>Definition:</strong> Core component of OS managing system resources.</p>
+</li>
+<li>
+<p><strong>Types:</strong></p>
+<ul>
+<li><strong>Monolithic Kernel:</strong> All OS services run in kernel space (faster, less secure).</li>
+<li><strong>Microkernel:</strong> Minimal kernel in kernel space, other services in user space (more secure, modular).</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>Key Tip for Placements:</strong> Questions often test the difference between kernel types, real-time OS features, and examples of system calls.</p>
+<hr>
+<hr>
+<hr>
+<h1 id="-os-process-management-brief-notes">📝 OS Process Management (Brief Notes) </h1>
+<h2 id="process"><strong>Process</strong> </h2>
+<p>A process is a program in execution, containing program code, current activity, and allocated resources.</p>
+<p><img src="image-4.png" alt="alt text"><br>
+<img src="image-1.png" alt="alt text"></p>
+<h2 id="process-states"><strong>Process States</strong> </h2>
+<ol>
+<li><strong>New:</strong> Process is being created.</li>
+<li><strong>Ready:</strong> Waiting to be assigned CPU.</li>
+<li><strong>Running:</strong> Instructions are being executed.</li>
+<li><strong>Waiting/Blocked:</strong> Waiting for I/O or event.</li>
+<li><strong>Terminated:</strong> Process has finished execution.</li>
+</ol>
+<h2><strong>PCB (Process Control Block):</strong> Data structure storing process information — process ID, state, program counter, CPU registers, memory info, I/O status.<br>
+<img src="image-2.png" alt="alt text"></h2>
+<h2 id="process-vs-thread"><strong>Process vs. Thread</strong> </h2>
+<ul>
+<li><strong>Process:</strong> Independent execution unit with separate memory.</li>
+<li><strong>Thread:</strong> Lightweight execution unit within a process; shares process memory.</li>
+</ul>
+<p><strong>Thread Types:</strong></p>
+<ul>
+<li><strong>User-level Threads:</strong> Managed by user-level libraries.</li>
+<li><strong>Kernel-level Threads:</strong> Managed directly by the OS kernel.<br>
+<img src="image-3.png" alt="alt text"></li>
+</ul>
+<hr>
+<h2 id="context-switching"><strong>Context Switching</strong> </h2>
+<ul>
+<li>Process of saving the state of the current process and loading the state of another.</li>
+<li>Involves storing PCB of the current process and loading PCB of the next.</li>
+</ul>
+<hr>
+<h2 id="process-scheduling"><strong>Process Scheduling</strong> </h2>
+<p><strong>Purpose:</strong> Decide the execution order of processes to optimize CPU usage.<br>
+<img src="image-5.png" alt="alt text"><br>
+<strong>Scheduling Algorithms:</strong></p>
+<ol>
+<li><strong>FCFS:</strong> First come, first served (non-preemptive).</li>
+<li><strong>SJF:</strong> Shortest burst time first (can be preemptive/non-preemptive).</li>
+<li><strong>Priority Scheduling:</strong> Higher priority executes first.</li>
+<li><strong>Round Robin:</strong> Equal time quantum for each process (preemptive).</li>
+<li><strong>Multilevel Queue:</strong> Multiple queues based on process type, each with its own scheduling.</li>
+</ol>
+<p><strong>Preemptive Scheduling</strong> 👉 CPU can take away a process in the middle of execution and give it to another (higher priority or ready process).</p>
+<p><strong>Non-Preemptive Scheduling</strong> 👉 Once a process starts, it runs till completion or voluntarily releases CPU.</p>
+<p><strong>CPU Burst &amp; I/O Burst:</strong></p>
+<ul>
+<li>CPU burst: Time spent executing instructions.</li>
+<li>I/O burst: Time waiting for I/O operations.</li>
+</ul>
+<p><strong>Dispatcher:</strong></p>
+<ul>
+<li>Module that gives control of CPU to the selected process.</li>
+<li>Scheduling Criteria: CPU utilization, throughput, turnaround time, waiting time, response time.</li>
+</ul>
+<hr>
+<p><strong>Key Tip for Placements:</strong> Be ready to calculate waiting &amp; turnaround time for given scheduling problems.</p>
+<hr>
+<hr>
+<hr>
+<h1 id="-os-interprocess-communication-ipc-brief-notes">📝 OS Interprocess Communication (IPC) Brief Notes </h1>
+<h2 id="definition"><strong>Definition</strong> </h2>
+<p>Interprocess Communication (IPC) allows processes to exchange data and synchronize their actions.</p>
+<hr>
+<h2 id="shared-memory"><strong>Shared Memory</strong> </h2>
+<ul>
+<li>Memory segment accessible by multiple processes.</li>
+<li>Very fast but requires synchronization to avoid data inconsistency.</li>
+</ul>
+<h2 id="message-passing"><strong>Message Passing</strong> </h2>
+<ul>
+<li>Processes exchange messages via OS-managed communication channels.</li>
+<li>Safer than shared memory but slower due to system call overhead.</li>
+</ul>
+<hr>
+<h2 id="pipes"><strong>Pipes</strong> </h2>
+<ul>
+<li><strong>Pipes:</strong> One-way communication between related processes.</li>
+<li><strong>Named Pipes (FIFOs):</strong> Can be used between unrelated processes.</li>
+</ul>
+<h2 id="sockets"><strong>Sockets</strong> </h2>
+<ul>
+<li>Enable bidirectional communication between processes over a network.</li>
+</ul>
+<hr>
+<h2 id="semaphores"><strong>Semaphores</strong> </h2>
+<ul>
+<li>Integer variable used for process synchronization.</li>
+<li><strong>Types:</strong> Binary (0/1) and Counting (non-negative integer).</li>
+</ul>
+<hr>
+<h2 id="race-condition"><strong>Race Condition</strong> </h2>
+<ul>
+<li>Occurs when multiple processes access shared data concurrently and the outcome depends on timing.</li>
+</ul>
+<h2 id="critical-section-problem"><strong>Critical Section Problem</strong> </h2>
+<ul>
+<li>Part of code accessing shared resources; only one process should execute it at a time.</li>
+</ul>
+<hr>
+<h2 id="synchronization-mechanisms"><strong>Synchronization Mechanisms</strong> </h2>
+<ol>
+<li><strong>Mutex:</strong> Locking mechanism allowing only one thread to access a resource.</li>
+<li><strong>Semaphore:</strong> Signaling mechanism to control access.</li>
+<li><strong>Monitors:</strong> High-level construct combining mutual exclusion and condition variables.</li>
+</ol>
+<hr>
+<h2><strong>Key Tip for Placements:</strong> Focus on understanding synchronization problems (Producer–Consumer, Reader–Writer, Dining Philosophers) and applying mutex/semaphore solutions.</h2>
+<hr>
+<hr>
+<h1 id="-os-deadlock-brief-notes">📝 OS Deadlock (Brief Notes) </h1>
+<h2 id="definition-1"><strong>Definition</strong> </h2>
+<p>Deadlock is a situation where two or more processes are stuck forever, because each one is waiting for a resource held by another.</p>
+<h4 id="easy-example">Easy example </h4>
+<ul>
+<li>Process A holds Resource 1 and waits for Resource 2</li>
+<li>Process B holds Resource 2 and waits for Resource 1</li>
+<li>➡️ Both wait forever. This is deadlock.</li>
+</ul>
+<hr>
+<h2 id="coffmans-conditions-all-must-hold-for-deadlock-to-occur"><strong>Coffman’s Conditions</strong> (All must hold for deadlock to occur) </h2>
+<ol>
+<li><strong>Mutual Exclusion:</strong> Only one process can use a resource at a time</li>
+<li><strong>Hold and Wait:</strong> A process holds one resource and waits for another.</li>
+<li><strong>No Preemption:</strong> Resources cannot be forcibly taken away.</li>
+<li><strong>Circular Wait:</strong> A circular chain of processes exists.</li>
+</ol>
+<hr>
+<h2 id="deadlock-handling-methods"><strong>Deadlock Handling Methods</strong> </h2>
+<ol>
+<li><strong>Prevention:</strong> Ensure at least one Coffman condition never holds (e.g., request all resources at once to avoid hold and wait).</li>
+<li><strong>Avoidance:</strong> Dynamically check resource allocation to ensure the system stays in a safe state (e.g., <strong>Banker’s Algorithm</strong>).</li>
+<li><strong>Detection:</strong> Allow deadlock to occur and then detect it using methods like <strong>Resource Allocation Graph</strong>.</li>
+<li><strong>Recovery:</strong> Once detected, terminate processes or preempt resources to break the deadlock.</li>
+</ol>
+<hr>
+<h2 id="bankers-algorithm"><strong>Banker’s Algorithm</strong> </h2>
+<ul>
+<li>
+<p>Ensures safe allocation of resources.</p>
+</li>
+<li>
+<p>Checks if the system will remain in a safe state before allocating.</p>
+</li>
+<li>
+<p>Steps:</p>
+<ol>
+<li>Calculate Need = Max - Allocation.</li>
+<li>Find a process whose Need ≤ Available.</li>
+<li>If found, simulate allocation and mark as finished.</li>
+<li>Repeat until all processes finish or no process can proceed.</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="resource-allocation-graph-rag"><strong>Resource Allocation Graph (RAG)</strong> </h2>
+<ul>
+<li>
+<p>Nodes: Processes (circles) and Resources (rectangles).</p>
+</li>
+<li>
+<p>Edges: Request edge (process → resource) and Assignment edge (resource → process).</p>
+</li>
+<li>
+<p><strong>Deadlock Detection:</strong></p>
+<ul>
+<li>Single instance per resource: Cycle in graph → Deadlock.</li>
+<li>Multiple instances: More complex check needed.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>Key Tip for Placements:</strong> Practice detecting deadlock from RAG diagrams and solving Banker’s Algorithm numerical problems.</p>
+<hr>
+<hr>
+<hr>
+<h1 id="-os-memory-management-brief-notes">📝 OS Memory Management (Brief Notes) </h1>
+<h2 id="definition-2"><strong>Definition</strong> </h2>
+<p>Memory management is the process of controlling and coordinating computer memory, assigning portions to programs, and optimizing overall performance.</p>
+<hr>
+<h2 id="memory-allocation-types"><strong>Memory Allocation Types</strong> </h2>
+<ul>
+<li>
+<p><strong>Contiguous Allocation:</strong> Processes occupy a single continuous block of memory.</p>
+<ul>
+<li>Pros: Simple, easy to manage.</li>
+<li>Cons: Fragmentation (internal/external).</li>
+</ul>
+</li>
+<li>
+<p><strong>Non-contiguous Allocation:</strong> Process memory is divided into different blocks placed anywhere in memory.</p>
+<ul>
+<li>Implemented using paging or segmentation.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="paging"><strong>Paging</strong> </h2>
+<ul>
+<li>Divides physical memory into fixed-size blocks (<strong>frames</strong>) and logical memory into blocks of the same size (<strong>pages</strong>).</li>
+<li><strong>Page Table:</strong> Maps logical pages to physical frames.</li>
+<li>Eliminates external fragmentation.<br>
+<img src="image-7.png" alt="alt text"></li>
+</ul>
+<h2 id="segmentation"><strong>Segmentation</strong> </h2>
+<ul>
+<li>Divides memory into variable-sized segments based on logical divisions (code, data, stack).</li>
+<li>Each segment has a segment table with base address and limit.<br>
+<img src="image-6.png" alt="alt text"><br>
+<img src="image-8.png" alt="alt text"></li>
+</ul>
+<hr>
+<h2 id="virtual-memory"><strong>Virtual Memory</strong> </h2>
+<ul>
+<li>Technique allowing execution of programs larger than physical memory using disk storage.</li>
+<li>Implemented using demand paging.</li>
+</ul>
+<h2 id="demand-paging"><strong>Demand Paging</strong> </h2>
+<ul>
+<li>Loads a page into memory only when it is needed by using Swap in or Swap out.</li>
+<li><strong>Page Fault:</strong> Occurs when the required page is not in memory.</li>
+</ul>
+<hr>
+<h2 id="page-replacement-algorithms"><strong>Page Replacement Algorithms</strong> </h2>
+<ol>
+<li><strong>FIFO (First In, First Out):</strong> Oldest page is replaced.</li>
+<li><strong>LRU (Least Recently Used):</strong> Page not used for the longest time is replaced.</li>
+<li><strong>Optimal:</strong> Replace the page that will not be used for the longest time in the future (requires future knowledge).</li>
+</ol>
+<hr>
+<h2 id="thrashing"><strong>Thrashing</strong> </h2>
+<ul>
+<li>Condition where excessive paging reduces CPU utilization.</li>
+<li>Caused by insufficient frames for processes.</li>
+<li>Solution: Reduce degree of multiprogramming or increase RAM.</li>
+</ul>
+<p><img src="image-9.png" alt="alt text"></p>
+<p><strong>Degree of Multiprogramming</strong> 👉 It is the number of processes present in main memory at a time (ready to execute).</p>
+<h2>➡️ Higher degree = better CPU utilization (up to a limit).<br>
+➡️ Too high degree = thrashing (too much swapping, low performance).</h2>
+<p><strong>Key Tip for Placements:</strong> Practice numerical problems on page replacement and calculate page faults for given reference strings.</p>
+<hr>
+<hr>
+<hr>
+<h2 id="6-file-systems--short-notes"><strong>6. File Systems – Short Notes</strong> </h2>
+<h3 id="1-file-attributes--operations"><strong>1. File Attributes &amp; Operations</strong> </h3>
+<ul>
+<li>
+<p><strong>Attributes</strong>: Name, type, size, location, creation/modification dates, permissions, owner.</p>
+</li>
+<li>
+<p><strong>Operations</strong>:</p>
+<ul>
+<li>Create, open, read, write, delete, append, truncate.</li>
+<li>Set permissions, rename.</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-file-allocation-methods"><strong>2. File Allocation Methods</strong> </h3>
+<ul>
+<li>
+<p><strong>Contiguous Allocation</strong>:</p>
+<ul>
+<li>Files stored in consecutive blocks.</li>
+<li>
+<ul>
+<li>Fast access; − External fragmentation.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Linked Allocation</strong>:</p>
+<ul>
+<li>Each block contains pointer to next block.</li>
+<li>
+<ul>
+<li>No external fragmentation; − Slow random access.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Indexed Allocation</strong>:</p>
+<ul>
+<li>Index block stores addresses of all file blocks.</li>
+<li>
+<ul>
+<li>Direct access; − Index overhead.<br>
+<img src="image-10.png" alt="alt text"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-directory-structures"><strong>3. Directory Structures</strong> </h3>
+<ul>
+<li><strong>Single-level</strong>: All files in one directory.</li>
+<li><strong>Two-level</strong>: Separate directory for each user.</li>
+<li><strong>Tree-structured</strong>: Hierarchical directories.</li>
+<li><strong>Acyclic graph</strong>: Allows shared subdirectories.</li>
+<li><strong>General graph</strong>: Allows cycles (must handle carefully).</li>
+</ul>
+<h3 id="4-file-system-mounting"><strong>4. File System Mounting</strong> </h3>
+<ul>
+<li>Process of making a file system available at a mount point in directory structure.</li>
+<li>Example: Mounting USB drive.</li>
+</ul>
+<h3 id="5-access-control"><strong>5. Access Control</strong> </h3>
+<ul>
+<li><strong>Owner / Group / Others</strong> permissions (Read, Write, Execute).</li>
+<li><strong>Access Control Lists (ACLs)</strong>: Define specific user access.</li>
+<li><strong>Security</strong>: Prevent unauthorized file use.</li>
+</ul>
+<hr>
+<p><strong>💡 Placement Tip:</strong> Expect questions on allocation methods comparison, directory types, and UNIX/Linux permission system.</p>
+<hr>
+<hr>
+<hr>
+<h2 id="7-io-management--short-notes"><strong>7. I/O Management – Short Notes</strong> </h2>
+<h3 id="1-device-drivers"><strong>1. Device Drivers</strong> </h3>
+<ul>
+<li>Software that acts as an interface between the OS and hardware devices.</li>
+<li>Handles communication, commands, and error handling.</li>
+<li>Types: Character drivers (keyboard, mouse), Block drivers (hard disk), Network drivers.</li>
+</ul>
+<h3 id="2-disk-scheduling-algorithms"><strong>2. Disk Scheduling Algorithms</strong> </h3>
+<ul>
+<li>
+<p><strong>FCFS (First Come First Serve)</strong>:</p>
+<ul>
+<li>Serve requests in arrival order.</li>
+<li>
+<ul>
+<li>Fair; − Poor average seek time.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>SSTF (Shortest Seek Time First)</strong>:</p>
+<ul>
+<li>Serve request closest to current head position.</li>
+<li>
+<ul>
+<li>Better average seek time; − May cause starvation.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>SCAN (Elevator Algorithm)</strong>:</p>
+<ul>
+<li>Head moves in one direction serving requests, then reverses.</li>
+<li>
+<ul>
+<li>Reduces variance in seek time.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>C-SCAN (Circular SCAN)</strong>:</p>
+<ul>
+<li>Head moves in one direction serving requests; jumps back to start without serving on return.</li>
+<li>
+<ul>
+<li>Uniform wait time.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-raid-levels"><strong>3. RAID Levels</strong> </h3>
+<ul>
+<li><strong>RAID 0</strong>: Striping; no redundancy; high speed.</li>
+<li><strong>RAID 1</strong>: Mirroring; high reliability; double storage cost.</li>
+<li><strong>RAID 5</strong>: Block-level striping with distributed parity; balance of speed &amp; fault tolerance.</li>
+<li><strong>RAID 6</strong>: Like RAID 5 but with double parity; survives 2 disk failures.</li>
+</ul>
+<hr>
+<p><strong>💡 Placement Tip:</strong> Focus on pros/cons of each scheduling algorithm and when each RAID level is preferred.</p>
+<hr>
+<hr>
+<hr>
+<h2 id="8-advanced-topics--short-notes"><strong>8. Advanced Topics – Short Notes</strong> </h2>
+<h3 id="1-multi-threading-in-os"><strong>1. Multi-threading in OS</strong> </h3>
+<ul>
+<li>
+<p><strong>Definition</strong>: Ability of a CPU to execute multiple threads concurrently within a single process.</p>
+</li>
+<li>
+<p><strong>Benefits</strong>: Faster execution, better CPU utilization, responsiveness.</p>
+</li>
+<li>
+<p><strong>Types</strong>:</p>
+<ul>
+<li>User-level threads (managed by user library).</li>
+<li>Kernel-level threads (managed by OS kernel).</li>
+<li>Hybrid models.</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-producerconsumer-problem"><strong>2. Producer–Consumer Problem</strong> </h3>
+<ul>
+<li><strong>Concept</strong>: Synchronization problem where producers generate data and consumers use it.</li>
+<li><strong>Issue</strong>: Need to avoid race conditions and buffer overflows/underflows.</li>
+<li><strong>Solution Tools</strong>: Semaphores, mutex locks, condition variables.</li>
+</ul>
+<h3 id="3-readerwriter-problem"><strong>3. Reader–Writer Problem</strong> </h3>
+<ul>
+<li>
+<p><strong>Concept</strong>: Multiple readers can read simultaneously, but writers need exclusive access.</p>
+</li>
+<li>
+<p><strong>Variants</strong>:</p>
+<ul>
+<li>First readers–writers problem (no reader waits unless writer has access).</li>
+<li>Second readers–writers problem (no writer waits if writer is ready).</li>
+</ul>
+</li>
+<li>
+<p><strong>Solution</strong>: Reader–writer locks, semaphores.</p>
+</li>
+</ul>
+<h3 id="4-dining-philosophers-problem"><strong>4. Dining Philosophers Problem</strong> </h3>
+<ul>
+<li><strong>Concept</strong>: Illustrates deadlock and resource starvation in synchronization.</li>
+<li><strong>Scenario</strong>: Philosophers alternate between thinking and eating, sharing limited chopsticks.</li>
+<li><strong>Solution</strong>: Resource hierarchy, mutexes, avoiding circular wait.</li>
+</ul>
+<h3 id="5-real-time-os-rtos-concepts"><strong>5. Real-time OS (RTOS) Concepts</strong> </h3>
+<ul>
+<li>
+<p><strong>Definition</strong>: OS designed to serve real-time applications with deterministic response times.</p>
+</li>
+<li>
+<p><strong>Types</strong>:</p>
+<ul>
+<li>Hard RTOS: Strict deadlines (e.g., avionics).</li>
+<li>Soft RTOS: Occasional deadline misses tolerable (e.g., multimedia).</li>
+</ul>
+</li>
+<li>
+<p><strong>Features</strong>: Predictability, priority scheduling, minimal latency.</p>
+</li>
+</ul>
+<h3 id="6-useful-linuxunix-commands"><strong>6. Useful Linux/Unix Commands</strong> </h3>
+<ul>
+<li><strong>Process Management</strong>: <code>ps</code>, <code>top</code>, <code>kill</code>, <code>nice</code>, <code>renice</code>.</li>
+<li><strong>Memory Management</strong>: <code>free</code>, <code>vmstat</code>, <code>top</code>, <code>htop</code>.</li>
+<li><strong>File &amp; Permissions</strong>: <code>ls -l</code>, <code>chmod</code>, <code>chown</code>, <code>df</code>, <code>du</code>.</li>
+</ul>
+<hr>
+<p><strong>💡 Placement Tip:</strong> In product-based interviews, focus on synchronization problems (producer–consumer, dining philosophers) and be ready to write pseudocode using semaphores or mutexes.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

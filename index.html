@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TCS Interview Preparation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="manifest" href="manifest.json" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #c8d1e3;
+        color: #222;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 5px;
+      }
+
+      p {
+        text-align: center;
+        margin-top: 0;
+        color: #555;
+      }
+
+      h2 {
+        margin-top: 30px;
+        color: #1f4fd8;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      /* CARD */
+      .item {
+        background: #fff;
+        padding: 12px 15px;
+        border-radius: 6px;
+        margin-bottom: 12px;
+        border-left: 4px solid #1f4fd8;
+
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .content {
+        flex: 1;
+      }
+
+      .content a {
+        text-decoration: none;
+        color: #222;
+        font-weight: 600;
+      }
+
+      .content a:hover {
+        text-decoration: underline;
+      }
+
+      /* PRIORITY COLORS */
+      .very-high {
+        border-left-color: #e5533d;
+      }
+      .high {
+        border-left-color: #2ea44f;
+      }
+      .medium {
+        border-left-color: #f0a500;
+      }
+      .low {
+        border-left-color: #999;
+      }
+
+      /* CUSTOM CHECKBOX */
+      .cb-wrap {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .cb-wrap input {
+        display: none;
+      }
+
+      .cb {
+        width: 18px;
+        height: 18px;
+        border-radius: 4px;
+        border: 2px solid #1f4fd8;
+        position: relative;
+      }
+
+      .cb::after {
+        content: "";
+        position: absolute;
+        left: 4px;
+        top: 0px;
+        width: 6px;
+        height: 11px;
+        border: solid #fff;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg) scale(0);
+        transition: 0.2s;
+      }
+
+      .cb-wrap input:checked + .cb {
+        background: #1f4fd8;
+        border-color: #1f4fd8;
+      }
+
+      .cb-wrap input:checked + .cb::after {
+        transform: rotate(45deg) scale(1);
+      }
+
+      /* COMPLETED STYLE (TEXT ONLY) */
+      .done .content {
+        opacity: 0.6;
+        text-decoration: line-through;
+      }
+
+      .reset-box {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      button {
+        padding: 10px 22px;
+        font-size: 14px;
+        border: none;
+        border-radius: 6px;
+        background: #1f4fd8;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #163bb8;
+      }
+
+      footer {
+        text-align: center;
+        margin: 30px 0;
+        font-size: 14px;
+        color: #666;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>TCS Interview Subjects</h1>
+      <p>Priority checklist based on resume</p>
+
+      <h2>🔥 Most Asked (Very High Priority)</h2>
+      <ul>
+        <li class="item very-high">
+          <div class="content">
+            <a href="Page/Intro.html">Introduction / HR</a>
+          </div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="intro" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item very-high">
+          <div class="content">
+            <a href="Page/HRQuestions.html">HR</a>
+          </div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="intro" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item very-high">
+          <div class="content">
+            <a href="Page/Projects.html"
+              >Projects (TuneLyf, Organizer Classes)</a
+            >
+          </div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="projects" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item very-high">
+          <div class="content"><a href="Page/DSA.html">DSA</a></div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="dsa" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item very-high">
+          <div class="content"><a href="Page/DBMS.html">DBMS</a></div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="dbms" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item very-high">
+          <div class="content"><a href="Page/SQL.html">SQL</a></div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="sql" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item very-high">
+          <div class="content"><a href="Page/Java.html">Java</a></div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="java" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item very-high">
+          <div class="content"><a href="Page/OOPS.html">OOPs</a></div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="oops" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item very-high">
+          <div class="content"><a href="Page/DSAQuestions.html">Coding</a></div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="coding" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item very-high">
+          <div class="content"><a href="Page/Git.html">Git</a></div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="git" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item very-high">
+          <div class="content"><a href="Page/Family.html">About Family</a></div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="family" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item very-high">
+          <div class="content"><a href="Page/EmergingTechnology.html">Emerging technology</a></div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="emergingtechno" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+      </ul>
+
+      <h2>⭐ Frequently Asked (High Priority)</h2>
+      <ul>
+        <li class="item high">
+          <div class="content"><a href="Page/AandroidPage.html">Android</a></div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="android" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item high">
+          <div class="content"><a href="Page/OSPage.html">Operating System</a></div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="os" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item high">
+          <div class="content">
+            <a href="Page/CNPage.html">Computer Networks</a>
+          </div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="cn" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item high">
+          <div class="content"><a href="Page/KotlinPage.html">Kotlin</a></div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="kotlin" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item high">
+          <div class="content"><a href="Page/flutter.html">Flutter</a></div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="kotlin" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+      </ul>
+
+      <h2>⚖️ Sometimes Asked (Medium Priority)</h2>
+      <ul>
+        <li class="item medium">
+          <div class="content"><a href="Page/Firebase.html">Firebase</a></div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="firebase" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item medium">
+          <div class="content">
+            <a href="Page/SE.html">Software Engineering</a>
+          </div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="se" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item medium">
+          <div class="content">
+            <a href="Page/CF.html">Computer Fundamentals</a>
+          </div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="cf" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item medium">
+          <div class="content">
+            <a href="Page/SystemDesign.html">System Design</a>
+          </div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="sd" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+      </ul>
+
+      <h2>❄️ Rarely Asked (Low Priority)</h2>
+      <ul>
+        <li class="item low">
+          <div class="content"><a href="Page/ML.html">Machine Learning</a></div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="ml" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+        <li class="item low">
+          <div class="content">
+            <a href="Page/Cloud.html">Cloud Computing</a>
+          </div>
+          <label class="cb-wrap"
+            ><input type="checkbox" class="chk" id="cloud" /><span
+              class="cb"
+            ></span
+          ></label>
+        </li>
+      </ul>
+
+      <div class="reset-box">
+        <button id="resetBtn">Reset All</button>
+      </div>
+    </div>
+
+    <footer>Offline Interview Notes • Front Page</footer>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("service-worker.js");
+      }
+
+      const items = document.querySelectorAll(".item");
+
+      items.forEach((item) => {
+        const cb = item.querySelector(".chk");
+        cb.checked = localStorage.getItem(cb.id) === "true";
+        if (cb.checked) item.classList.add("done");
+
+        cb.addEventListener("change", () => {
+          localStorage.setItem(cb.id, cb.checked);
+          item.classList.toggle("done", cb.checked);
+        });
+      });
+
+      document.getElementById("resetBtn").addEventListener("click", () => {
+        items.forEach((item) => {
+          const cb = item.querySelector(".chk");
+          cb.checked = false;
+          item.classList.remove("done");
+          localStorage.removeItem(cb.id);
+        });
+      });
+    </script>
+  </body>
+</html>

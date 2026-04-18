@@ -1,0 +1,284 @@
+<!DOCTYPE html><html><head>
+      <title>4. UI Layout &amp; Design</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\nafis\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.20\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="flutter-ui-layout--scroll-widgets--complete-notes">Flutter UI Layout &amp; Scroll Widgets – Complete Notes </h1>
+<h2 id="topics-covered">Topics Covered </h2>
+<ol>
+<li>✨ Padding, Margin, Alignment</li>
+<li>📐 Flex, Expanded, Flexible</li>
+<li>📱 MediaQuery</li>
+<li>🛡️ SafeArea</li>
+<li>📜 Scroll Widgets Overview</li>
+<li>🔽 SingleChildScrollView</li>
+<li>📋 ListView (All Types)</li>
+<li>🟦 GridView (All Types)</li>
+<li>🧩 CustomScrollView</li>
+<li>📄 PageView</li>
+<li>🧭 NestedScrollView</li>
+<li>📌 Scrollbar</li>
+<li>🏷️ Wrap Widget</li>
+<li>📏 SizedBox</li>
+<li>🧱 Custom Widgets</li>
+<li>🎨 Theming</li>
+</ol>
+<hr>
+<h1 id="1-padding-margin-alignment">1. Padding, Margin, Alignment </h1>
+<h2 id="padding-">Padding 🧊 </h2>
+<p>Adds inner spacing inside a widget.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">Padding</span><span class="token punctuation">(</span>
+  padding<span class="token punctuation">:</span> <span class="token class-name">EdgeInsets</span><span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Hello"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h2 id="margin-via-container-">Margin (via Container) 📤 </h2>
+<p>Adds outer spacing around a widget.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">Container</span><span class="token punctuation">(</span>
+  margin<span class="token punctuation">:</span> <span class="token class-name">EdgeInsets</span><span class="token punctuation">.</span><span class="token function">symmetric</span><span class="token punctuation">(</span>vertical<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span> horizontal<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"With margin"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h2 id="alignment-">Alignment 🎯 </h2>
+<p>Positions a child inside its parent.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">Align</span><span class="token punctuation">(</span>
+  alignment<span class="token punctuation">:</span> <span class="token class-name">Alignment</span><span class="token punctuation">.</span>centerRight<span class="token punctuation">,</span>
+  child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Aligned Text"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><hr>
+<h1 id="2-flex-expanded-flexible">2. Flex, Expanded, Flexible </h1>
+<h2 id="expanded-️">Expanded ➡️ </h2>
+<p>Fills remaining space in Row or Column.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">Row</span><span class="token punctuation">(</span>
+  children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token class-name">Expanded</span><span class="token punctuation">(</span>child<span class="token punctuation">:</span> <span class="token class-name">Container</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>red<span class="token punctuation">,</span> height<span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token class-name">Container</span><span class="token punctuation">(</span>width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span> color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>blue<span class="token punctuation">,</span> height<span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h2 id="flexible-">Flexible 🔄 </h2>
+<p>Allows flexible resizing without forcing full expansion.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">Flexible</span><span class="token punctuation">(</span>
+  flex<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+  child<span class="token punctuation">:</span> <span class="token class-name">Container</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>green<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><hr>
+<h1 id="3-mediaquery-">3. MediaQuery 📱 </h1>
+<p>Used for responsive UI.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token keyword keyword-final">final</span> size <span class="token operator">=</span> <span class="token class-name">MediaQuery</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span>size<span class="token punctuation">;</span>
+<span class="token class-name">Container</span><span class="token punctuation">(</span>
+  width<span class="token punctuation">:</span> size<span class="token punctuation">.</span>width <span class="token operator">*</span> <span class="token number">0.5</span><span class="token punctuation">,</span>
+  height<span class="token punctuation">:</span> size<span class="token punctuation">.</span>height <span class="token operator">*</span> <span class="token number">0.2</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><hr>
+<h1 id="4-safearea-️">4. SafeArea 🛡️ </h1>
+<p>Prevents overlap with system UI.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">SafeArea</span><span class="token punctuation">(</span>child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Inside safe area"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><hr>
+<h1 id="5-scroll-widgets-overview-">5. Scroll Widgets Overview 📜 </h1>
+<table>
+<thead>
+<tr>
+<th>Widget</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔽 SingleChildScrollView</td>
+<td>Scroll one long child</td>
+</tr>
+<tr>
+<td>📋 ListView</td>
+<td>Scroll list items</td>
+</tr>
+<tr>
+<td>🟦 GridView</td>
+<td>Grid-based layout</td>
+</tr>
+<tr>
+<td>🧩 CustomScrollView</td>
+<td>Slivers and complex scrolls</td>
+</tr>
+<tr>
+<td>📄 PageView</td>
+<td>Page-by-page scrolling</td>
+</tr>
+<tr>
+<td>🧭 NestedScrollView</td>
+<td>Header + scrollable body</td>
+</tr>
+<tr>
+<td>📌 Scrollbar</td>
+<td>Visible scroll indicator</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="6-singlechildscrollview-">6. SingleChildScrollView 🔽 </h1>
+<p>For scrolling one large child.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">SingleChildScrollView</span><span class="token punctuation">(</span>
+  child<span class="token punctuation">:</span> <span class="token class-name">Column</span><span class="token punctuation">(</span>children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><hr>
+<h1 id="7-listview--all-types-">7. ListView – All Types 📋 </h1>
+<h2 id="default-listview">Default ListView </h2>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">ListView</span><span class="token punctuation">(</span>
+  children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token class-name">ListTile</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Item 1"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h2 id="listviewbuilder-">ListView.builder ⚡ </h2>
+<p>Best for long or dynamic lists.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">ListView</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span>
+  itemCount<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+  itemBuilder<span class="token punctuation">:</span> <span class="token punctuation">(</span>context<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">ListTile</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Item </span><span class="token interpolation"><span class="token punctuation">$</span><span class="token expression">index</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h2 id="listviewseparated-">ListView.separated ➖ </h2>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">ListView</span><span class="token punctuation">.</span><span class="token function">separated</span><span class="token punctuation">(</span>
+  itemCount<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  itemBuilder<span class="token punctuation">:</span> <span class="token punctuation">(</span>context<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">ListTile</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Item </span><span class="token interpolation"><span class="token punctuation">$</span><span class="token expression">index</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  separatorBuilder<span class="token punctuation">:</span> <span class="token punctuation">(</span>_<span class="token punctuation">,</span> __<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">Divider</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h2 id="listviewcustom-">ListView.custom 🧰 </h2>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">ListView</span><span class="token punctuation">.</span><span class="token function">custom</span><span class="token punctuation">(</span>
+  childrenDelegate<span class="token punctuation">:</span> <span class="token class-name">SliverChildListDelegate</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token class-name">ListTile</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Item A"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h2 id="horizontal-listview-️">Horizontal ListView ↔️ </h2>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">ListView</span><span class="token punctuation">(</span>
+  scrollDirection<span class="token punctuation">:</span> <span class="token class-name">Axis</span><span class="token punctuation">.</span>horizontal<span class="token punctuation">,</span>
+  children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token class-name">Container</span><span class="token punctuation">(</span>width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><hr>
+<h1 id="8-gridview--all-types-">8. GridView – All Types 🟦 </h1>
+<h2 id="gridviewcount-">GridView.count 🔢 </h2>
+<p>Fixed number of columns.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">GridView</span><span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span>crossAxisCount<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h2 id="gridviewbuilder-️">GridView.builder ⚙️ </h2>
+<p>Efficient for large lists.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">GridView</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span>
+  gridDelegate<span class="token punctuation">:</span> <span class="token class-name">SliverGridDelegateWithFixedCrossAxisCount</span><span class="token punctuation">(</span>crossAxisCount<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  itemBuilder<span class="token punctuation">:</span> <span class="token punctuation">(</span>_<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">Container</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>blue<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h2 id="gridviewextent-">GridView.extent 📏 </h2>
+<p>Max width of each tile.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">GridView</span><span class="token punctuation">.</span><span class="token function">extent</span><span class="token punctuation">(</span>maxCrossAxisExtent<span class="token punctuation">:</span> <span class="token number">150</span><span class="token punctuation">,</span> children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h2 id="gridviewcustom-">GridView.custom 🧩 </h2>
+<p>Custom layout via slivers.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">GridView</span><span class="token punctuation">.</span><span class="token function">custom</span><span class="token punctuation">(</span>
+  gridDelegate<span class="token punctuation">:</span> <span class="token class-name">SliverGridDelegateWithFixedCrossAxisCount</span><span class="token punctuation">(</span>crossAxisCount<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  childrenDelegate<span class="token punctuation">:</span> <span class="token class-name">SliverChildListDelegate</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><hr>
+<h1 id="9-customscrollview-">9. CustomScrollView 🧩 </h1>
+<p>Used for slivers.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">CustomScrollView</span><span class="token punctuation">(</span>
+  slivers<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token class-name">SliverAppBar</span><span class="token punctuation">(</span>expandedHeight<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token class-name">SliverList</span><span class="token punctuation">(</span>delegate<span class="token punctuation">:</span> <span class="token class-name">SliverChildBuilderDelegate</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><hr>
+<h1 id="10-pageview-">10. PageView 📄 </h1>
+<p>Page-based scrolling.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">PageView</span><span class="token punctuation">(</span>children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token class-name">Container</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>red<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><hr>
+<h1 id="11-nestedscrollview-">11. NestedScrollView 🧭 </h1>
+<p>Header + scrollable body.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">NestedScrollView</span><span class="token punctuation">(</span>
+  headerSliverBuilder<span class="token punctuation">:</span> <span class="token punctuation">(</span>_<span class="token punctuation">,</span> __<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span><span class="token class-name">SliverAppBar</span><span class="token punctuation">(</span>expandedHeight<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  body<span class="token punctuation">:</span> <span class="token class-name">ListView</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span>itemCount<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span> itemBuilder<span class="token punctuation">:</span> <span class="token punctuation">(</span>_<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Item </span><span class="token interpolation"><span class="token punctuation">$</span><span class="token expression">i</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><hr>
+<h1 id="12-scrollbar-">12. Scrollbar 📌 </h1>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">Scrollbar</span><span class="token punctuation">(</span>
+  child<span class="token punctuation">:</span> <span class="token class-name">ListView</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span>itemCount<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span> itemBuilder<span class="token punctuation">:</span> <span class="token punctuation">(</span>_<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Item </span><span class="token interpolation"><span class="token punctuation">$</span><span class="token expression">i</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><hr>
+<h1 id="13-wrap-widget-️">13. Wrap Widget 🏷️ </h1>
+<p>Responsive layout with auto line breaks.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">Wrap</span><span class="token punctuation">(</span>
+  spacing<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  runSpacing<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="main-properties">Main Properties </h3>
+<ul>
+<li>➡️ direction</li>
+<li>🎯 alignment</li>
+<li>↔️ spacing</li>
+<li>↕️ runSpacing</li>
+<li>📏 runAlignment</li>
+<li>📐 crossAxisAlignment</li>
+<li>✂️ clipBehavior</li>
+</ul>
+<hr>
+<h1 id="14-sizedbox-">14. SizedBox 📏 </h1>
+<p>Used for spacing or fixed sizes.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">SizedBox</span><span class="token punctuation">(</span>height<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">SizedBox</span><span class="token punctuation">(</span>width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span> child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Button"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="extra-features">Extra Features </h3>
+<ul>
+<li><code>SizedBox.shrink()</code> – 🪶 zero size</li>
+<li><code>SizedBox.expand()</code> – 🔄 fills space</li>
+</ul>
+<hr>
+<h1 id="15-custom-widgets-">15. Custom Widgets 🧱 </h1>
+<p>Reusable UI components.</p>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token keyword keyword-class">class</span> <span class="token class-name">CustomCard</span> <span class="token keyword keyword-extends">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-final">final</span> <span class="token class-name">String</span> title<span class="token punctuation">;</span>
+  <span class="token class-name">CustomCard</span><span class="token punctuation">(</span><span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>title<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token class-name">Widget</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-return">return</span> <span class="token class-name">Container</span><span class="token punctuation">(</span>
+      padding<span class="token punctuation">:</span> <span class="token class-name">EdgeInsets</span><span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      margin<span class="token punctuation">:</span> <span class="token class-name">EdgeInsets</span><span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      decoration<span class="token punctuation">:</span> <span class="token class-name">BoxDecoration</span><span class="token punctuation">(</span>
+        color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>grey<span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        borderRadius<span class="token punctuation">:</span> <span class="token class-name">BorderRadius</span><span class="token punctuation">.</span><span class="token function">circular</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h1 id="16-theming-">16. Theming 🎨 </h1>
+<h2 id="light-theme-️">Light Theme ☀️ </h2>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">MaterialApp</span><span class="token punctuation">(</span>
+  theme<span class="token punctuation">:</span> <span class="token class-name">ThemeData</span><span class="token punctuation">(</span>primarySwatch<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>blue<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h2 id="dark-theme">Dark Theme🌙 </h2>
+<pre data-role="codeBlock" data-info="dart" class="language-dart dart"><code><span class="token class-name">MaterialApp</span><span class="token punctuation">(</span>
+  darkTheme<span class="token punctuation">:</span> <span class="token class-name">ThemeData</span><span class="token punctuation">.</span><span class="token function">dark</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  themeMode<span class="token punctuation">:</span> <span class="token class-name">ThemeMode</span><span class="token punctuation">.</span>system<span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

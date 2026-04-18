@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HR Questions | TCS Interview Prep</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #c8d1e3;
+      color: #222;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #1f4fd8;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .section-title {
+      margin: 30px 0 15px;
+      color: #1f4fd8;
+    }
+
+    /* CARD */
+    .qa-card {
+      background: #fff;
+      border-left: 5px solid #1f4fd8;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      display: flex;
+      gap: 12px;
+      justify-content: space-between;
+    }
+
+    .qa-content {
+      flex: 1;
+    }
+
+    .question {
+      font-weight: bold;
+      cursor: pointer;
+      color: #1f4fd8;
+    }
+
+    .question:hover {
+      text-decoration: underline;
+    }
+
+    .answer {
+      display: none;
+      margin-top: 10px;
+      background: #f6f8fc;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      white-space: pre-wrap;
+    }
+
+    /* CHECKBOX */
+    .cb-wrap {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .cb-wrap input {
+      display: none;
+    }
+
+    .cb {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 2px solid #1f4fd8;
+      position: relative;
+    }
+
+    .cb::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 0;
+      width: 6px;
+      height: 11px;
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg) scale(0);
+      transition: 0.2s;
+    }
+
+    .cb-wrap input:checked + .cb {
+      background: #1f4fd8;
+    }
+
+    .cb-wrap input:checked + .cb::after {
+      transform: rotate(45deg) scale(1);
+    }
+
+    .done .question {
+      opacity: 0.6;
+      text-decoration: line-through;
+    }
+
+    .reset-box {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    button {
+      padding: 10px 22px;
+      border: none;
+      border-radius: 6px;
+      background: #1f4fd8;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <a href="../index.html" class="back">⬅ Back to Home</a>
+  <h1>HR Interview Questions – TCS</h1>
+
+  <div id="hrContent"></div>
+
+  <div class="reset-box">
+    <button id="resetBtn">Reset Progress</button>
+  </div>
+
+</div>
+
+<script>
+/* =============================
+   HR QUESTIONS DATA (SECTION WISE)
+   ============================= */
+
+const hrSections = [
+
+  // =========================
+  // ABOUT TCS
+  // =========================
+  {
+    title: "About TCS",
+    questions: [
+      {
+        q: "What is  TCS? 🤔🏢",
+        a: "Tata Consultancy Services (TCS) is one of India’s largest and most respected IT services companies. It was founded in 1968 and is part of the Tata Group.\nTCS provides IT services, consulting, and business solutions to clients across industries like banking, healthcare, retail, manufacturing, and telecom. The company is known for its strong focus on digital transformation, cloud computing, data analytics, AI, and enterprise solutions.\nWith operations in 50+ countries and a workforce of hundreds of thousands of professionals, TCS serves many of the world’s leading organizations. It is also a popular choice among fresh graduates because of its structured training programs, job stability, and long-term career growth."
+      },
+      {
+        q: "Why TCS? 🤔🏢",
+        a: "I want to join TCS because it is a stable and respected organization with strong fundamentals and long-term growth.\nIts exposure to multiple technologies and global projects aligns well with my hands-on project experience.\nI believe my eagerness to learn fits well with TCS’s learning culture."
+      },
+      {
+        q: "Why join TCS and not another company? 🏢❤️",
+        a: "I prefer TCS over other companies because it offers stable long-term growth, exposure to global projects, and a positive work culture.\nThis environment allows me to learn consistently, work on meaningful projects, and build a sustainable career."
+      },
+      {
+        q: "Founder of TCS 🏢👤",
+        a: "Jehangir Ratanji Dadabhoy Tata (J. R. D. Tata) is credited as the founder of Tata Consultancy Services."
+      },
+      {
+        q: "When it was founded:  🏢👤",
+        a: "TCS was founded in 1 April 1968."
+      },
+      {
+        q: "First CEO:  🏢👤",
+        a: "The first CEO of TCS was Faqir Chand Kohli (F. C. Kohli), who is also regarded as one of the pioneers of the Indian IT industry."
+      },
+      {
+        q: "Current CEO:  🏢👤",
+        a: "The current CEO and Managing Director of TCS (as of 2025) is K. Krithivasan."
+      },
+      {
+        q: "Chairman of TCS: 🏢👤",
+        a: "The Chairman of Tata Consultancy Services is Natarajan Chandrasekaran who also serves as the Chairman of Tata Sons."
+      },
+      {
+        q: "Total Employees of TCS: 🏢👤",
+        a: "TCS has around 6 lakh employees worldwide."
+      },
+      {
+        q: "TCS spread across: 🏢👤",
+        a: "more than 55 countries."
+      },
+      {
+        q: "Customers of TCS: 🏢👤",
+        a: "Tata Consultancy Services serves a wide range of global clients across industries such as banking, retail, healthcare, telecom, manufacturing, and government."
+      },
+      {
+        q: "What did TCS do last month? 🗞️📅",
+        a: "I check the TCS newsroom and According to recent news updates, Tata Consultancy Services continued focusing on AI-driven digital transformation, launched new technology solutions, and strengthened partnerships with global clients."
+      },
+      {
+        q: "TCS Services 🏢💼",
+        a: `TCS provides IT services, consulting, and digital solutions such as cloud, AI, and enterprise applications to global clients.`
+      },
+      {
+        q: "TCS service agreement 📝🤝",
+        a: "A TCS service agreement is a contract between TCS and the client that clearly defines the services to be delivered, timelines, responsibilities, and service levels.."
+      },
+      {
+        q: "How long do you want to continue in tcs?🤔",
+        a: "I want to continue in TCS for the long term. I am looking for a stable organization where I can learn continuously, take more responsibility over time, and grow my career with the company."
+      },
+      {
+        q: "What do you know about TCS Digital?🤔",
+        a: "TCS Digital is a role for candidates with strong technical skills, where they work on advanced technologies and high-impact projects."
+      },
+      {  
+        q: "How do you handle pressure?🤔",
+        a: "I handle pressure by staying calm and focusing on the task. I break the work into smaller steps, set priorities, and take short breaks if needed to refresh my mind. This helps me stay productive and solve problems effectively."
+      },
+      
+    ]
+  },
+
+  // =========================
+  // ABOUT ME / PERSONAL
+  // =========================
+  {
+    title: "About Me / Personal",
+    questions: [
+      {
+        q: "Tell me about yourself 🧑‍💻🙂",
+        a: "M👉 Good afternoon. My name is Nafis Quaisar. I am from Jhanjharpur, Madhubani, Bihar.\nI am pursuing a B.Tech in Computer Science from Lakshmi Narain College of Technology, Bhopal.\nI completed my senior secondary education from A.N. College, Patna, and my secondary education from Don Bosco Convent School, Jhanjharpur.\n\nI mainly work on Android applications. I have learned Java, Kotlin, Firebase, MySQL ,and Room Database .I use Java to build strong core concepts and practice DSA, and Kotlin as my main language for Android development.\n\nAs an Android developer, I have built two main projects.\nOne of them is TuneLyf, a music application that supports online music streaming as well as offline playback of device music. Users can search songs, create playlists, and listen to music in the background.\nMy second project is Organizer Classes. It is an ed-tech application that provides study notes,video lectures, previous-year questions, mock tests, and a doubt-solving section for students.\nAdditionally, I have completed the NPTEL course in Programming in Java.\nApart from technical skills, I like travelling and listening to music. I believe in continuous learning and keep exploring new technologies.\nMy short-term goal is to build a strong foundation by learning, working on real-world problems, and adding value to the team.\nMy long-term goal is to become a skilled software engineer, gain real-world experience, and eventually build an ed-tech platform that supports practical learning.\n“My strength is problem-solving. I stay calm, break problems into smaller steps, and try to find best solutions.”\nMy weakness is that “Sometimes I take extra time to make my work perfect, but I’m learning to manage my time.”\n\nThat’s a brief introduction about me. Thank you."
+      },
+      {
+        q: "Describe yourself in three words 🔤🙂",
+        a: `Focused 🎯
+Adaptable 🔄
+Responsible ✔️
+Helpful, Fast learner, Passionate`
+      },
+      {
+        q: "Tell something not in your resume 📝➡️🙋‍♂️",
+        a: "I’m a helpful person, a fast learner, and passionate about my work."
+      },
+      {
+        q: "What is your aim? 🎯",
+        a: "My aim is to become a skilled software professional and contribute to meaningful, real-world projects while continuously learning and growing.."
+      },
+      {
+        q: "Tell me about your dream job 🌈💭",
+        a: "My dream job is a role where I can solve real-world problems🧠, continuously learn 📚 new technologies, and contribute to impactful projects 🚀 that create value."
+      },
+      {
+        q: "What are your hobbies? 💭",
+        a: "I enjoy traveling to peaceful natural places because it helps me stay positive and think creatively. I also like exploring useful tech gadgets that make me happy and improve my productivity. For example, I use a compact 512 GB portable SSD that is very small and easy to carry. I use it for development work and running Android Studio emulators, which helps me work efficiently."
+      },
+      {
+        q: "How does travelling help you professionally? 💭",
+        a: "Travelling improves my communication skills, and ability to adjust to new environments, which is very useful in a global organization like TCS."
+      },
+      {
+        q: "Which place did you enjoy the most and why? 💭",
+        a: "I enjoy natural places like waterfalls and scenic viewpoints. I especially enjoyed visiting places in Bhopal such as Jhiri Waterfall, Lake View, and Tekri because they are peaceful, green, and refreshing."
+      },
+      {
+        q: "What do you learn from traveling? ",
+        a: "Traveling helps me understand different cultures, observe people, and adapt to new environments."
+      },
+      {
+        q: "How often do you travel? 💭",
+        a: "I travel whenever I have time, mainly during breaks or holidays."
+      },
+      {
+        q: "If you get work pressure, will you still think about traveling? 💭",
+        a: "No, work is my priority. Traveling helps me relax during free time, but I stay fully focused on my responsibilities."
+      },
+      {
+        q: "What kind of places do you avoid while traveling? 💭",
+        a: "I usually avoid very crowded places and prefer calm, natural locations."
+      },
+      {
+        q: "What happen when you are very stress? 💭",
+        a: "When I feel very stressed, I take a short pause from work and go for a walk to clear my mind. If I have more time, I visit a peaceful place. When time is limited, I go to a quiet place like the rooftop. This helps me relax and return to my work with better focus."
+      },
+    ]
+  },
+
+  // =========================
+  // CAREER & GOALS
+  // =========================
+  {
+    title: "Career & Goals",
+    questions: [
+      {
+        q: "Why should we hire you? 💼✨",
+        a: "You should hire me because I am a fast learner who adapts quickly and stays calm under pressure. I work well in teams, complete tasks on time, and continuously improve my skills. I also have hands-on project experience and a strong eagerness to learn new technologies and contribute effectively."
+      },
+      {
+        q: "What were you doing for the past 6 months? 📅📝",
+        a: "Over the past six months, I focused on improving my technical skills, working on hands-on projects, practicing coding regularly, and preparing myself for industry roles. 👨‍💻."
+      },
+      {
+        q: "Money vs Work 💰 vs 💼",
+        a: "Work is more important because learning and growth 🌱 create long-term success. Money follows good work."
+      },
+      {
+        q: "Where do you see yourself in 5 years",
+        a: "I see myself as a skilled software engineer, handling important projects and constantly upgrading my skills while contributing to the company’s growth."
+      },
+    ]
+  },
+
+  // =========================
+  // STRENGTHS & WEAKNESSES
+  // =========================
+  {
+    title: "Strengths & Weaknesses",
+    questions: [
+      {
+        q: "Strengths 💪✨",
+        a: `My strengths are quick learning, staying calm under pressure, and problem-solving. While working on my project Organizer Classes, I learned many new concepts by myself, which shows that I can learn quickly. Instead of building the whole app at once, I broke it into smaller parts like authentication, content, tests, and notes to solve problems step by step. When bugs came up and took time to fix, I stayed calm and patiently debugged until they were solved. This helped me complete the project smoothly and improve my development skills.
+Creative problem solver 🧠💡->I am a creative problem solver. I got the idea to build an app and website for my father’s small wholesale shop. The goal was to manage stock, billing, and payments digitally, instead of using handwritten records that often cause mistakes. I planned features like item tracking, automatic calculations, barcode scanning, and support for both Hindi and English so even non-English users could use it easily. This idea came from observing real problems in the shop, and it motivated me to take initiative and start building a practical solution.`
+      },
+      {
+        q: "Weaknesses ⚠️🙂",
+        a: "My weakness is that sometimes I take extra time trying to make my work perfect. I noticed this during my project when I kept adding features and improving the design again and again. Later, I learned to focus on the main features by setting clear priorities and deadlines. This helped me manage my time better and complete the project smoothly. 🗂️."
+      },
+      {
+        q: "Hard work vs smart work 💪🧠",
+        a: "Hard work helps me learn and gain experience. Smart work helps me use that experience to get better results faster."
+      }
+    ]
+  },
+
+  // =========================
+  // PROJECTS & TECHNICAL
+  // =========================
+  {
+    title: "Personal Projects & Technical",
+    questions: [
+      {
+        q: "Tell me about your project 📱🛠️",
+        a: `Organizer Classes is an Android ed-tech application that provides study notes, video lectures, previous-year questions, mock tests, a doubt-solving section, and helps students check their progress.
+
+The idea came from a real problem I personally observed.
+While teaching students, especially Bihar Board English-medium students, I noticed that many of them struggled because they did not get proper previous-year questions and MCQs that are actually asked in exams.
+
+To solve this problem, I built an app that organizes learning materials according to the board pattern.
+This helps students prepare in a more focused and exam-oriented way.
+
+Initially, I focused on Bihar Board students, but the app is also useful for CBSE and other state boards.
+
+TuneLyf is an Android music application that supports both online streaming and offline music stored on the user’s device.
+The idea came from a real problem I faced. Most music apps focus either on online streaming or on offline songs, so users often need more than one app.
+
+To solve this, I built a single app where users can stream music online, play songs that are stored on their device, create playlists, and listen to music smoothly in the background.
+The app uses Firebase for secure login and follows the MVVM architecture to ensure stable playback and a good user experience.
+
+
+`
+      },
+      {
+        q: "Swap two numbers without a third variable 🔄🔢",
+        a: `a = a + b
+b = a - b
+a = a - b`
+      },
+      {
+        q: "Bubble sort (if asked) 🫧📚",
+        a: "I try to write the logic step by step and explain my approach clearly."
+      }
+    ]
+  },
+
+  // =========================
+  // SITUATIONAL / BEHAVIORAL
+  // =========================
+  {
+    title: "Situational / Behavioral",
+    questions: [
+      {
+        q: "Are you a team player? 🤝🙂",
+        a: "Yes, I am a team player🗣️. I enjoy working with others, sharing ideas, and supporting 🤗 the team to achieve common goals 🎯."
+      },
+      {
+        q: "If you get rejected today ❌🙂",
+        a: "If I get rejected today, I will take the feedback positively👍 , learn from it, work on my weak areas, and keep improving myself 💪 for future opportunities 🔁."
+      },
+      {
+        q: "If your boss tells you to mop the floor 🧹🙂",
+        a: "I’m flexible and ready to help the team with any task."
+      },
+      {
+        q: "If you get two job offers 📄📄🤔",
+        a: "If I receive two job offers, I will choose the one that provides better learning opportunities, long-term growth, and aligns with my career goals."
+      },
+      
+    ]
+  },
+
+  // =========================
+  // GENERAL HR
+  // =========================
+  {
+    title: "General HR",
+    questions: [
+      {
+        q: "Do you have any questions for me? ❓🙂",
+        a: "Sir, you have a lot of experience and have seen many freshers join the company. As I am moving from student life to the corporate world, could you please tell me some common mistakes that freshers make, so that I can avoid them? 😊.\n\n\nI would also like to know about the training process and the technologies I should prepare before joining."
+      },
+      {
+        q: "Are you ok with relocation? 🚚🌍",
+        a: "Yes, I am comfortable relocating."
+      },
+      {
+        q: "Ready for night shift? 🌙💼",
+        a: "Yes, I am comfortable working night shifts."
+      },
+      {
+        q: "Why not higher studies? 🎓➡️💼",
+        a: "I want to gain industry experience first and apply my skills before deciding on further studies."
+      },
+      {
+        q: "What is your opinion on continuos learning? 🎓",
+        a: "I believe continuous learning is very important because technology keeps changing. It helps me improve my skills, stay updated, and perform better in my work over time."
+      },
+      {
+        q: "What is the biggest failure you have faced in your life? ",
+        a: "One of my biggest failures was during the early stage of my project, when I tried to handle too many things at the same time. Because of this, I could not manage my time well and the project moved slowly. From this experience, I learned to focus on priorities and improve things step by step. This lesson later helped me work more efficiently and with better planning."
+      },
+      {
+        q: "How do you overcome your failures? ",
+        a: "I overcome my failures by first understanding what went wrong and learning from it. Then I work on my weak areas, apply those lessons to my next tasks, and stay positive and consistent."
+      },
+      {
+        q: "If you work hard and also your manager doesn't encourage what will you do ?",
+        a: "If I work hard but do not receive encouragement, I will stay focused on my responsibilities and continue giving my best. I will try to understand my manager’s expectations and ask for feedback so I can improve. My motivation comes from learning, growing, and doing good work, not only from appreciation."
+      },
+      {
+        q: "If you are given one week for project planning, what would you do during that one week?",
+        a: "During that one week, I would first understand the project requirements clearly. Then I would break the project into smaller modules, decide priorities, and plan the timeline. I would also think about the technology stack, possible risks, and basic design so that development can start smoothly."
+      },
+      {
+        q: "What will you do if you are assigned the Ninja role?",
+        a: "If I am assigned the Ninja role, I will accept it positively and focus on learning as much as possible. I will work hard, upgrade my skills, and give my best performance so that I can grow to higher responsibilities over time."
+      },
+      {
+        q: "Apart from studies, what do you do?",
+        a: "Apart from my studies, I enjoy traveling and spending time in nature to refresh my mind."
+      },
+      {
+        q: "Why is there a 1-year gap?",
+        a: "There was a gap between my 12th and graduation mainly because of the COVID-19 situation and a health issue related to kidney stones. Even during that time, I continued my studies, prepared for JEE Main, and cleared the exam."
+      },
+      {
+        q: "What if you don't get a project from your domain , what will you do ?",
+        a: "If I do not get a project from my domain, I will take it as a learning opportunity. I will first understand the project requirements, learn the required technologies, and give my best to deliver quality work. I believe adapting to new domains helps me grow and become a better professional."
+      },
+      {
+        q: "What if you get to work on Friday and there's a glitch and you have to work on Saturday and Sundays ? What will you do ?",
+        a: "If there is an urgent issue, I am willing to work on weekends to fix it and ensure everything runs smoothly."
+      },
+      {
+        q: "Why do you see yourself to be a problem solver ?",
+        a: "I see myself as a problem solver because I enjoy breaking problems into smaller parts and finding practical solutions. Through my projects, I have faced challenges, fixed bugs, and learned to stay calm and focused until the problem was solved."
+      },
+      {
+        q: "Do u have participated in any competitions or SIH, if no then why?",
+        a: "Yes, I participated in SIH with my team. Our idea reached the college level, but it was not selected further as another team had a stronger version of a similar traffic management solution. It was still a valuable learning experience in teamwork and problem-solving."
+      },
+      {
+        q: "How you balance your personal and proffesional life?",
+        a: "I balance my personal and professional life by managing my time properly. I complete my work on time and avoid delaying tasks. After work hours, I focus on my personal life and take rest so I can stay fresh and productive. If work needs extra time, I adjust without stress."
+      },
+      {
+        q: "self driven?",
+        a: "I am self-driven, which means I start my work on my own and do not wait for someone to tell me every step.\n\nFor example, while working on my TuneLyf Android app, I decided to add offline music support. I learned how to use Room Database and handled file storage by reading documentation and experimenting. I implemented the feature, tested it, and fixed issues on my own until it worked smoothly."
+      },
+      {
+        q: "Growth MindSet ?",
+        a: "Growth mindset means I try to improve by learning from mistakes. When I face problems, I analyze them and work on getting better instead of giving up."
+      },
+      {
+        q: "Fast Learner ?",
+        a: "Being a fast learner means I can understand and apply new concepts quickly.\n\nFor example, when I needed to add online payments to my Android app, I had no prior experience with Razorpay. I learned it by reading the official documentation, followed sample implementations, and tested it step by step. I was able to integrate Razorpay successfully and handle payment responses in the app."
+      },
+      {
+        q: "Collaborative team player ?",
+        a: "Being a collaborative team player means I communicate well with my teammates, respect their ideas, and work together to complete tasks successfully."
+      },
+      {
+        q: "Time Management ?",
+        a: "Time management for me means planning my daily work so that I can balance studies, Android projects, and DSA practice, and still complete tasks on time."
+      },
+      {
+        q: "Leadership?",
+        a: "Leadership for me means taking responsibility, helping others when needed, and making sure the work is completed properly, even if I am not officially the leader.\n\n\nWhile teaching 9th and 10th grade students, I planned their study schedules, tracked their progress, and ensured timely syllabus completion. This required taking ownership of their learning, guiding them consistently, and managing time effectively, which helped me develop strong leadership and organizational skills."
+      },
+      {
+        q: "Good leader qualities?",
+        a: "A good leader takes responsibility, communicates clearly, supports the team, and leads by example."
+      },
+    ]
+  },
+
+  // =========================
+  // HR PROCESS & DOCUMENTS
+  // =========================
+  {
+    title: "HR Process & Documents",
+    questions: [
+      {
+        q: "Documents to carry for TCS interview 📄👜",
+        a: `TCS application form
+Updated resume
+Government ID
+Mark sheets & certificates
+Interview email printout`
+      },
+      {
+        q: "HR Interview Flow 🛣️👥",
+        a: `Introduction
+Why TCS
+Future plans
+Agreement awareness
+Project discussion
+Strengths & weaknesses
+Final questions`
+      },
+      {
+        q: "HR Interview First Question 🎤🙂",
+        a: "Tell me something about yourself."
+      },
+      {
+        q: "Who inspired you? ⭐",
+        a: "My parents inspired me. Their hard work and support motivate me to do better every day."
+      },
+    ]
+  }
+
+];
+
+
+/* =============================
+   RENDER SECTION + QUESTIONS
+   ============================= */
+
+const container = document.getElementById("hrContent");
+let counter = 0;
+
+hrSections.forEach(section => {
+  const h2 = document.createElement("h2");
+  h2.className = "section-title";
+  h2.textContent = section.title;
+  container.appendChild(h2);
+
+  section.questions.forEach(item => {
+    const id = "hr_q_" + counter++;
+    const card = document.createElement("div");
+    card.className = "qa-card";
+
+    card.innerHTML = `
+      <div class="qa-content">
+        <div class="question">${item.q}</div>
+        <div class="answer">${item.a}</div>
+      </div>
+      <label class="cb-wrap">
+        <input type="checkbox" id="${id}">
+        <span class="cb"></span>
+      </label>
+    `;
+
+    container.appendChild(card);
+  });
+});
+
+/* TOGGLE ANSWER */
+document.addEventListener("click", e => {
+  if (e.target.classList.contains("question")) {
+    const ans = e.target.nextElementSibling;
+    ans.style.display = ans.style.display === "block" ? "none" : "block";
+  }
+});
+
+/* CHECKBOX STORAGE */
+document.querySelectorAll(".qa-card").forEach(card => {
+  const cb = card.querySelector("input");
+  cb.checked = localStorage.getItem(cb.id) === "true";
+  if (cb.checked) card.classList.add("done");
+
+  cb.addEventListener("change", () => {
+    localStorage.setItem(cb.id, cb.checked);
+    card.classList.toggle("done", cb.checked);
+  });
+});
+
+/* RESET */
+document.getElementById("resetBtn").addEventListener("click", () => {
+  document.querySelectorAll(".qa-card").forEach(card => {
+    const cb = card.querySelector("input");
+    cb.checked = false;
+    card.classList.remove("done");
+    localStorage.removeItem(cb.id);
+  });
+});
+</script>
+
+</body>
+</html>

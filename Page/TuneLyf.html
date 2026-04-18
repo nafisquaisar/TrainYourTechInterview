@@ -1,0 +1,663 @@
+<!DOCTYPE html><html><head>
+      <title>TuneLyf</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\nafis\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.20\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="tunelyf--music-streaming-app">TuneLyf – Music Streaming App </h1>
+<p><strong>Kotlin | MVVM | Retrofit | ExoPlayer | Room | Firebase</strong></p>
+<hr>
+<h2 id="1️⃣-project-overview--basic-questions">1️⃣ Project Overview &amp; Basic Questions </h2>
+<h3 id="q1-can-you-explain-your-tunelyf-project-in-simple-words">Q1. Can you explain your TuneLyf project in simple words? </h3>
+<p><strong>Answer:</strong><br>
+TuneLyf is an Android music application that supports both online streaming and offline music stored on the user’s device.<br>
+The idea came from a real problem I faced. Most music apps focus either on online streaming or on offline songs, so users often need more than one app.</p>
+<p>To solve this, I built a single app where users can stream music online, play songs that are stored on their device, create playlists, and listen to music smoothly in the background.<br>
+The app uses Firebase for secure login and follows the MVVM architecture to ensure stable playback and a good user experience.</p>
+<hr>
+<h3 id="q2-what-problem-does-tunelyf-solve">Q2. What problem does TuneLyf solve? </h3>
+<p><strong>Answer:</strong><br>
+Most music apps focus either on online streaming or on offline songs, so users often need more than one app.</p>
+<p>To solve this, I built a single app where users can stream music online, play songs that are stored on their device, create playlists, and listen to music smoothly in the background.</p>
+<hr>
+<h3 id="q3-is-this-app-similar-to-spotify-if-yes-how-is-it-different">Q3. Is this app similar to Spotify? If yes, how is it different? </h3>
+<p><strong>Answer:</strong><br>
+Yes, TuneLyf is similar to Spotify at a basic level because both are music applications that allow users to listen to songs and create playlists.<br>
+However, Spotify mainly focuses on online streaming and has limited support for device music.</p>
+<p>TuneLyf is different because it supports both online streaming and music stored on the user’s device in a single app.</p>
+<hr>
+<h3 id="q4-which-features-did-you-personally-implement">Q4. Which features did you personally implement? </h3>
+<p><strong>Answer:</strong><br>
+I implemented online and offline music playback, background playback, playlist creation, the Now Playing screen, and Firebase-based user authentication.</p>
+<ul>
+<li>🎵 Music streaming</li>
+<li>📥 Offline playback</li>
+<li>🔐 Firebase authentication</li>
+<li>📂 Playlist management</li>
+<li>🔊 Background playback</li>
+</ul>
+<hr>
+<h3 id="q5-what-were-the-main-challenges-while-building-this-app">Q5. What were the main challenges while building this app? </h3>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>
+<p>One of the main challenges was working with APIs for the first time. Integrating the API was not very difficult, but handling the data properly was challenging.</p>
+</li>
+<li>
+<p>I had to decide when to fetch data from the API and when to use cached or already available data, so that unnecessary API calls are avoided. Managing API responses, handling null or missing data, and updating the UI correctly was also challenging.</p>
+</li>
+<li>
+<p>Since there were no proper tutorials or notes for my exact use case, I learned by watching Udemy courses and reading official documentation, and then implemented the solution step by step in a clean way.</p>
+</li>
+</ul>
+<hr>
+<h3 id="q6-if-given-more-time-what-improvements-would-you-add">Q6. If given more time, what improvements would you add? </h3>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>
+<p>If given more time, I would improve the music recommendation system to suggest songs based on user listening history.</p>
+</li>
+<li>
+<p>I would also like to obtain proper music licenses and build my own backend APIs instead of relying on third-party sources.</p>
+</li>
+<li>
+<p>Another improvement would be a collaboration feature where users can listen to music together with friends in real time.</p>
+</li>
+</ul>
+<hr>
+<h3 id="q7-is-the-app-available-on-play-store-what-was-the-publishing-process">Q7. Is the app available on Play Store? What was the publishing process? </h3>
+<p><strong>Answer:</strong><br>
+Yes, TuneLyf is available on the Play Store. I handled the complete publishing process myself.</p>
+<h4 id="play-store-publishing-steps-point-wise">Play Store Publishing Steps (Point-wise): </h4>
+<ul>
+<li>
+<p>I created a Google Play Developer account by paying the one-time $25 registration fee.</p>
+</li>
+<li>
+<p>I generated a signed Android App Bundle (AAB) for release.</p>
+</li>
+<li>
+<p>I set up Closed Testing in the Play Console and tested the app with 12 users for 14 days, which is required by Google before production release.</p>
+</li>
+<li>
+<p>During closed testing, I fixed bugs, crashes, and issues related to ease of use.</p>
+</li>
+<li>
+<p>I created the app listing, including the app name, description, screenshots, icon, and privacy policy.</p>
+</li>
+<li>
+<p>I configured required details such as content rating, app category, and app permissions.</p>
+</li>
+<li>
+<p>I uploaded the App Bundle to the Play Console.</p>
+</li>
+<li>
+<p>The app was submitted for Play Store review.</p>
+</li>
+<li>
+<p>After approval, the app was published successfully.</p>
+</li>
+</ul>
+<blockquote>
+<p>APK is a single install file for all devices, while AAB is a publishing format where Google Play generates optimized APKs for each device, reducing app size.</p>
+</blockquote>
+<hr>
+<h2 id="2️⃣-kotlin-specific-questions">2️⃣ Kotlin-Specific Questions </h2>
+<h3 id="q8-why-did-you-choose-kotlin-over-java-for-this-project">Q8. Why did you choose Kotlin over Java for this project? </h3>
+<p><strong>Answer:</strong><br>
+Kotlin is concise, safer, and reduces boilerplate code. It also provides better null safety and is officially supported by Google.</p>
+<hr>
+<h3 id="q9-difference-between-val-and-var">Q9. Difference between <code>val</code> and <code>var</code>? </h3>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>🔒 <code>val</code> cannot be reassigned</li>
+<li>✏️ <code>var</code> can be reassigned</li>
+</ul>
+<hr>
+<h3 id="q10-what-is-null-safety-in-kotlin">Q10. What is null safety in Kotlin? </h3>
+<p><strong>Answer:</strong></p>
+<p>“Null safety protects the app from <code>NullPointerException</code> by handling nulls in advance.”</p>
+<hr>
+<h3 id="q11-what-are-lateinit-and-lazy-where-did-you-use-them">Q11. What are <code>lateinit</code> and <code>lazy</code>? Where did you use them? </h3>
+<p><strong>Answer:</strong><br>
+<code>lateinit</code> is used when variables are initialized later, such as ViewBinding.<br>
+<code>lazy</code> initializes values only when it needed.</p>
+<hr>
+<h3 id="q12-explain-data-class-and-its-use-in-your-app">Q12. Explain <code>data class</code> and its use in your app. </h3>
+<p><strong>Answer:</strong><br>
+A data class is used to hold structured data. In Kotlin, it automatically provides useful methods like <code>toString()</code>, <code>equals()</code>, and <code>copy()</code>.</p>
+<p>In my app, I used data classes to represent models such as songs and playlists.<br>
+These classes help in safely transferring data between the API, database, and UI, and make the code clean and easy to maintain.</p>
+<hr>
+<h3 id="q13-what-is-a-sealed-class-did-you-use-it-for-ui-state">Q13. What is a sealed class? Did you use it for UI state? </h3>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>A sealed class represents a restricted set of states.</li>
+<li>A sealed class is used when we know all possible states in advance.</li>
+<li>I used it for UI state handling like Loading, Success, and Error to keep the UI logic clean.</li>
+</ul>
+<hr>
+<h3 id="q14-difference-between--and--in-kotlin">Q14. Difference between <code>==</code> and <code>===</code> in Kotlin? </h3>
+<p><strong>Answer:</strong><br>
+<code>==</code> checks value equality, while <code>===</code> checks reference equality.</p>
+<hr>
+<h3 id="q15-how-did-you-handle-exceptions-in-kotlin">Q15. How did you handle exceptions in Kotlin? </h3>
+<p><strong>Answer:</strong><br>
+Using try-catch blocks and handling errors at ViewModel level to prevent app crashes.</p>
+<hr>
+<h2 id="3️⃣-mvvm-architecture-very-important-for-tcs">3️⃣ MVVM Architecture (Very Important for TCS) </h2>
+<h3 id="q16-what-is-mvvm-architecture">Q16. What is MVVM architecture? </h3>
+<p><strong>Answer:</strong><br>
+MVVM is an Android architecture pattern that separates the UI from business logic.<br>
+It divides the app into Model, View, and ViewModel, which makes the code clean, modular, and easy to test.</p>
+<hr>
+<h3 id="q17-why-did-you-use-mvvm-in-tunelyf">Q17. Why did you use MVVM in TuneLyf? </h3>
+<p><strong>Answer:</strong><br>
+It keeps the code clean, handles configuration changes, and improves maintainability.</p>
+<hr>
+<h3 id="q18-what-is-the-role-of-model-view-and-viewmodel">Q18. What is the role of Model, View, and ViewModel? </h3>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>📦 Model: Handles data and business logic</li>
+<li>🖥️ View: Displays UI</li>
+<li>🧠 ViewModel: Holds and manages UI data</li>
+</ul>
+<hr>
+<h3 id="q19-how-does-view-communicate-with-viewmodel">Q19. How does View communicate with ViewModel? </h3>
+<p><strong>Answer:</strong><br>
+The View communicates with the ViewModel by calling functions in the ViewModel, and the ViewModel sends data back to the View using LiveData or StateFlow, which the View observes.</p>
+<p>The View calls ViewModel methods, and observes data from ViewModel using LiveData or StateFlow.</p>
+<hr>
+<h3 id="q20-how-does-viewmodel-survive-configuration-changes">Q20. How does ViewModel survive configuration changes? </h3>
+<p><strong>Answer:</strong><br>
+ViewModel survives configuration changes because it is not destroyed when the screen is recreated, such as during screen rotation.<br>
+Android keeps the same ViewModel instance and attaches it to the new View, so the UI data remains intact.</p>
+<h4 id="example-tunelyf">Example (TuneLyf): </h4>
+<p>When the screen rotates while a song is playing, the MusicViewModel still holds the current song and playback state, so the music and UI continue without interruption.</p>
+<hr>
+<h3 id="q21-what-is-livedata">Q21. What is LiveData? </h3>
+<p><strong>Answer:</strong><br>
+LiveData is an observable data holder that is lifecycle-aware.<br>
+It means the UI automatically gets updates only when it is active, which helps prevent crashes and memory leaks.</p>
+<h4 id="example-tunelyf-1">Example (TuneLyf): </h4>
+<p>LiveData is used to observe the currently playing song or playback state, so when the data changes in the ViewModel, the UI updates automatically.</p>
+<hr>
+<h3 id="q22-difference-between-livedata-and-mutablelivedata">Q22. Difference between LiveData and MutableLiveData? </h3>
+<p><strong>Answer:</strong><br>
+LiveData is read-only, MutableLiveData allows updates.</p>
+<hr>
+<h3 id="q23-how-did-mvvm-help-in-scalability">Q23. How did MVVM help in scalability? </h3>
+<p><strong>Answer:</strong><br>
+It allowed adding new features without breaking existing code.</p>
+<hr>
+<h3 id="q24-what-problems-occur-if-we-dont-use-mvvm">Q24. What problems occur if we don’t use MVVM? </h3>
+<p><strong>Answer:</strong><br>
+Tight coupling, difficult testing, and poor maintainability.</p>
+<hr>
+<h3 id="q25-have-you-used-any-single-source-of-truth-concept">Q25. Have you used any single source of truth concept? </h3>
+<p><strong>Answer:</strong><br>
+Yes, I used ViewModel as the single source of truth to keep playback state consistent across the app.</p>
+<hr>
+<h2 id="4️⃣-retrofit--api-integration">4️⃣ Retrofit &amp; API Integration </h2>
+<h3 id="q26-what-is-retrofit">Q26. What is Retrofit? </h3>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>
+<p>Retrofit is a type-safe HTTP client for Android that simplifies making API calls.<br>
+It lets us define API endpoints using annotations and automatically converts JSON responses into Kotlin objects.</p>
+</li>
+<li>
+<p>Retrofit uses OkHttp internally to handle the actual network communication such as sending requests, receiving responses, and managing timeouts.</p>
+</li>
+<li>
+<p>Retrofit is used to define and call APIs easily, while OkHttp handles the actual network operations behind the scenes.</p>
+</li>
+</ul>
+<hr>
+<h3 id="q27-why-did-you-use-retrofit-instead-of-volley">Q27. Why did you use Retrofit instead of Volley? </h3>
+<p><strong>Answer:</strong><br>
+Retrofit is easier to manage, type-safe, and integrates well with Kotlin and MVVM.</p>
+<hr>
+<h3 id="q28-how-does-retrofit-work-internally">Q28. How does Retrofit work internally? </h3>
+<p><strong>Answer:</strong><br>
+Retrofit converts API methods into HTTP requests, uses OkHttp to execute them, and converts the response into Kotlin objects.</p>
+<hr>
+<h3 id="q29-what-is-an-api">Q29. What is an API? </h3>
+<p><strong>Answer:</strong><br>
+An API is a set of rules that allows a client application to communicate with a server.<br>
+It defines how a request is sent and how the response is received.</p>
+<h4 id="example">Example: </h4>
+<p>In TuneLyf, the app requests songs from a server through an API, and the server sends the music data back.</p>
+<hr>
+<h3 id="q30-what-is-json">Q30. What is JSON? </h3>
+<p><strong>Answer:</strong><br>
+JSON (JavaScript Object Notation) is a lightweight data format used to exchange data between a client and a server.<br>
+It is easy for humans to read and easy for machines to parse.</p>
+<hr>
+<h3 id="q31-how-did-you-parse-json-response">Q31. How did you parse JSON response? </h3>
+<p><strong>Answer:</strong><br>
+I parsed the JSON response using Retrofit with a converter like Gson.<br>
+I created Kotlin data classes that match the JSON structure, and Retrofit automatically converted the JSON response into Kotlin objects.</p>
+<h4 id="example-tunelyf-2">Example (TuneLyf): </h4>
+<p>When the API returns a list of songs in JSON format, Retrofit maps it directly to a list of Song data class objects.</p>
+<hr>
+<h3 id="q32-what-are-get-post-query-path">Q32. What are <code>@GET</code>, <code>@POST</code>, <code>@Query</code>, <code>@Path</code>? </h3>
+<p><strong>Answer:</strong><br>
+These are Retrofit annotations used to define API requests.</p>
+<h5 id="get">@GET </h5>
+<ul>
+<li>Used to fetch data from the server.</li>
+</ul>
+<blockquote>
+<p>Example: Get a list of songs.</p>
+</blockquote>
+<h5 id="post">@POST </h5>
+<ul>
+<li>Used to send data to the server.</li>
+</ul>
+<blockquote>
+<p>Example: Login or send user details.</p>
+</blockquote>
+<h5 id="query">@Query </h5>
+<ul>
+<li>Used to pass data in the URL as query parameters.</li>
+</ul>
+<blockquote>
+<p>Example: ?artist=Arijit</p>
+</blockquote>
+<h5 id="path">@Path </h5>
+<ul>
+<li>Used to pass dynamic values directly in the URL path.</li>
+</ul>
+<blockquote>
+<p>Example: /songs/{id}</p>
+</blockquote>
+<hr>
+<h3 id="q33-how-did-you-handle-api-errors">Q33. How did you handle API errors? </h3>
+<p><strong>Answer:</strong><br>
+I handled API errors by checking the response status codes and using try–catch blocks to manage exceptions such as network errors or timeouts. Based on the error, I showed an appropriate message to the user.</p>
+<hr>
+<h3 id="q34-what-happens-if-internet-is-not-available">Q34. What happens if internet is not available? </h3>
+<p><strong>Answer:</strong><br>
+If the internet is not available, the app shows offline data stored locally and displays a message indicating that the user is offline.</p>
+<hr>
+<h3 id="q35-how-did-you-manage-loading-and-error-states">Q35. How did you manage loading and error states? </h3>
+<p><strong>Answer:</strong><br>
+I managed loading, success, and error states using a sealed class. The UI observes this state through LiveData and updates itself accordingly.</p>
+<hr>
+<h2 id="5️⃣-exoplayer--audio-playback">5️⃣ ExoPlayer &amp; Audio Playback </h2>
+<h3 id="q36-what-is-exoplayer">Q36. What is ExoPlayer? </h3>
+<p><strong>Answer:</strong><br>
+ExoPlayer is a media player library for audio streaming.</p>
+<hr>
+<h3 id="q37-why-did-you-use-exoplayer-instead-of-mediaplayer">Q37. Why did you use ExoPlayer instead of MediaPlayer? </h3>
+<p><strong>Answer:</strong><br>
+It provides better streaming control and background support.</p>
+<hr>
+<h3 id="q38-how-does-background-audio-playback-work">Q38. How does background audio playback work? </h3>
+<p><strong>Answer:</strong><br>
+Using a foreground service.</p>
+<hr>
+<h3 id="q39-how-did-you-keep-music-playing-when-app-goes-to-background">Q39. How did you keep music playing when app goes to background? </h3>
+<p><strong>Answer:</strong><br>
+By running playback inside a foreground service.</p>
+<hr>
+<h3 id="q40-what-is-a-foreground-service">Q40. What is a foreground service? </h3>
+<p><strong>Answer:</strong><br>
+A service that continues running with a persistent notification.</p>
+<hr>
+<h3 id="q41-did-you-use-notification-controls">Q41. Did you use notification controls? </h3>
+<p><strong>Answer:</strong><br>
+Yes, play and pause actions.</p>
+<hr>
+<h3 id="q42-how-did-you-manage-play-pause-next-previous">Q42. How did you manage play, pause, next, previous? </h3>
+<p><strong>Answer:</strong><br>
+Through ExoPlayer control methods.</p>
+<hr>
+<h3 id="q43-how-did-you-release-exoplayer-resources">Q43. How did you release ExoPlayer resources? </h3>
+<p><strong>Answer:</strong><br>
+By calling <code>release()</code> in lifecycle cleanup.</p>
+<hr>
+<h3 id="q44-how-did-you-handle-audio-focus">Q44. How did you handle audio focus? </h3>
+<p><strong>Answer:</strong><br>
+Using AudioManager to pause or resume playback.</p>
+<hr>
+<h3 id="q45-what-happens-on-incoming-calls-or-headphones-unplug">Q45. What happens on incoming calls or headphones unplug? </h3>
+<p><strong>Answer:</strong><br>
+Playback pauses automatically.</p>
+<hr>
+<h2 id="6️⃣-offline-playback--room-database">6️⃣ Offline Playback &amp; Room Database </h2>
+<h3 id="sqlite-vs-room-easy-explanation">SQLite vs Room (Easy Explanation) </h3>
+<h4 id="sqlite">SQLite </h4>
+<ul>
+<li>SQLite is a local database engine</li>
+<li>We write raw SQL queries (CREATE, INSERT, SELECT)</li>
+<li>More boilerplate code</li>
+<li>No compile-time query checking</li>
+<li>Higher chance of runtime errors</li>
+</ul>
+<blockquote>
+<p>Example:<br>
+You manually write SQL queries to store and fetch data.</p>
+</blockquote>
+<h4 id="room">Room </h4>
+<ul>
+<li>Room is a library built on top of SQLite by Google</li>
+<li>Uses annotations instead of raw SQL</li>
+<li>Less code and clean structure</li>
+<li>Compile-time checking of SQL queries</li>
+<li>Easy integration with LiveData / Flow</li>
+<li>Room internally uses SQLite, but makes it safer and easier.</li>
+</ul>
+<h3 id="q46-what-is-room-database">Q46. What is Room Database? </h3>
+<p><strong>Answer:</strong><br>
+Room is an abstraction layer over SQLite.</p>
+<hr>
+<h3 id="q47-why-room-instead-of-sqlite">Q47. Why Room instead of SQLite? </h3>
+<p><strong>Answer:</strong><br>
+Room is safer, simpler, and supports LiveData.<br>
+SQLite is a lightweight local database that stores data on the device without needing a server.</p>
+<hr>
+<h3 id="q48-what-are-entity-dao-and-database">Q48. What are Entity, DAO, and Database? </h3>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>🗂️ Entity: Table</li>
+<li>🧩 DAO: Database operations</li>
+<li>🏛️ Database: Holds database configuration</li>
+</ul>
+<hr>
+<h3 id="q49-how-did-you-store-offline-music-data">Q49. How did you store offline music data? </h3>
+<p><strong>Answer:</strong><br>
+By saving song metadata and file references in Room.</p>
+<hr>
+<h3 id="q50-what-type-of-data-did-you-store-locally">Q50. What type of data did you store locally? </h3>
+<p><strong>Answer:</strong><br>
+Song details, playlists, and offline file paths.</p>
+<hr>
+<h3 id="q51-how-did-you-sync-online-and-offline-data">Q51. How did you sync online and offline data? </h3>
+<p><strong>Answer:</strong><br>
+By checking network availability and updating local data.</p>
+<hr>
+<h3 id="q52-what-happens-if-the-app-is-restarted">Q52. What happens if the app is restarted? </h3>
+<p><strong>Answer:</strong><br>
+Data is restored from Room database.</p>
+<hr>
+<h3 id="q53-how-did-you-avoid-duplicate-entries">Q53. How did you avoid duplicate entries? </h3>
+<p><strong>Answer:</strong><br>
+By using unique primary keys.</p>
+<hr>
+<h3 id="q54-what-is-primary-key-in-room">Q54. What is primary key in Room? </h3>
+<p><strong>Answer:</strong><br>
+A unique identifier for database entries.</p>
+<hr>
+<h3 id="q55-difference-between-room-and-sharedpreferences">Q55. Difference between Room and SharedPreferences? </h3>
+<p><strong>Answer:</strong><br>
+Room is for structured data, SharedPreferences is for small key-value data.</p>
+<hr>
+<h2 id="7️⃣-firebase-authentication--backend">7️⃣ Firebase (Authentication &amp; Backend) </h2>
+<h3 id="q56-what-is-firebase">Q56. What is Firebase? </h3>
+<p><strong>Answer:</strong><br>
+Firebase is a backend platform by Google.</p>
+<hr>
+<h3 id="q57-why-did-you-use-firebase-authentication">Q57. Why did you use Firebase Authentication? </h3>
+<p><strong>Answer:</strong><br>
+To provide secure and easy user login.</p>
+<hr>
+<h3 id="q58-difference-between-google-sign-in-and-emailpassword">Q58. Difference between Google Sign-In and Email/Password? </h3>
+<p><strong>Answer:</strong><br>
+Google Sign-In is faster, Email requires manual registration.</p>
+<hr>
+<h3 id="q59-how-does-firebase-authentication-work-internally">Q59. How does Firebase authentication work internally? </h3>
+<p><strong>Answer:</strong><br>
+Firebase verifies credentials and generates a unique UID.</p>
+<hr>
+<h3 id="q60-is-firebase-secure">Q60. Is Firebase secure? </h3>
+<p><strong>Answer:</strong><br>
+Yes, it follows industry security standards.</p>
+<hr>
+<h3 id="q61-what-happens-if-login-fails">Q61. What happens if login fails? </h3>
+<p><strong>Answer:</strong><br>
+Error message is shown to the user.</p>
+<hr>
+<h3 id="q62-did-you-store-any-user-data-in-firestore-or-realtime-db">Q62. Did you store any user data in Firestore or Realtime DB? </h3>
+<p><strong>Answer:</strong><br>
+Only basic profile data.</p>
+<hr>
+<h3 id="q63-what-is-firebase-uid">Q63. What is Firebase UID? </h3>
+<p><strong>Answer:</strong><br>
+A unique user identifier.</p>
+<hr>
+<h3 id="q64-how-do-you-handle-logout">Q64. How do you handle logout? </h3>
+<p><strong>Answer:</strong><br>
+By signing out and clearing session data.</p>
+<hr>
+<h3 id="q65-can-firebase-be-replaced-by-another-backend">Q65. Can Firebase be replaced by another backend? </h3>
+<p><strong>Answer:</strong><br>
+Yes, with a custom backend.</p>
+<hr>
+<h2 id="8️⃣-app-lifecycle--background-work">8️⃣ App Lifecycle &amp; Background Work </h2>
+<h3 id="q66-explain-android-activity-lifecycle">Q66. Explain Android activity lifecycle. </h3>
+<p><strong>Answer:</strong><br>
+It manages activity states like create, start, resume, pause, stop, and destroy.</p>
+<hr>
+<h3 id="q67-what-happens-when-the-app-goes-to-background">Q67. What happens when the app goes to background? </h3>
+<p><strong>Answer:</strong><br>
+UI stops, service continues playback.</p>
+<hr>
+<h3 id="q68-how-did-you-keep-music-playing-when-screen-is-off">Q68. How did you keep music playing when screen is off? </h3>
+<p><strong>Answer:</strong><br>
+By using a foreground service.</p>
+<hr>
+<h3 id="q69-difference-between-service-and-foreground-service">Q69. Difference between Service and Foreground Service </h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Service</th>
+<th>Foreground Service</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Visibility</td>
+<td>Runs in background</td>
+<td>Runs in background with user awareness</td>
+</tr>
+<tr>
+<td>Notification</td>
+<td>Not required</td>
+<td>Mandatory notification</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Lower priority, can be stopped by system</td>
+<td>Higher priority, less likely to be stopped</td>
+</tr>
+<tr>
+<td>User awareness</td>
+<td>User may not know it is running</td>
+<td>User always knows it is running</td>
+</tr>
+<tr>
+<td>Example use</td>
+<td>Data sync, background tasks</td>
+<td>Music playback, navigation, downloads</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Simple explanation:</strong><br>
+A Service runs background tasks, while a Foreground Service runs important background tasks that must show a notification to the user.</p>
+<p><strong>One-line interview answer:</strong><br>
+Foreground Service is used for user-visible long-running tasks and requires a notification, unlike a normal Service.</p>
+<hr>
+<h3 id="q70-what-is-ondestroy-used-for">Q70. What is <code>onDestroy()</code> used for? </h3>
+<p><strong>Answer:</strong><br>
+For cleanup and releasing resources.</p>
+<hr>
+<h3 id="q71-how-do-you-avoid-memory-leaks">Q71. How do you avoid memory leaks? </h3>
+<p><strong>Answer:</strong><br>
+I avoid memory leaks by using lifecycle-aware components, removing listeners when they are no longer needed, and avoiding long-lived references to Activities or Contexts.</p>
+<hr>
+<h3 id="q72-did-you-face-any-lifecycle-related-bugs">Q72. Did you face any lifecycle-related bugs? </h3>
+<p><strong>Answer:</strong><br>
+Yes, I faced lifecycle-related issues, which I fixed by using ViewModel to manage UI data and handle configuration changes properly.</p>
+<hr>
+<h2 id="9️⃣-performance-optimization--best-practices">9️⃣ Performance, Optimization &amp; Best Practices </h2>
+<h3 id="q73-how-did-you-optimize-app-performance">Q73. How did you optimize app performance? </h3>
+<p><strong>Answer:</strong><br>
+I optimized app performance by reducing unnecessary API calls, fetching only required data, and using caching to avoid repeated network requests.</p>
+<hr>
+<h3 id="q74-how-did-you-avoid-ui-lag">Q74. How did you avoid UI lag? </h3>
+<p><strong>Answer:</strong><br>
+I avoided UI lag by running heavy operations like network and database tasks off the main thread and updating the UI only on the main thread.</p>
+<hr>
+<h3 id="q75-what-is-anr">Q75. What is ANR? </h3>
+<p><strong>Answer:</strong><br>
+ANR stands for Application Not Responding. It occurs when the app blocks the main thread for too long and stops responding to user actions.</p>
+<hr>
+<h3 id="q76-how-do-you-prevent-memory-leaks">Q76. How do you prevent memory leaks? </h3>
+<p><strong>Answer:</strong><br>
+I prevent memory leaks by releasing resources properly, removing listeners, and avoiding holding Activity or Context references longer than needed.</p>
+<hr>
+<h3 id="q77-did-you-use-viewbinding-or-databinding">Q77. Did you use ViewBinding or DataBinding? </h3>
+<p><strong>Answer:</strong><br>
+I used ViewBinding because it provides safer and simpler access to views without runtime overhead.</p>
+<hr>
+<h3 id="q78-how-did-you-handle-large-lists-of-songs">Q78. How did you handle large lists of songs? </h3>
+<p><strong>Answer:</strong><br>
+I handled large lists of songs using RecyclerView with efficient adapters that load only visible items.</p>
+<hr>
+<h3 id="q79-did-you-use-pagination-or-lazy-loading">Q79. Did you use pagination or lazy loading? </h3>
+<p><strong>Answer:</strong><br>
+Yes, I used basic lazy loading to load data gradually instead of loading everything at once.</p>
+<hr>
+<h3 id="q80-how-did-you-test-your-app">Q80. How did you test your app? </h3>
+<p><strong>Answer:</strong><br>
+I tested the app using manual testing on multiple devices and Android Emulator testing.</p>
+<hr>
+<h2 id="-general-tcs-hr--behavioral-project-based">🔟 General TCS HR + Behavioral (Project Based) </h2>
+<h3 id="q81-why-did-you-choose-this-project">Q81. Why did you choose this project? </h3>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>
+<p>I chose this project because I faced a real problem myself. Most music apps focus either on online streaming or on offline music, so users often need multiple apps.</p>
+</li>
+<li>
+<p>To solve this, I built TuneLyf, a single Android app that supports both online streaming and offline music from the user’s device, along with playlists and background playback.</p>
+</li>
+<li>
+<p>Through this project, I wanted to gain practical experience with Android development, Firebase authentication, and MVVM architecture, while building an app that offers a smooth and reliable user experience.</p>
+</li>
+</ul>
+<hr>
+<h3 id="q82-what-did-you-learn-from-this-project">Q82. What did you learn from this project? </h3>
+<p><strong>Answer:</strong><br>
+I learned Android architecture, API integration, Firebase usage, background tasks, and overall app flow.</p>
+<hr>
+<h3 id="q83-how-did-this-project-improve-your-android-skills">Q83. How did this project improve your Android skills? </h3>
+<p><strong>Answer:</strong><br>
+This project improved my understanding of real-world Android app development, including UI handling and data flow.</p>
+<hr>
+<h3 id="q84-how-did-you-manage-time-during-development">Q84. How did you manage time during development? </h3>
+<p><strong>Answer:</strong><br>
+I managed time by dividing the work into small milestones and completing features step by step.</p>
+<hr>
+<h3 id="q85-what-will-you-do-if-the-app-crashes-in-production">Q85. What will you do if the app crashes in production? </h3>
+<p><strong>Answer:</strong><br>
+I would analyze logs, identify the issue, fix it, test properly, and release an update quickly.</p>
+<hr>
+<h3 id="q86-how-do-you-debug-issues">Q86. How do you debug issues? </h3>
+<p><strong>Answer:</strong><br>
+I debug issues using logs, breakpoints, and testing on different scenarios.</p>
+<hr>
+<h3 id="q87-what-was-the-toughest-bug-you-fixed">Q87. What was the toughest bug you fixed? </h3>
+<p><strong>Answer:</strong><br>
+The toughest bug was related to background playback, which I fixed by properly handling the service lifecycle.</p>
+<hr>
+<h3 id="q88-how-would-you-explain-this-project-to-a-non-technical-person">Q88. How would you explain this project to a non-technical person? </h3>
+<p><strong>Answer:</strong><br>
+It is an app that allows users to listen to music easily on their phone, even when the app runs in the background.</p>
+<hr>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<h2 id="spotify-vs-tunelyf--interview-comparison">Spotify vs TuneLyf – Interview Comparison </h2>
+<h3 id="-1-core-purpose">🔹 1. Core Purpose </h3>
+<ul>
+<li><strong>Spotify:</strong> Streaming-first music platform focused on online content and recommendations.</li>
+<li><strong>TuneLyf:</strong> Hybrid music application supporting both online streaming and device music.</li>
+</ul>
+<h3 id="-2-device-local-music-support">🔹 2. Device (Local) Music Support </h3>
+<ul>
+<li><strong>Spotify:</strong> Limited and unreliable support for local files, mainly through desktop sync.</li>
+<li><strong>TuneLyf:</strong> Full native support for device music using Android MediaStore.</li>
+</ul>
+<h3 id="-3-offline-usage">🔹 3. Offline Usage </h3>
+<ul>
+<li><strong>Spotify:</strong> Offline playback only for downloaded streaming songs.</li>
+<li><strong>TuneLyf:</strong> Works fully offline for device music without any download requirement.</li>
+</ul>
+<h3 id="-4-android-storage-handling">🔹 4. Android Storage Handling </h3>
+<ul>
+<li><strong>Spotify:</strong> Avoids deep storage access due to Android scoped storage restrictions.</li>
+<li><strong>TuneLyf:</strong> Properly handles scoped storage and permissions to access local audio files.</li>
+</ul>
+<h3 id="-5-playback-system">🔹 5. Playback System </h3>
+<ul>
+<li><strong>Spotify:</strong> Uses a proprietary player with DRM and backend-controlled playback.</li>
+<li><strong>TuneLyf:</strong> Uses ExoPlayer with a foreground service for stable and continuous playback.</li>
+</ul>
+<h3 id="-6-architecture-pattern">🔹 6. Architecture Pattern </h3>
+<ul>
+<li><strong>Spotify:</strong> Closed and backend-driven architecture.</li>
+<li><strong>TuneLyf:</strong> Clean MVVM architecture with a single shared ViewModel for playback state.</li>
+</ul>
+<h3 id="-7-internet-dependency">🔹 7. Internet Dependency </h3>
+<ul>
+<li><strong>Spotify:</strong> Requires internet for most features except cached downloads.</li>
+<li><strong>TuneLyf:</strong> Can operate without internet when playing device music.</li>
+</ul>
+<h3 id="-8-business-focus">🔹 8. Business Focus </h3>
+<ul>
+<li><strong>Spotify:</strong> Monetizes through subscriptions and advertisements, prioritizing streaming.</li>
+<li><strong>TuneLyf:</strong> User-focused design prioritizing flexibility and real-world usage.</li>
+</ul>
+<hr>
+<h3 id="-one-line-interview-answer">✅ One-Line Interview Answer </h3>
+<blockquote>
+<p>Spotify is a streaming-first platform with limited local file support, while TuneLyf is a hybrid Android music app that supports both online streaming and native device music with full offline usability.</p>
+</blockquote>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

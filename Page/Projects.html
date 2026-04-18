@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects | TCS Interview Prep</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+        background: #c8d1e3;
+      color: #222;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #1f4fd8;
+      text-decoration: none;
+    }
+
+    /* CARD DESIGN (same as index / DSA) */
+    .project {
+      background: #ffffff;
+      padding: 18px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border-left: 5px solid #1f4fd8;
+
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .content {
+      flex: 1;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: #1f4fd8;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: #1f4fd8;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- CUSTOM CHECKBOX ---------- */
+    .cb-wrap {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      margin-top: 4px;
+    }
+
+    .cb-wrap input {
+      display: none;
+    }
+
+    .cb {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 2px solid #1f4fd8;
+      position: relative;
+      transition: 0.2s;
+    }
+
+    .cb::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 0px;
+      width: 6px;
+      height: 11px;
+      border: solid #ffffff;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg) scale(0);
+      transition: 0.2s;
+    }
+
+    .cb-wrap input:checked + .cb {
+      background: #1f4fd8;
+      border-color: #1f4fd8;
+    }
+
+    .cb-wrap input:checked + .cb::after {
+      transform: rotate(45deg) scale(1);
+    }
+
+    /* COMPLETED STATE (text only, checkbox visible) */
+    .completed .content {
+      opacity: 0.6;
+    }
+
+    .completed h2 {
+      text-decoration: line-through;
+    }
+
+    .reset-box {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 10px 22px;
+      font-size: 14px;
+      border: none;
+      border-radius: 6px;
+      background: #1f4fd8;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #163bb8;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <a class="back" href="../index.html">⬅ Back to Home</a>
+
+  <h1>Projects</h1>
+
+  <!-- PROJECT 1 -->
+  <div class="project" data-id="tunelyf">
+    <div class="content">
+      <h2>TuneLyf</h2>
+      <p>
+        TuneLyf is an Android music application that supports both online
+        music streaming and offline songs stored on the user’s device.
+        It provides smooth background playback using ExoPlayer and follows
+        MVVM architecture.
+      </p>
+      <a href="TuneLyf.html">Open TuneLyf Details →</a>
+    </div>
+
+    <label class="cb-wrap">
+      <input type="checkbox" class="chk" id="project-tunelyf">
+      <span class="cb"></span>
+    </label>
+  </div>
+
+  <!-- PROJECT 2 -->
+  <div class="project" data-id="organizer">
+    <div class="content">
+      <h2>Organizer Classes</h2>
+      <p>
+        Organizer Classes is an Android ed-tech application designed for
+        board-specific preparation. It helps students practice MCQs,
+        previous-year questions, take mock tests, and track their progress.
+      </p>
+      <a href="Organizer.html">Open Organizer Classes Details →</a>
+    </div>
+
+    <label class="cb-wrap">
+      <input type="checkbox" class="chk" id="project-organizer">
+      <span class="cb"></span>
+    </label>
+  </div>
+
+  <!-- RESET -->
+  <div class="reset-box">
+    <button id="resetBtn">Reset Progress</button>
+  </div>
+
+</div>
+
+<script>
+  const projects = document.querySelectorAll(".project");
+
+  projects.forEach(project => {
+    const checkbox = project.querySelector(".chk");
+    const key = checkbox.id;
+
+    checkbox.checked = localStorage.getItem(key) === "true";
+    if (checkbox.checked) project.classList.add("completed");
+
+    checkbox.addEventListener("change", () => {
+      localStorage.setItem(key, checkbox.checked);
+      project.classList.toggle("completed", checkbox.checked);
+    });
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", () => {
+    projects.forEach(project => {
+      const checkbox = project.querySelector(".chk");
+      checkbox.checked = false;
+      project.classList.remove("completed");
+      localStorage.removeItem(checkbox.id);
+    });
+  });
+</script>
+
+</body>
+</html>

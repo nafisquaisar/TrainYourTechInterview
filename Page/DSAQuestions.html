@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TCS Coding Questions – HR Style</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#c8d1e3;
+  color:#222;
+}
+.container{
+  max-width:950px;
+  margin:40px auto;
+  padding:20px;
+}
+.back{
+  font-weight:bold;
+  color:#1f4fd8;
+  text-decoration:none;
+  display:inline-block;
+  margin-bottom:20px;
+}
+h1{
+  text-align:center;
+}
+.section-title{
+  margin:35px 0 15px;
+  font-size:20px;
+  color:#1f4fd8;
+}
+.card{
+  background:#fff;
+  border-left:5px solid #1f4fd8;
+  border-radius:8px;
+  padding:15px;
+  margin-bottom:14px;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+.content{
+  flex:1;
+}
+.title{
+  font-weight:bold;
+}
+.meta{
+  font-size:14px;
+  margin-top:6px;
+}
+.meta a{
+  color:#1f4fd8;
+  text-decoration:none;
+}
+.meta a:hover{ text-decoration:underline; }
+
+/* checkbox */
+.cb-wrap{
+  display:inline-flex;
+  align-items:center;
+  cursor:pointer;
+}
+.cb-wrap input{ display:none; }
+.cb{
+  width:18px;height:18px;
+  border:2px solid #1f4fd8;
+  border-radius:4px;
+  position:relative;
+}
+.cb::after{
+  content:"";
+  position:absolute;
+  left:4px;top:0;
+  width:6px;height:11px;
+  border:solid #fff;
+  border-width:0 2px 2px 0;
+  transform:rotate(45deg) scale(0);
+  transition:.2s;
+}
+.cb-wrap input:checked + .cb{
+  background:#1f4fd8;
+}
+.cb-wrap input:checked + .cb::after{
+  transform:rotate(45deg) scale(1);
+}
+.done .content{ opacity:.6; }
+.done .title{ text-decoration:line-through; }
+
+.reset-box{
+  text-align:center;
+  margin-top:30px;
+}
+button{
+  padding:10px 25px;
+  border:none;
+  border-radius:6px;
+  background:#1f4fd8;
+  color:#fff;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<a class="back" href="../index.html">⬅ Back to Home</a>
+<h1>TCS Interview Coding Questions</h1>
+
+<div id="app"></div>
+
+<div class="reset-box">
+  <button id="resetBtn">Reset Progress</button>
+</div>
+
+</div>
+
+<script>
+/* =========================
+   DATA (HR STYLE)
+   ========================= */
+
+const sections = [
+/* ================= NUMBERS ================= */
+{
+  title: "🔹 Numbers",
+  items: [
+    { t:"Reverse a number", f:"Modulo (%) and division", g:"https://www.geeksforgeeks.org/write-a-program-to-reverse-digits-of-a-number/", l:"https://leetcode.com/problems/reverse-integer/" },
+    { t:"Palindrome number", f:"Reverse + comparison", g:"https://www.geeksforgeeks.org/palindrome-number/", l:"https://leetcode.com/problems/palindrome-number/" },
+    { t:"Prime number", f:"Loop till √n", g:"https://www.geeksforgeeks.org/program-to-check-prime-number/", l:"https://leetcode.com/problems/count-primes/" },
+    { t:"Print prime numbers 1 to N", f:"Nested loops / prime logic", g:"https://www.geeksforgeeks.org/program-to-print-prime-numbers/", l:"https://leetcode.com/problems/count-primes/" },
+    { t:"Fibonacci series", f:"Iteration", g:"https://www.geeksforgeeks.org/program-for-fibonacci-numbers/", l:"https://leetcode.com/problems/fibonacci-number/" },
+    { t:"Factorial of a number", f:"Loop / recursion", g:"https://www.geeksforgeeks.org/program-for-factorial-of-a-number/", l:"https://leetcode.com/problems/factorial-trailing-zeroes/" },
+    { t:"Armstrong number", f:"Modulo + power", g:"https://www.geeksforgeeks.org/program-for-armstrong-numbers/", l:"https://leetcode.com/problems/armstrong-number/" },
+    { t:"Strong number", f:"Factorial of digits", g:"https://www.geeksforgeeks.org/check-whether-number-strong-number-not/", l:"" },
+    { t:"Perfect number", f:"Factors + sum", g:"https://www.geeksforgeeks.org/perfect-number/", l:"https://leetcode.com/problems/perfect-number/" },
+    { t:"GCD / LCM", f:"Euclidean algorithm", g:"https://www.geeksforgeeks.org/c-program-find-gcd-hcf-two-numbers/", l:"https://leetcode.com/problems/find-greatest-common-divisor-of-array/" },
+    { t:"Sum of digits", f:"Modulo logic", g:"https://www.geeksforgeeks.org/program-for-sum-of-the-digits-of-a-given-number/", l:"https://leetcode.com/problems/add-digits/" },
+    { t:"Count digits", f:"Division-based loop", g:"https://www.geeksforgeeks.org/program-count-digits-integer-3-different-methods/", l:"" },
+    { t:"Swap two numbers", f:"Temp / XOR", g:"https://www.geeksforgeeks.org/swap-two-numbers-without-using-temporary-variable/", l:"" },
+    { t:"Decimal to binary", f:"Modulo & division", g:"https://www.geeksforgeeks.org/program-decimal-binary-conversion/", l:"https://leetcode.com/problems/convert-a-number-to-hexadecimal/" },
+    { t:"Binary to decimal", f:"Positional value", g:"https://www.geeksforgeeks.org/program-binary-decimal-conversion/", l:"" },
+    { t:"Even or odd number", f:"Modulo operator", g:"https://www.geeksforgeeks.org/program-even-odd/", l:"" }
+  ]
+},
+
+/* ================= ARRAYS ================= */
+{
+  title: "🔹 Arrays",
+  items: [
+    { t:"Largest element in array", f:"Single traversal", g:"https://www.geeksforgeeks.org/program-to-find-largest-element-in-an-array/", l:"https://leetcode.com/problems/largest-number-at-least-twice-of-others/" },
+    { t:"Second largest element", f:"Two variables", g:"https://www.geeksforgeeks.org/find-second-largest-element-array/", l:"" },
+    { t:"Reverse an array", f:"Two-pointer approach", g:"https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array/", l:"https://leetcode.com/problems/reverse-string/" },
+    { t:"Sort array (Bubble / Selection)", f:"Nested loops", g:"https://www.geeksforgeeks.org/bubble-sort/", l:"" },
+    { t:"Remove duplicate elements", f:"Hashing / two-pointer", g:"https://www.geeksforgeeks.org/remove-duplicates-from-unsorted-array/", l:"https://leetcode.com/problems/remove-duplicates-from-sorted-array/" },
+    { t:"Find missing number", f:"Sum / XOR", g:"https://www.geeksforgeeks.org/find-the-missing-number/", l:"https://leetcode.com/problems/missing-number/" },
+    { t:"Linear search", f:"Sequential traversal", g:"https://www.geeksforgeeks.org/linear-search/", l:"https://leetcode.com/problems/search-insert-position/" },
+    { t:"Binary search", f:"Sorted array", g:"https://www.geeksforgeeks.org/binary-search/", l:"https://leetcode.com/problems/binary-search/" },
+    { t:"Count even & odd elements", f:"Modulo check", g:"https://www.geeksforgeeks.org/count-even-odd-elements-array/", l:"" },
+    { t:"Merge two arrays", f:"Two-pointer logic", g:"https://www.geeksforgeeks.org/merge-two-sorted-arrays/", l:"https://leetcode.com/problems/merge-sorted-array/" },
+    { t:"Swap elements in array", f:"Index swapping", g:"https://www.geeksforgeeks.org/swap-elements-array/", l:"" },
+    { t:"Find max element index", f:"Traversal", g:"https://www.geeksforgeeks.org/find-index-maximum-element-array/", l:"" },
+    { t:"Merge & sort two unsorted arrays", f:"Merge + sort", g:"https://www.geeksforgeeks.org/merge-two-unsorted-arrays/", l:"https://leetcode.com/problems/merge-sorted-array/" }
+  ]
+},
+
+/* ================= STRINGS ================= */
+{
+  title: "🔹 Strings (Very Common)",
+  items: [
+    { t:"Reverse a string", f:"Loop / two-pointer", g:"https://www.geeksforgeeks.org/program-to-reverse-a-string/", l:"https://leetcode.com/problems/reverse-string/" },
+    { t:"Palindrome string", f:"Two-pointer compare", g:"https://www.geeksforgeeks.org/check-if-a-string-is-palindrome/", l:"https://leetcode.com/problems/valid-palindrome/" },
+    { t:"Count vowels & consonants", f:"Character checking", g:"https://www.geeksforgeeks.org/count-vowels-consonants-string/", l:"https://leetcode.com/problems/number-of-vowels-in-a-string/" },
+    { t:"Character frequency", f:"HashMap / array", g:"https://www.geeksforgeeks.org/print-characters-frequencies-order-occurrence/", l:"https://leetcode.com/problems/first-unique-character-in-a-string/" },
+    { t:"Remove duplicate characters", f:"Hashing", g:"https://www.geeksforgeeks.org/remove-duplicates-from-a-string/", l:"" },
+    { t:"Find duplicate characters", f:"Frequency count", g:"https://www.geeksforgeeks.org/print-all-the-duplicates-in-the-input-string/", l:"" },
+    { t:"Count words in sentence", f:"Space detection", g:"https://www.geeksforgeeks.org/count-number-of-words-string/", l:"" },
+    { t:"Lowercase to uppercase (no built-in)", f:"ASCII logic", g:"https://www.geeksforgeeks.org/program-convert-string-lowercase-uppercase/", l:"" },
+    { t:"Remove vowels from string", f:"Character filtering", g:"https://www.geeksforgeeks.org/remove-vowels-string/", l:"" },
+    { t:"Check binary number", f:"Digit validation (0/1)", g:"https://www.geeksforgeeks.org/check-number-binary/", l:"" },
+    { t:"Count consonants in name", f:"Character checking", g:"https://www.geeksforgeeks.org/count-consonants-string/", l:"" }
+  ]
+},
+
+/* ================= PATTERNS ================= */
+{
+  title: "🔹 Patterns (Guaranteed – Bhopal Panel)",
+  items: [
+    { t:"Star pattern (increasing)", f:"Nested loops", g:"https://www.geeksforgeeks.org/programs-printing-pyramid-patterns-java/", l:"" },
+    { t:"Star pattern (decreasing)", f:"Reverse loop", g:"https://www.geeksforgeeks.org/programs-printing-pyramid-patterns-java/", l:"" },
+    { t:"Number pattern", f:"Loop control", g:"https://www.geeksforgeeks.org/number-pattern-programs/", l:"" },
+    { t:"Reverse table of 5", f:"Loop + multiplication", g:"https://www.geeksforgeeks.org/program-print-multiplication-table/", l:"" }
+  ]
+},
+
+/* ================= DS BASICS ================= */
+{
+  title: "🔹 Basic Data Structures",
+  items: [
+    { t:"Reverse linked list", f:"Pointer manipulation", g:"https://www.geeksforgeeks.org/reverse-a-linked-list/", l:"https://leetcode.com/problems/reverse-linked-list/" },
+    { t:"Stack implementation", f:"LIFO principle", g:"https://www.geeksforgeeks.org/stack-data-structure/", l:"https://leetcode.com/problems/implement-stack-using-queues/" },
+    { t:"Queue implementation", f:"FIFO principle", g:"https://www.geeksforgeeks.org/queue-data-structure/", l:"https://leetcode.com/problems/implement-queue-using-stacks/" },
+    { t:"Write a 3×4 matrix", f:"2D array traversal", g:"https://www.geeksforgeeks.org/two-dimensional-array/", l:"https://leetcode.com/problems/matrix-diagonal-sum/" }
+  ]
+},
+
+/* ================= PANEL NOTES ================= */
+{
+  title: "✅ Panel Notes (Bhopal Reality)",
+  items: [
+    { t:"Explain logic clearly", f:"Step-by-step explanation", g:"", l:"" },
+    { t:"If stuck, explain approach", f:"Communication matters", g:"", l:"" },
+    { t:"Basic logic > fancy code", f:"Clarity is key", g:"", l:"" }
+  ]
+}
+];
+
+
+/* =========================
+   RENDER
+   ========================= */
+
+const app = document.getElementById("app");
+
+sections.forEach((sec, si)=>{
+  app.innerHTML += `<div class="section-title">${sec.title}</div>`;
+  sec.items.forEach((it, qi)=>{
+    const id = `s${si}_q${qi}`;
+    app.innerHTML += `
+    <div class="card">
+      <div class="content">
+        <div class="title">${it.t}</div>
+        <div class="meta"><b>Focus:</b> ${it.f}</div>
+        <div class="meta">
+          ${it.g ? `GFG: <a href="${it.g}" target="_blank">Link</a>` : ""}
+          ${it.l ? ` | LeetCode: <a href="${it.l}" target="_blank">Link</a>` : ""}
+        </div>
+      </div>
+      <label class="cb-wrap">
+        <input type="checkbox" id="${id}">
+        <span class="cb"></span>
+      </label>
+    </div>
+    `;
+  });
+});
+
+/* =========================
+   STORAGE
+   ========================= */
+
+document.querySelectorAll(".card").forEach(card=>{
+  const cb = card.querySelector("input");
+  cb.checked = localStorage.getItem(cb.id)==="true";
+  if(cb.checked) card.classList.add("done");
+
+  cb.addEventListener("change",()=>{
+    localStorage.setItem(cb.id, cb.checked);
+    card.classList.toggle("done", cb.checked);
+  });
+});
+
+document.getElementById("resetBtn").onclick=()=>{
+  document.querySelectorAll(".card").forEach(card=>{
+    const cb = card.querySelector("input");
+    cb.checked=false;
+    localStorage.removeItem(cb.id);
+    card.classList.remove("done");
+  });
+};
+</script>
+
+</body>
+</html>

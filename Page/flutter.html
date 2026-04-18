@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flutter | Interview Prep</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #c8d1e3;
+      color: #222;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #1f4fd8;
+      text-decoration: none;
+    }
+    .topic {
+      background: #fff;
+      padding: 18px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border-left: 5px solid #1f4fd8;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+    .content { flex: 1; }
+    h2 { margin: 0 0 10px; color: #1f4fd8; }
+    ul { padding-left: 18px; margin: 0; line-height: 1.6; }
+
+    .topic-link {
+      color: #1f4fd8;
+      text-decoration: none;
+    }
+    .topic-link:hover {
+      color: #5579df;
+    }
+
+    .cb-wrap { cursor: pointer; display: inline-flex; margin-top: 4px; }
+    .cb-wrap input { display: none; }
+    .cb {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 2px solid #1f4fd8;
+      position: relative;
+    }
+    .cb::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 0;
+      width: 6px;
+      height: 11px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg) scale(0);
+      transition: 0.2s;
+    }
+    .cb-wrap input:checked + .cb {
+      background: #1f4fd8;
+    }
+    .cb-wrap input:checked + .cb::after {
+      transform: rotate(45deg) scale(1);
+    }
+
+    .completed .content { opacity: 0.6; }
+    .completed h2 { text-decoration: line-through; }
+
+    .reset-box { text-align: center; margin-top: 30px; }
+    button {
+      padding: 10px 22px;
+      font-size: 14px;
+      border: none;
+      border-radius: 6px;
+      background: #1f4fd8;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover { background: #163bb8; }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <a class="back" href="../index.html">⬅ Back to Home</a>
+  <h1>🦋 Flutter – Interview Preparation</h1>
+
+  <div id="topics"></div>
+
+  <div class="reset-box">
+    <button id="resetBtn">Reset Progress</button>
+  </div>
+</div>
+
+<script>
+  const topicsData = [
+  {
+      title: "Flutter Syllabus",
+      file: "../Page/Flutter/Syllabus.html",
+      points: ["Complete roadmap","All topics"]
+    },
+    {
+      title: "Introduction",
+      file: "../Page/Flutter/1.Introductionflutter.html",
+      points: ["What is Flutter","Architecture","Setup","Project structure"]
+    },
+    {
+      title: "Dart Essentials",
+      file: "../Page/Flutter/2.DartEssentials.html",
+      points: ["Variables","OOP","Async","Streams","Null safety"]
+    },
+    {
+      title: "Flutter Basics",
+      file: "../Page/Flutter/3.FlutterBasics.html",
+      points: ["Widgets","Stateless vs Stateful","Scaffold","Layouts"]
+    },
+    {
+      title: "UI Layout & Design",
+      file: "../Page/Flutter/4.UILayoutDesign.html",
+      points: ["Padding","MediaQuery","ListView","GridView"]
+    },
+    {
+      title: "Navigation",
+      file: "../Page/Flutter/5.Navigation.html",
+      points: ["Navigator","Routes","Bottom Nav","TabBar"]
+    },
+    {
+      title: "State Management",
+      file: "../Page/Flutter/6.StateManagement.html",
+      points: ["setState","Provider","Riverpod","Bloc","GetX"]
+    },
+    {
+      title: "Forms & Input",
+      file: "../Page/Flutter/7.FormsInput.html",
+      points: ["TextField","Validation","Keyboard"]
+    },
+    {
+      title: "Animations",
+      file: "../Page/Flutter/11.Animation.html",
+      points: ["Implicit","Explicit","Hero","Lottie"]
+    },
+    {
+      title: "Decoration",
+      file: "../Page/Flutter/Decoration.html",
+      points: ["BoxDecoration","Borders","Shadows"]
+    },
+    {
+      title: "ListTile",
+      file: "../Page/Flutter/ListTile.html",
+      points: ["ListTile UI","Leading/Trailing","Customization"]
+    },
+    { title: "Networking & APIs", file: "#", points: ["HTTP","Dio","REST API","JSON","Pagination"] },
+    { title: "Storage & Database", file: "#", points: ["SharedPreferences","Hive","SQLite","Secure storage"] },
+    { title: "Firebase", file: "#", points: ["Auth","Firestore","FCM","Crashlytics"] },
+    { title: "Animations", file: "#", points: ["Implicit","Explicit","Hero","Lottie"] },
+    { title: "Advanced Widgets", file: "#", points: ["CustomPainter","Slivers","PageView"] },
+    { title: "Performance", file: "#", points: ["Optimization","Memory","Image caching"] },
+    { title: "Platform Integration", file: "#", points: ["Method channels","Native code","Sensors"] },
+    { title: "Testing", file: "#", points: ["Unit","Widget","Integration tests"] },
+    { title: "Deployment", file: "#", points: ["APK/AAB","Signing","Play Store"] },
+    { title: "Web & Desktop", file: "#", points: ["Flutter Web","Windows/Mac/Linux"] }
+
+  ];
+
+  const container = document.getElementById("topics");
+
+  topicsData.forEach((t, i) => {
+    const id = "flutter-" + (i + 1);
+    container.insertAdjacentHTML("beforeend", `
+      <div class="topic">
+        <div class="content">
+          <h2>
+            <a href="${t.file}" class="topic-link">
+              ${i + 1}. ${t.title}
+            </a>
+          </h2>
+          <ul>
+            ${t.points.map(p => `<li>${p}</li>`).join("")}
+          </ul>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="${id}">
+          <span class="cb"></span>
+        </label>
+      </div>
+    `);
+  });
+
+  document.querySelectorAll(".chk").forEach(cb => {
+    cb.checked = localStorage.getItem(cb.id) === "true";
+    if (cb.checked) cb.closest(".topic").classList.add("completed");
+
+    cb.addEventListener("change", () => {
+      localStorage.setItem(cb.id, cb.checked);
+      cb.closest(".topic").classList.toggle("completed", cb.checked);
+    });
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", () => {
+    document.querySelectorAll(".chk").forEach(cb => {
+      cb.checked = false;
+      localStorage.removeItem(cb.id);
+      cb.closest(".topic").classList.remove("completed");
+    });
+  });
+</script>
+</body>
+</html>

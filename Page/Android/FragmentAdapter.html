@@ -1,0 +1,557 @@
+<!DOCTYPE html><html><head>
+      <title>FragmentAdapter</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\nafis\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.20\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h2 id="-android-adapter---complete-notes">🔄 Android Adapter - Complete Notes </h2>
+<h2 id="-fragments-adapters--views--complete-notes">🧩 Fragments, Adapters &amp; Views – Complete Notes </h2>
+<p>This section explains how Android apps manage <strong>reusable UI parts (Fragments)</strong> and <strong>display lists of data (Adapters &amp; Views)</strong>.</p>
+<hr>
+<h2 id="-1-fragments">🧱 1. Fragments </h2>
+<p>A <strong>Fragment</strong> is a <strong>reusable UI component</strong> that lives inside an Activity.<br>
+An activity can contain <strong>multiple fragments</strong>.</p>
+<h3 id="-why-fragments">📌 Why Fragments? </h3>
+<ul>
+<li>Reusable UI</li>
+<li>Better support for tablets</li>
+<li>Clean separation of UI logic</li>
+</ul>
+<hr>
+<h3 id="-fragment-lifecycle">🔄 Fragment Lifecycle </h3>
+<p>Fragment lifecycle is similar to Activity but tied to its host Activity.</p>
+<p><strong>Main lifecycle methods:</strong></p>
+<ul>
+<li><code>onAttach()</code> – Fragment attached to activity</li>
+<li><code>onCreate()</code> – Fragment created</li>
+<li><code>onCreateView()</code> – UI created</li>
+<li><code>onStart()</code> – Fragment visible</li>
+<li><code>onResume()</code> – Fragment active</li>
+<li><code>onPause()</code> – Fragment partially hidden</li>
+<li><code>onStop()</code> – Fragment not visible</li>
+<li><code>onDestroyView()</code> – UI destroyed</li>
+<li><code>onDetach()</code> – Fragment detached</li>
+</ul>
+<hr>
+<h3 id="-fragment-types">🧩 Fragment Types </h3>
+<ol>
+<li>
+<p><strong>UI Fragment</strong></p>
+<ul>
+<li>Has a layout</li>
+<li>Used to display UI</li>
+</ul>
+</li>
+<li>
+<p><strong>Non-UI Fragment</strong></p>
+<ul>
+<li>No layout</li>
+<li>Used for background tasks (rare now)</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="️-fragment-manager">🗂️ Fragment Manager </h3>
+<p><code>FragmentManager</code> manages fragments inside an activity.</p>
+<p>Used to:</p>
+<ul>
+<li>Add fragments</li>
+<li>Replace fragments</li>
+<li>Remove fragments</li>
+<li>Handle back stack</li>
+</ul>
+<hr>
+<h3 id="-fragment-transactions">🔁 Fragment Transactions </h3>
+<p>Fragment transactions define <strong>operations on fragments</strong>.</p>
+<p>Common operations:</p>
+<ul>
+<li><code>add()</code></li>
+<li><code>replace()</code></li>
+<li><code>remove()</code></li>
+<li><code>addToBackStack()</code></li>
+</ul>
+<hr>
+<h3 id="-add---replace---remove-fragment-code">➕ Add / 🔄 Replace / ❌ Remove Fragment (Code) </h3>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> fragment <span class="token operator">=</span> <span class="token function">SampleFragment</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+supportFragmentManager<span class="token punctuation">.</span><span class="token function">beginTransaction</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>fragmentContainer<span class="token punctuation">,</span> fragment<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">addToBackStack</span><span class="token punctuation">(</span><span class="token keyword keyword-null">null</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><hr>
+<h3 id="-fragment-to-activity-communication">🔗 Fragment to Activity Communication </h3>
+<p>Fragments communicate with activity using <strong>interfaces</strong>.</p>
+<p><strong>Fragment</strong></p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-interface">interface</span> OnButtonClickListener <span class="token punctuation">{</span>
+    <span class="token keyword keyword-fun">fun</span> <span class="token function">onButtonClicked</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><p><strong>Activity</strong></p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-class">class</span> MainActivity <span class="token operator">:</span> <span class="token function">AppCompatActivity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> OnButtonClickListener <span class="token punctuation">{</span>
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">onButtonClicked</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Handle action</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="-2-what-is-an-adapter">📘 2. What is an Adapter? </h2>
+<p>An <strong>Adapter</strong> acts as a <strong>bridge</strong> between:</p>
+<ul>
+<li>Data source (array, list, database)</li>
+<li>UI component (<code>ListView</code>, <code>RecyclerView</code>, <code>Spinner</code>)</li>
+</ul>
+<p>👉 Adapter prepares data and binds it to views.</p>
+<hr>
+<h2 id="-3-types-of-adapters">🧩 3. Types of Adapters </h2>
+<hr>
+<h3 id="-31-arrayadapter">📋 3.1 ArrayAdapter </h3>
+<ul>
+<li><strong>Used With:</strong> ListView, Spinner</li>
+<li><strong>Best For:</strong> Simple lists (String, Int)</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> names <span class="token operator">=</span> <span class="token function">arrayOf</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"John"</span></span><span class="token punctuation">,</span> <span class="token string-literal singleline"><span class="token string">"Emma"</span></span><span class="token punctuation">,</span> <span class="token string-literal singleline"><span class="token string">"Liam"</span></span><span class="token punctuation">)</span>
+<span class="token keyword keyword-val">val</span> adapter <span class="token operator">=</span> <span class="token function">ArrayAdapter</span><span class="token punctuation">(</span>
+    <span class="token keyword keyword-this">this</span><span class="token punctuation">,</span>
+    android<span class="token punctuation">.</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>simple_list_item_1<span class="token punctuation">,</span>
+    names
+<span class="token punctuation">)</span>
+listView<span class="token punctuation">.</span>adapter <span class="token operator">=</span> adapter
+</code></pre><hr>
+<h3 id="-32-cursoradapter">🧠 3.2 CursorAdapter </h3>
+<ul>
+<li><strong>Used With:</strong> ListView</li>
+<li><strong>Data Source:</strong> SQLite / Content Provider</li>
+<li>Uses <code>Cursor</code></li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> cursor <span class="token operator">=</span> db<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"students"</span></span><span class="token punctuation">,</span> <span class="token keyword keyword-null">null</span><span class="token punctuation">,</span> <span class="token keyword keyword-null">null</span><span class="token punctuation">,</span> <span class="token keyword keyword-null">null</span><span class="token punctuation">,</span> <span class="token keyword keyword-null">null</span><span class="token punctuation">,</span> <span class="token keyword keyword-null">null</span><span class="token punctuation">,</span> <span class="token keyword keyword-null">null</span><span class="token punctuation">)</span>
+
+<span class="token keyword keyword-val">val</span> adapter <span class="token operator">=</span> <span class="token function">SimpleCursorAdapter</span><span class="token punctuation">(</span>
+    <span class="token keyword keyword-this">this</span><span class="token punctuation">,</span>
+    android<span class="token punctuation">.</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>simple_list_item_2<span class="token punctuation">,</span>
+    cursor<span class="token punctuation">,</span>
+    <span class="token function">arrayOf</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"name"</span></span><span class="token punctuation">,</span> <span class="token string-literal singleline"><span class="token string">"age"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">intArrayOf</span><span class="token punctuation">(</span>android<span class="token punctuation">.</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>text1<span class="token punctuation">,</span> android<span class="token punctuation">.</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>text2<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token number">0</span>
+<span class="token punctuation">)</span>
+listView<span class="token punctuation">.</span>adapter <span class="token operator">=</span> adapter
+</code></pre><hr>
+<h3 id="-33-baseadapter">🧱 3.3 BaseAdapter </h3>
+<ul>
+<li><strong>Used When:</strong> Custom UI needed</li>
+<li>Full control over list item layout</li>
+<li>More flexible than ArrayAdapter</li>
+</ul>
+<p><em>(Conceptually important for exams)</em></p>
+<hr>
+<h3 id="-34-recyclerviewadapter">🧱 3.4 RecyclerView.Adapter </h3>
+<ul>
+<li><strong>Used With:</strong> RecyclerView</li>
+<li>Best for <strong>large and dynamic data</strong></li>
+<li>High performance</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-class">class</span> <span class="token function">UserAdapter</span><span class="token punctuation">(</span><span class="token keyword keyword-private">private</span> <span class="token keyword keyword-val">val</span> userList<span class="token operator">:</span> List<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token operator">:</span>
+    RecyclerView<span class="token punctuation">.</span>Adapter<span class="token operator">&lt;</span>UserAdapter<span class="token punctuation">.</span>ViewHolder<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword keyword-class">class</span> <span class="token function">ViewHolder</span><span class="token punctuation">(</span>view<span class="token operator">:</span> View<span class="token punctuation">)</span> <span class="token operator">:</span> RecyclerView<span class="token punctuation">.</span><span class="token function">ViewHolder</span><span class="token punctuation">(</span>view<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-val">val</span> textView<span class="token operator">:</span> TextView <span class="token operator">=</span> view<span class="token punctuation">.</span><span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>textView<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">onCreateViewHolder</span><span class="token punctuation">(</span>parent<span class="token operator">:</span> ViewGroup<span class="token punctuation">,</span> viewType<span class="token operator">:</span> Int<span class="token punctuation">)</span><span class="token operator">:</span> ViewHolder <span class="token punctuation">{</span>
+        <span class="token keyword keyword-val">val</span> view <span class="token operator">=</span> LayoutInflater<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>parent<span class="token punctuation">.</span>context<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">inflate</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>item_user<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> <span class="token function">ViewHolder</span><span class="token punctuation">(</span>view<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">onBindViewHolder</span><span class="token punctuation">(</span>holder<span class="token operator">:</span> ViewHolder<span class="token punctuation">,</span> position<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        holder<span class="token punctuation">.</span>textView<span class="token punctuation">.</span>text <span class="token operator">=</span> userList<span class="token punctuation">[</span>position<span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">getItemCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> userList<span class="token punctuation">.</span>size
+<span class="token punctuation">}</span>
+</code></pre><p><strong>Set Adapter</strong></p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code>recyclerView<span class="token punctuation">.</span>layoutManager <span class="token operator">=</span> <span class="token function">LinearLayoutManager</span><span class="token punctuation">(</span><span class="token keyword keyword-this">this</span><span class="token punctuation">)</span>
+recyclerView<span class="token punctuation">.</span>adapter <span class="token operator">=</span> <span class="token function">UserAdapter</span><span class="token punctuation">(</span><span class="token function">listOf</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Ava"</span></span><span class="token punctuation">,</span> <span class="token string-literal singleline"><span class="token string">"Noah"</span></span><span class="token punctuation">,</span> <span class="token string-literal singleline"><span class="token string">"Sophia"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre><hr>
+<h3 id="-35-listadapter">⚡ 3.5 ListAdapter </h3>
+<ul>
+<li>Subclass of RecyclerView.Adapter</li>
+<li>Uses <code>DiffUtil</code></li>
+<li>Automatically handles list updates</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-class">class</span> UserListAdapter <span class="token operator">:</span>
+    ListAdapter<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> UserListAdapter<span class="token punctuation">.</span>ViewHolder<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token function">DiffCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword keyword-class">class</span> <span class="token function">ViewHolder</span><span class="token punctuation">(</span>view<span class="token operator">:</span> View<span class="token punctuation">)</span> <span class="token operator">:</span> RecyclerView<span class="token punctuation">.</span><span class="token function">ViewHolder</span><span class="token punctuation">(</span>view<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-val">val</span> textView<span class="token operator">:</span> TextView <span class="token operator">=</span> view<span class="token punctuation">.</span><span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>textView<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-class">class</span> DiffCallback <span class="token operator">:</span> DiffUtil<span class="token punctuation">.</span>ItemCallback<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">areItemsTheSame</span><span class="token punctuation">(</span>oldItem<span class="token operator">:</span> String<span class="token punctuation">,</span> newItem<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token operator">=</span> oldItem <span class="token operator">==</span> newItem
+        <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">areContentsTheSame</span><span class="token punctuation">(</span>oldItem<span class="token operator">:</span> String<span class="token punctuation">,</span> newItem<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token operator">=</span> oldItem <span class="token operator">==</span> newItem
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">onCreateViewHolder</span><span class="token punctuation">(</span>parent<span class="token operator">:</span> ViewGroup<span class="token punctuation">,</span> viewType<span class="token operator">:</span> Int<span class="token punctuation">)</span><span class="token operator">:</span> ViewHolder <span class="token punctuation">{</span>
+        <span class="token keyword keyword-val">val</span> view <span class="token operator">=</span> LayoutInflater<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>parent<span class="token punctuation">.</span>context<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">inflate</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>item_user<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> <span class="token function">ViewHolder</span><span class="token punctuation">(</span>view<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">onBindViewHolder</span><span class="token punctuation">(</span>holder<span class="token operator">:</span> ViewHolder<span class="token punctuation">,</span> position<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        holder<span class="token punctuation">.</span>textView<span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token function">getItem</span><span class="token punctuation">(</span>position<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="-4-recyclerview-overview">📋 4. RecyclerView Overview </h2>
+<p><strong>RecyclerView</strong> is an advanced replacement for <code>ListView</code>.</p>
+<h3 id="why-recyclerview">Why RecyclerView? </h3>
+<ul>
+<li>Better performance</li>
+<li>Recycles views</li>
+<li>Supports animations</li>
+<li>Flexible layouts</li>
+</ul>
+<hr>
+<h3 id="-recyclerview-layoutmanagers">🧱 RecyclerView LayoutManagers </h3>
+<table>
+<thead>
+<tr>
+<th>LayoutManager</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LinearLayoutManager</td>
+<td>Vertical / Horizontal list</td>
+<td>Chat, contacts</td>
+</tr>
+<tr>
+<td>GridLayoutManager</td>
+<td>Grid format</td>
+<td>Gallery</td>
+</tr>
+<tr>
+<td>StaggeredGridLayoutManager</td>
+<td>Uneven grid</td>
+<td>Pinterest</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="-5-listview-vs-recyclerview">🔄 5. ListView vs RecyclerView </h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>ListView</th>
+<th>RecyclerView</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Performance</td>
+<td>Low</td>
+<td>High</td>
+</tr>
+<tr>
+<td>View recycling</td>
+<td>Limited</td>
+<td>Efficient</td>
+</tr>
+<tr>
+<td>Layout flexibility</td>
+<td>Low</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Animations</td>
+<td>Poor</td>
+<td>Built-in</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="-final-summary">✅ Final Summary </h2>
+<ul>
+<li><strong>Fragment</strong> → Reusable UI inside Activity</li>
+<li><strong>Adapter</strong> → Connects data to views</li>
+<li><strong>RecyclerView</strong> → Best for lists</li>
+<li><strong>ListAdapter</strong> → Best with dynamic data</li>
+</ul>
+<hr>
+<h2 id="-exam-tip">📝 Exam Tip </h2>
+<blockquote>
+<p>In modern Android:<br>
+<strong>Fragment + RecyclerView + ListAdapter</strong> is the standard combination.</p>
+</blockquote>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h3 id="-what-is-an-adapter">📘 What is an Adapter? </h3>
+<p>An <strong>Adapter</strong> acts as a bridge between a data source and UI components like <code>ListView</code>, <code>RecyclerView</code>, or <code>Spinner</code>. It prepares data and binds it to the layout views efficiently.</p>
+<hr>
+<h3 id="-types-of-adapters">🧩 <strong>Types of Adapters</strong> </h3>
+<h4 id="1-arrayadapter-">1. <strong>ArrayAdapter</strong> 📋 </h4>
+<ul>
+<li>
+<p><strong>Used With:</strong> <code>ListView</code>, <code>Spinner</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> To display simple data like strings or integers.</p>
+</li>
+<li>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> names <span class="token operator">=</span> <span class="token function">arrayOf</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"John"</span></span><span class="token punctuation">,</span> <span class="token string-literal singleline"><span class="token string">"Emma"</span></span><span class="token punctuation">,</span> <span class="token string-literal singleline"><span class="token string">"Liam"</span></span><span class="token punctuation">)</span>
+<span class="token keyword keyword-val">val</span> adapter <span class="token operator">=</span> <span class="token function">ArrayAdapter</span><span class="token punctuation">(</span><span class="token keyword keyword-this">this</span><span class="token punctuation">,</span> android<span class="token punctuation">.</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>simple_list_item_1<span class="token punctuation">,</span> names<span class="token punctuation">)</span>
+listView<span class="token punctuation">.</span>adapter <span class="token operator">=</span> adapter
+</code></pre></li>
+</ul>
+<h4 id="2-cursoradapter-">2. <strong>CursorAdapter</strong> 🧠 </h4>
+<ul>
+<li>
+<p><strong>Used With:</strong> <code>ListView</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> To bind data from a SQLite database or Content Provider.</p>
+</li>
+<li>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> cursor <span class="token operator">=</span> db<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"students"</span></span><span class="token punctuation">,</span> <span class="token keyword keyword-null">null</span><span class="token punctuation">,</span> <span class="token keyword keyword-null">null</span><span class="token punctuation">,</span> <span class="token keyword keyword-null">null</span><span class="token punctuation">,</span> <span class="token keyword keyword-null">null</span><span class="token punctuation">,</span> <span class="token keyword keyword-null">null</span><span class="token punctuation">,</span> <span class="token keyword keyword-null">null</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-val">val</span> adapter <span class="token operator">=</span> <span class="token function">SimpleCursorAdapter</span><span class="token punctuation">(</span>
+    <span class="token keyword keyword-this">this</span><span class="token punctuation">,</span>
+    android<span class="token punctuation">.</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>simple_list_item_2<span class="token punctuation">,</span>
+    cursor<span class="token punctuation">,</span>
+    <span class="token function">arrayOf</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"name"</span></span><span class="token punctuation">,</span> <span class="token string-literal singleline"><span class="token string">"age"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">intArrayOf</span><span class="token punctuation">(</span>android<span class="token punctuation">.</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>text1<span class="token punctuation">,</span> android<span class="token punctuation">.</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>text2<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token number">0</span>
+<span class="token punctuation">)</span>
+listView<span class="token punctuation">.</span>adapter <span class="token operator">=</span> adapter
+</code></pre></li>
+</ul>
+<h4 id="3-recyclerviewadapter-">3. <strong>RecyclerView.Adapter</strong> 🧱 </h4>
+<ul>
+<li>
+<p><strong>Used With:</strong> <code>RecyclerView</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> To handle complex, large, and dynamic data sets efficiently.</p>
+</li>
+<li>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-class">class</span> <span class="token function">UserAdapter</span><span class="token punctuation">(</span><span class="token keyword keyword-private">private</span> <span class="token keyword keyword-val">val</span> userList<span class="token operator">:</span> List<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token operator">:</span> RecyclerView<span class="token punctuation">.</span>Adapter<span class="token operator">&lt;</span>UserAdapter<span class="token punctuation">.</span>ViewHolder<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword keyword-class">class</span> <span class="token function">ViewHolder</span><span class="token punctuation">(</span><span class="token keyword keyword-val">val</span> view<span class="token operator">:</span> View<span class="token punctuation">)</span> <span class="token operator">:</span> RecyclerView<span class="token punctuation">.</span><span class="token function">ViewHolder</span><span class="token punctuation">(</span>view<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-val">val</span> textView<span class="token operator">:</span> TextView <span class="token operator">=</span> view<span class="token punctuation">.</span><span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>textView<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">onCreateViewHolder</span><span class="token punctuation">(</span>parent<span class="token operator">:</span> ViewGroup<span class="token punctuation">,</span> viewType<span class="token operator">:</span> Int<span class="token punctuation">)</span><span class="token operator">:</span> ViewHolder <span class="token punctuation">{</span>
+        <span class="token keyword keyword-val">val</span> view <span class="token operator">=</span> LayoutInflater<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>parent<span class="token punctuation">.</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">inflate</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>item_user<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> <span class="token function">ViewHolder</span><span class="token punctuation">(</span>view<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">onBindViewHolder</span><span class="token punctuation">(</span>holder<span class="token operator">:</span> ViewHolder<span class="token punctuation">,</span> position<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        holder<span class="token punctuation">.</span>textView<span class="token punctuation">.</span>text <span class="token operator">=</span> userList<span class="token punctuation">[</span>position<span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">getItemCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> userList<span class="token punctuation">.</span>size
+<span class="token punctuation">}</span>
+</code></pre><p><strong>Set Adapter:</strong></p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> recyclerView<span class="token operator">:</span> RecyclerView <span class="token operator">=</span> <span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>recyclerView<span class="token punctuation">)</span>
+recyclerView<span class="token punctuation">.</span>layoutManager <span class="token operator">=</span> <span class="token function">LinearLayoutManager</span><span class="token punctuation">(</span><span class="token keyword keyword-this">this</span><span class="token punctuation">)</span>
+recyclerView<span class="token punctuation">.</span>adapter <span class="token operator">=</span> <span class="token function">UserAdapter</span><span class="token punctuation">(</span><span class="token function">listOf</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Ava"</span></span><span class="token punctuation">,</span> <span class="token string-literal singleline"><span class="token string">"Noah"</span></span><span class="token punctuation">,</span> <span class="token string-literal singleline"><span class="token string">"Sophia"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></li>
+</ul>
+<h4 id="4-listadapter-">4. <strong>ListAdapter</strong> ⚡ </h4>
+<ul>
+<li>
+<p><strong>Used With:</strong> <code>RecyclerView</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> A subclass of <code>RecyclerView.Adapter</code> that automatically handles list updates efficiently using <code>DiffUtil</code>.</p>
+</li>
+<li>
+<p><strong>Why Use It:</strong> Reduces boilerplate code for handling changes in datasets.</p>
+</li>
+<li>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-class">class</span> UserListAdapter <span class="token operator">:</span> ListAdapter<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> UserListAdapter<span class="token punctuation">.</span>ViewHolder<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token function">DiffCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword keyword-class">class</span> <span class="token function">ViewHolder</span><span class="token punctuation">(</span><span class="token keyword keyword-val">val</span> view<span class="token operator">:</span> View<span class="token punctuation">)</span> <span class="token operator">:</span> RecyclerView<span class="token punctuation">.</span><span class="token function">ViewHolder</span><span class="token punctuation">(</span>view<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-val">val</span> textView<span class="token operator">:</span> TextView <span class="token operator">=</span> view<span class="token punctuation">.</span><span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>textView<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-class">class</span> DiffCallback <span class="token operator">:</span> DiffUtil<span class="token punctuation">.</span>ItemCallback<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">areItemsTheSame</span><span class="token punctuation">(</span>oldItem<span class="token operator">:</span> String<span class="token punctuation">,</span> newItem<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token operator">=</span> oldItem <span class="token operator">==</span> newItem
+        <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">areContentsTheSame</span><span class="token punctuation">(</span>oldItem<span class="token operator">:</span> String<span class="token punctuation">,</span> newItem<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token operator">=</span> oldItem <span class="token operator">==</span> newItem
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">onCreateViewHolder</span><span class="token punctuation">(</span>parent<span class="token operator">:</span> ViewGroup<span class="token punctuation">,</span> viewType<span class="token operator">:</span> Int<span class="token punctuation">)</span><span class="token operator">:</span> ViewHolder <span class="token punctuation">{</span>
+        <span class="token keyword keyword-val">val</span> view <span class="token operator">=</span> LayoutInflater<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>parent<span class="token punctuation">.</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">inflate</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>item_user<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> <span class="token function">ViewHolder</span><span class="token punctuation">(</span>view<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">onBindViewHolder</span><span class="token punctuation">(</span>holder<span class="token operator">:</span> ViewHolder<span class="token punctuation">,</span> position<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        holder<span class="token punctuation">.</span>textView<span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token function">getItem</span><span class="token punctuation">(</span>position<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p><strong>Set Adapter:</strong></p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> adapter <span class="token operator">=</span> <span class="token function">UserListAdapter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+recyclerView<span class="token punctuation">.</span>adapter <span class="token operator">=</span> adapter
+adapter<span class="token punctuation">.</span><span class="token function">submitList</span><span class="token punctuation">(</span><span class="token function">listOf</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Ava"</span></span><span class="token punctuation">,</span> <span class="token string-literal singleline"><span class="token string">"Noah"</span></span><span class="token punctuation">,</span> <span class="token string-literal singleline"><span class="token string">"Sophia"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></li>
+</ul>
+<hr>
+<h3 id="-what-is-recyclerview">📋 What is RecyclerView? </h3>
+<p><strong>RecyclerView</strong> is an advanced and flexible version of <code>ListView</code> used to display large or dynamic data efficiently. It recycles item views that scroll off-screen, improving memory and performance.</p>
+<p><strong>Why We Use RecyclerView:</strong></p>
+<ul>
+<li>Handles large data efficiently.</li>
+<li>Provides flexible layout management.</li>
+<li>Supports animations and item decorations.</li>
+</ul>
+<hr>
+<h3 id="-types-of-recyclerview-layouts">🧱 <strong>Types of RecyclerView Layouts</strong> </h3>
+<table>
+<thead>
+<tr>
+<th>LayoutManager Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LinearLayoutManager</strong></td>
+<td>Displays items in a vertical or horizontal list.</td>
+<td>Chat app, contact list</td>
+</tr>
+<tr>
+<td><strong>GridLayoutManager</strong></td>
+<td>Displays items in a grid format.</td>
+<td>Gallery, product grid</td>
+</tr>
+<tr>
+<td><strong>StaggeredGridLayoutManager</strong></td>
+<td>Displays items in a staggered grid.</td>
+<td>Pinterest-style layout</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="-ui-components-that-use-adapters">🎯 <strong>UI Components That Use Adapters</strong> </h3>
+<table>
+<thead>
+<tr>
+<th>UI Component</th>
+<th>Description</th>
+<th>Common Adapter Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ListView</strong></td>
+<td>Displays a vertical scrollable list.</td>
+<td><code>ArrayAdapter</code>, <code>CursorAdapter</code>, <code>BaseAdapter</code></td>
+</tr>
+<tr>
+<td><strong>RecyclerView</strong></td>
+<td>Advanced list with better performance and flexibility.</td>
+<td><code>RecyclerView.Adapter</code>, <code>ListAdapter</code></td>
+</tr>
+<tr>
+<td><strong>Spinner</strong></td>
+<td>Displays a dropdown list for selection.</td>
+<td><code>ArrayAdapter</code>, <code>BaseAdapter</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="-key-points">💡 Key Points </h3>
+<ul>
+<li>Adapters connect data sources (arrays, databases, lists) to UI elements.</li>
+<li>They improve performance by recycling views instead of recreating them.</li>
+<li>Choose adapter type based on <strong>data complexity</strong> and <strong>UI component</strong>.</li>
+</ul>
+<hr>
+<h3 id="-summary-table">✅ Summary Table </h3>
+<table>
+<thead>
+<tr>
+<th>Adapter Type</th>
+<th>Used With</th>
+<th>Data Source</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ArrayAdapter</strong></td>
+<td>ListView / Spinner</td>
+<td>Array / List</td>
+<td>Simple text data</td>
+</tr>
+<tr>
+<td><strong>CursorAdapter</strong></td>
+<td>ListView</td>
+<td>SQLite / Cursor</td>
+<td>Database data</td>
+</tr>
+<tr>
+<td><strong>BaseAdapter</strong></td>
+<td>ListView / GridView / Spinner</td>
+<td>Custom data</td>
+<td>Complex UI lists</td>
+</tr>
+<tr>
+<td><strong>RecyclerView.Adapter</strong></td>
+<td>RecyclerView</td>
+<td>Custom objects</td>
+<td>Large dynamic lists</td>
+</tr>
+<tr>
+<td><strong>ListAdapter</strong></td>
+<td>RecyclerView</td>
+<td>Dynamic lists</td>
+<td>Auto-updated lists</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Operating System | Interview Prep</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #c8d1e3;
+        color: #222;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .back {
+        display: inline-block;
+        margin-bottom: 20px;
+        font-weight: bold;
+        color: #1f4fd8;
+        text-decoration: none;
+      }
+
+      .section {
+        background: #ffffff;
+        padding: 18px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        border-left: 5px solid #1f4fd8;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .content {
+        flex: 1;
+      }
+
+      h2 {
+        margin: 0 0 6px 0;
+        color: #1f4fd8;
+        font-size: 18px;
+      }
+
+      a {
+        color: #1f4fd8;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      /* ---------- CUSTOM CHECKBOX ---------- */
+      .cb-wrap {
+        position: relative;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .cb-wrap input {
+        display: none;
+      }
+
+      .cb {
+        width: 20px;
+        height: 20px;
+        border-radius: 5px;
+        border: 2px solid #0060c1;
+        position: relative;
+        transition: all 0.25s ease;
+      }
+
+      .cb::after {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 1px;
+        width: 6px;
+        height: 12px;
+        border: solid #fff;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg) scale(0);
+        transition: transform 0.2s ease;
+      }
+
+      .cb-wrap input:checked + .cb {
+        background: #001a60;
+        border-color: #1f4fd8;
+      }
+
+      .cb-wrap input:checked + .cb::after {
+        transform: rotate(45deg) scale(1);
+      }
+
+      .completed .content {
+        opacity: 0.6;
+      }
+
+      .completed h2 {
+        text-decoration: line-through;
+      }
+
+      button {
+        padding: 10px 22px;
+        font-size: 14px;
+        border: none;
+        border-radius: 6px;
+        background: #1f4fd8;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #163bb8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <a class="back" href="../index.html">⬅ Back to Home</a>
+
+      <h1>Operating System Preparation</h1>
+
+      <!-- Basic OS -->
+      <div class="section">
+        <div class="content">
+          <h2>Basic OS</h2>
+          <a href="OS/OSBasic.html" class="topic-link">
+            Open Basic OS →
+          </a>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="basic-os" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <!-- Process Management -->
+      <div class="section">
+        <div class="content">
+          <h2>Process Management</h2>
+          <a href="OS/ProcessManagement.html">Open Process Management →</a>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="process-mgmt" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <!-- CPU Scheduling -->
+      <div class="section">
+        <div class="content">
+          <h2>CPU Scheduling</h2>
+          <a href="OS/CPUShedulling.html">Open CPU Scheduling →</a>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="cpu-scheduling" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <!-- Disk Scheduling -->
+      <div class="section">
+        <div class="content">
+          <h2>Disk Scheduling</h2>
+          <a href="OS/DiscSheduling.html">Open Disk Scheduling →</a>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="disk-scheduling" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <!-- Memory Management -->
+      <div class="section">
+        <div class="content">
+          <h2>Memory Management</h2>
+          <a href="OS/MemoryManagement.html">Open Memory Management →</a>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="memory-mgmt" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <!-- Synchronization -->
+      <div class="section">
+        <div class="content">
+          <h2>Synchronization & Concurrency</h2>
+          <a href="OS/Synchronization&Concurrency.html">Open Synchronization →</a>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="sync" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <!-- Interview Questions -->
+      <div class="section">
+        <div class="content">
+          <h2>OS Interview Questions</h2>
+              <a href="OS/Question.html" class="topic-link">
+Practice Interview Questions →</a>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="os-interview" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <div style="text-align: center; margin-top: 30px">
+        <button id="resetBtn">Reset Progress</button>
+      </div>
+    </div>
+
+    <script>
+      const sections = document.querySelectorAll(".section");
+
+      sections.forEach((section) => {
+        const checkbox = section.querySelector(".chk");
+        const key = checkbox.id;
+
+        checkbox.checked = localStorage.getItem(key) === "true";
+        if (checkbox.checked) section.classList.add("completed");
+
+        checkbox.addEventListener("change", () => {
+          localStorage.setItem(key, checkbox.checked);
+          section.classList.toggle("completed", checkbox.checked);
+        });
+      });
+
+      document.getElementById("resetBtn").addEventListener("click", () => {
+        sections.forEach((section) => {
+          const checkbox = section.querySelector(".chk");
+          checkbox.checked = false;
+          section.classList.remove("completed");
+          localStorage.removeItem(checkbox.id);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kotlin | Interview Prep</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #c8d1e3;
+        color: #222;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .back {
+        display: inline-block;
+        margin-bottom: 20px;
+        font-weight: bold;
+        color: #1f4fd8;
+        text-decoration: none;
+      }
+
+      .topic {
+        background: #ffffff;
+        padding: 18px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border-left: 5px solid #1f4fd8;
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      }
+
+      .content {
+        flex: 1;
+      }
+
+      h2 {
+        margin: 0 0 10px 0;
+        color: #1f4fd8;
+      }
+
+      ul {
+        padding-left: 18px;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .topic-link {
+        color: #1f4fd8;
+        text-decoration: none;
+      }
+
+      .topic-link:hover {
+        color: #5579df;
+      }
+
+      /* Checkbox */
+      .cb-wrap {
+        cursor: pointer;
+        display: inline-flex;
+        margin-top: 4px;
+      }
+
+      .cb-wrap input {
+        display: none;
+      }
+
+      .cb {
+        width: 18px;
+        height: 18px;
+        border-radius: 4px;
+        border: 2px solid #1f4fd8;
+        position: relative;
+      }
+
+      .cb::after {
+        content: "";
+        position: absolute;
+        left: 4px;
+        top: 0;
+        width: 6px;
+        height: 11px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg) scale(0);
+        transition: 0.2s;
+      }
+
+      .cb-wrap input:checked + .cb {
+        background: #1f4fd8;
+      }
+
+      .cb-wrap input:checked + .cb::after {
+        transform: rotate(45deg) scale(1);
+      }
+
+      .completed .content {
+        opacity: 0.6;
+      }
+
+      .completed h2 {
+        text-decoration: line-through;
+      }
+
+      .reset-box {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      button {
+        padding: 10px 22px;
+        font-size: 14px;
+        border: none;
+        border-radius: 6px;
+        background: #1f4fd8;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #163bb8;
+      }
+
+      .image-title {
+        display: block;
+        max-width: 100%;
+        margin: 10px auto;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <a class="back" href="../index.html">⬅ Back to Home</a>
+
+      <h1>Kotlin – Interview Preparation</h1>
+
+      <!-- KOTLIN BASICS -->
+      <div class="topic">
+        <div class="content">
+          <h2><a href="kotlin/BasicKotlin.html" class="topic-link">🟢 Kotlin Basics</a></h2>
+          <ul>
+            <li>Introduction to Kotlin</li>
+            <li>Syntax, Variables, Data Types</li>
+            <li>Operators & Control Flow</li>
+            <li>Functions & OOP</li>
+            <li>Inheritance, Interfaces, Data Classes</li>
+          </ul>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="kotlin-basics" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <!-- COLLECTIONS -->
+      <div class="topic">
+        <div class="content">
+          <h2><a href="kotlin/KotlinCollection.html" class="topic-link">📚 Kotlin Collections</a></h2>
+          <ul>
+            <li>List, Set, Map</li>
+            <li>Mutable vs Immutable</li>
+            <li>filter, map, reduce</li>
+            <li>groupBy, sortedBy</li>
+            <li>any, all, none</li>
+          </ul>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="kotlin-collections" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <!-- ADVANCED -->
+      <div class="topic">
+        <div class="content">
+          <h2><a href="kotlin/KotlinAdvanced.html" class="topic-link">🔵 Kotlin Advanced</a></h2>
+          <ul>
+            <li>Null Safety</li>
+            <li>Lambdas & Higher Order Functions</li>
+            <li>Scope Functions</li>
+          </ul>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="kotlin-advanced" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <!-- OBJECT & SPECIAL -->
+      <div class="topic">
+        <div class="content">
+          <h2><a href="kotlin/KotlinSPClass.html" class="topic-link">Kotlin Object & Special Classes</a></h2>
+          <ul>
+            <li>Sealed Classes</li>
+            <li>Enum Classes</li>
+            <li>Object & Companion Object</li>
+          </ul>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="kotlin-special" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <!-- FUNCTIONAL -->
+<div class="topic">
+  <div class="content">
+    <h2>
+      <a href="kotlin/KotlinForAnd.html" class="topic-link">
+        Kotlin for Android
+      </a>
+    </h2>
+    <ul>
+      <li>What are coroutines</li>
+      <li>suspend function</li>
+      <li>Dispatchers</li>
+      <li>Job & Deferred</li>
+      <li>Coroutine scopes</li>
+    </ul>
+  </div>
+  <label class="cb-wrap">
+    <input type="checkbox" class="chk" id="kotlin-functional" />
+    <span class="cb"></span>
+  </label>
+</div>
+
+<!-- CONCURRENCY -->
+<div class="topic">
+  <div class="content">
+    <h2>
+      <a href="kotlin/KotlinVsjava.html" class="topic-link">
+        Kotlin Vs Java
+      </a>
+    </h2>
+    <ul>
+      
+    </ul>
+  </div>
+  <label class="cb-wrap">
+    <input type="checkbox" class="chk" id="kotlin-coroutines" />
+    <span class="cb"></span>
+  </label>
+</div>
+
+<!-- INTERVIEW TRAPS -->
+<div class="topic">
+  <div class="content">
+    <h2>
+      <a href="kotlin/InterviewTrap.html" class="topic-link">
+        🔥 Kotlin Interview Traps
+      </a>
+    </h2>
+    <ul>
+      <li>== vs ===</li>
+      <li>lateinit vs lazy</li>
+      <li>List vs MutableList</li>
+      <li>object vs companion object</li>
+      <li>Flow vs LiveData</li>
+    </ul>
+  </div>
+  <label class="cb-wrap">
+    <input type="checkbox" class="chk" id="kotlin-traps" />
+    <span class="cb"></span>
+  </label>
+</div>
+
+
+
+
+
+      <div class="reset-box">
+        <button id="resetBtn">Reset Progress</button>
+      </div>
+    </div>
+
+    <script>
+      const topics = document.querySelectorAll(".topic");
+
+      topics.forEach((topic) => {
+        const checkbox = topic.querySelector(".chk");
+        const key = checkbox.id;
+
+        checkbox.checked = localStorage.getItem(key) === "true";
+        if (checkbox.checked) topic.classList.add("completed");
+
+        checkbox.addEventListener("change", () => {
+          localStorage.setItem(key, checkbox.checked);
+          topic.classList.toggle("completed", checkbox.checked);
+        });
+      });
+
+      document.getElementById("resetBtn").addEventListener("click", () => {
+        topics.forEach((topic) => {
+          const checkbox = topic.querySelector(".chk");
+          checkbox.checked = false;
+          topic.classList.remove("completed");
+          localStorage.removeItem(checkbox.id);
+        });
+      });
+    </script>
+  </body>
+</html>

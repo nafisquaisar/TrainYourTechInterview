@@ -1,0 +1,876 @@
+<!DOCTYPE html><html><head>
+      <title>Normalization</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\nafis\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.20\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="-dbms-normalization-notes">📘 DBMS Normalization Notes </h1>
+<h2 id="1-what-is-dependency">1. What is Dependency? </h2>
+<ul>
+<li>
+<p><strong>Functional Dependency</strong>: A relationship where one attribute uniquely determines another.</p>
+<ul>
+<li>Example: <code>order_id → customer_name</code> (order_id determines the customer).</li>
+</ul>
+</li>
+<li>
+<p><strong>Partial Dependency</strong>: When a non-key attribute depends only on part of a composite key.</p>
+</li>
+<li>
+<p><strong>Transitive Dependency</strong>: When a non-key attribute depends on another non-key attribute instead of directly on the key.</p>
+</li>
+<li>
+<p><strong>Key Attributes</strong>→ Columns that are part of the Primary Key.<br>
+👉 <strong>In your table:</strong> order_id, book_isbn</p>
+</li>
+<li>
+<p><strong>Composite Key</strong> → When the Primary Key is made of 2 or more columns.<br>
+👉 <strong>In your table:</strong> (order_id, book_isbn)</p>
+</li>
+<li>
+<p><strong>Non-Key Attributes</strong> → All other columns that are not part of the Primary Key.<br>
+👉 <strong>In your table</strong>: customer_name, customer_email, customer_address, book_title, book_author, book_price, order_date, quantity, total_price</p>
+</li>
+</ul>
+<hr>
+<h2 id="2-what-is-normalization">2. What is Normalization? </h2>
+<p>Normalization is the process of organizing data in a database to reduce redundancy and improve data integrity.</p>
+<h3 id="benefits">Benefits: </h3>
+<ul>
+<li>Avoids data duplication.</li>
+<li>Ensures consistency.</li>
+<li>Makes maintenance easier.</li>
+</ul>
+<hr>
+<h2 id="3-types-of-normal-forms">3. Types of Normal Forms </h2>
+<ol>
+<li>
+<p><strong>1NF (First Normal Form)</strong></p>
+<ul>
+<li>No repeating groups.</li>
+<li>Atomic values only.</li>
+</ul>
+</li>
+<li>
+<p><strong>2NF (Second Normal Form)</strong></p>
+<ul>
+<li>Must be in 1NF.</li>
+<li>No partial dependency (all non-key attributes depend on the whole primary key).</li>
+</ul>
+</li>
+<li>
+<p><strong>3NF (Third Normal Form)</strong></p>
+<ul>
+<li>Must be in 2NF.</li>
+<li>No transitive dependency (non-key attributes must depend only on the primary key).</li>
+</ul>
+</li>
+<li>
+<p><strong>BCNF (Boyce-Codd Normal Form)</strong></p>
+<ul>
+<li>Stronger version of 3NF.</li>
+<li>Every determinant must be a super key.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="4-example-table-not-in-2nf">4. Example Table (Not in 2NF) </h2>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> book_orders_lnf <span class="token punctuation">(</span>
+    order_id <span class="token keyword keyword-INT">INT</span><span class="token punctuation">,</span>
+    book_isbn <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    customer_name <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    customer_email <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    customer_address <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    book_title <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    book_author <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    book_price <span class="token keyword keyword-DECIMAL">DECIMAL</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    order_date <span class="token keyword keyword-DATE">DATE</span><span class="token punctuation">,</span>
+    quantity <span class="token keyword keyword-INT">INT</span><span class="token punctuation">,</span>
+    total_price <span class="token keyword keyword-DECIMAL">DECIMAL</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span> <span class="token punctuation">(</span>order_id<span class="token punctuation">,</span> book_isbn<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="sample-data">Sample Data: </h3>
+<table>
+<thead>
+<tr>
+<th>order_id</th>
+<th>book_isbn</th>
+<th>customer_name</th>
+<th>customer_email</th>
+<th>customer_address</th>
+<th>book_title</th>
+<th>book_author</th>
+<th>book_price</th>
+<th>order_date</th>
+<th>quantity</th>
+<th>total_price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>978-0141439518</td>
+<td>John Smith</td>
+<td><a href="mailto:john@example.com">john@example.com</a></td>
+<td>123 Main St, Anytown</td>
+<td>Pride and Prejudice</td>
+<td>Jane Austen</td>
+<td>9.99</td>
+<td>2023-01-15</td>
+<td>1</td>
+<td>9.99</td>
+</tr>
+<tr>
+<td>1</td>
+<td>978-0451524935</td>
+<td>John Smith</td>
+<td><a href="mailto:john@example.com">john@example.com</a></td>
+<td>123 Main St, Anytown</td>
+<td>1984</td>
+<td>George Orwell</td>
+<td>12.99</td>
+<td>2023-01-15</td>
+<td>2</td>
+<td>25.98</td>
+</tr>
+<tr>
+<td>2</td>
+<td>978-0061120084</td>
+<td>Mary Johnson</td>
+<td><a href="mailto:mary@example.com">mary@example.com</a></td>
+<td>456 Oak Ave, Somewhere</td>
+<td>To Kill a Mockingbird</td>
+<td>Harper Lee</td>
+<td>14.99</td>
+<td>2023-01-20</td>
+<td>1</td>
+<td>14.99</td>
+</tr>
+<tr>
+<td>3</td>
+<td>978-0141439518</td>
+<td>Robert Brown</td>
+<td><a href="mailto:robert@example.com">robert@example.com</a></td>
+<td>789 Pine Rd, Nowhere</td>
+<td>Pride and Prejudice</td>
+<td>Jane Austen</td>
+<td>9.99</td>
+<td>2023-01-25</td>
+<td>1</td>
+<td>9.99</td>
+</tr>
+<tr>
+<td>4</td>
+<td>978-0439023481</td>
+<td>Alice Davis</td>
+<td><a href="mailto:alice@example.com">alice@example.com</a></td>
+<td>321 Elm St, Everywhere</td>
+<td>The Hunger Games</td>
+<td>Suzanne Collins</td>
+<td>11.99</td>
+<td>2023-02-01</td>
+<td>3</td>
+<td>35.97</td>
+</tr>
+<tr>
+<td>4</td>
+<td>978-0544003415</td>
+<td>Alice Davis</td>
+<td><a href="mailto:alice@example.com">alice@example.com</a></td>
+<td>321 Elm St, Everywhere</td>
+<td>The Lord of the Rings</td>
+<td>J.R.R. Tolkien</td>
+<td>19.99</td>
+<td>2023-02-01</td>
+<td>1</td>
+<td>19.99</td>
+</tr>
+<tr>
+<td>5</td>
+<td>978-0451524935</td>
+<td>David Wilson</td>
+<td><a href="mailto:david@example.com">david@example.com</a></td>
+<td>654 Maple Dr, Anycity</td>
+<td>1984</td>
+<td>George Orwell</td>
+<td>12.99</td>
+<td>2023-02-05</td>
+<td>1</td>
+<td>12.99</td>
+</tr>
+<tr>
+<td>6</td>
+<td>978-0061120084</td>
+<td>Sarah Miller</td>
+<td><a href="mailto:sarah@example.com">sarah@example.com</a></td>
+<td>987 Cedar Ln, Somecity</td>
+<td>To Kill a Mockingbird</td>
+<td>Harper Lee</td>
+<td>14.99</td>
+<td>2023-02-10</td>
+<td>2</td>
+<td>29.98</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-why-not-2nf">❌ Why not 2NF? </h3>
+<ul>
+<li>
+<p>Composite key: <code>(order_id, book_isbn)</code></p>
+</li>
+<li>
+<p>Partial Dependency on <code>order_id</code> only:</p>
+<ul>
+<li><code>customer_name</code>, <code>customer_email</code>, <code>customer_address</code>, <code>order_date</code></li>
+</ul>
+</li>
+<li>
+<p>Partial Dependency on <code>book_isbn</code> only:</p>
+<ul>
+<li><code>book_title</code>, <code>book_author</code>, <code>book_price</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>Example Proof:</strong></p>
+<ul>
+<li>Same customer with different books → rows 1 &amp; 2 (John Smith).</li>
+<li>Same book in different orders → rows 1 &amp; 3 (Pride and Prejudice).</li>
+</ul>
+<p>👉 <strong>Next step hota hai isko todna:</strong></p>
+<ul>
+<li>Orders Table (order-related info)</li>
+<li>Books Table (book-related info)</li>
+<li>Order_Details Table (order_id + book_isbn + quantity + total_price)</li>
+</ul>
+<hr>
+<h2 id="5-conversion-to-2nf">5. Conversion to 2NF </h2>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> orders2NF <span class="token punctuation">(</span>
+    order_id <span class="token keyword keyword-INT">INT</span> <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">,</span>
+    customer_name <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    customer_email <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    customer_address <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    order_date <span class="token keyword keyword-DATE">DATE</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> books2NF <span class="token punctuation">(</span>
+    isbn <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">,</span>
+    title <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    author <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    price <span class="token keyword keyword-DECIMAL">DECIMAL</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> order_items2NF <span class="token punctuation">(</span>
+    order_id <span class="token keyword keyword-INT">INT</span><span class="token punctuation">,</span>
+    book_isbn <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    quantity <span class="token keyword keyword-INT">INT</span><span class="token punctuation">,</span>
+    total_price <span class="token keyword keyword-DECIMAL">DECIMAL</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span> <span class="token punctuation">(</span>order_id<span class="token punctuation">,</span> book_isbn<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-FOREIGN">FOREIGN</span> <span class="token keyword keyword-KEY">KEY</span> <span class="token punctuation">(</span>order_id<span class="token punctuation">)</span> <span class="token keyword keyword-REFERENCES">REFERENCES</span> orders2NF<span class="token punctuation">(</span>order_id<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-FOREIGN">FOREIGN</span> <span class="token keyword keyword-KEY">KEY</span> <span class="token punctuation">(</span>book_isbn<span class="token punctuation">)</span> <span class="token keyword keyword-REFERENCES">REFERENCES</span> books2NF<span class="token punctuation">(</span>isbn<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="data-in-orders2nf">Data in <strong>orders2NF</strong> </h3>
+<table>
+<thead>
+<tr>
+<th>order_id</th>
+<th>customer_name</th>
+<th>customer_email</th>
+<th>customer_address</th>
+<th>order_date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>John Smith</td>
+<td><a href="mailto:john@example.com">john@example.com</a></td>
+<td>123 Main St, Anytown</td>
+<td>2023-01-15</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Mary Johnson</td>
+<td><a href="mailto:mary@example.com">mary@example.com</a></td>
+<td>456 Oak Ave, Somewhere</td>
+<td>2023-01-20</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Robert Brown</td>
+<td><a href="mailto:robert@example.com">robert@example.com</a></td>
+<td>789 Pine Rd, Nowhere</td>
+<td>2023-01-25</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Alice Davis</td>
+<td><a href="mailto:alice@example.com">alice@example.com</a></td>
+<td>321 Elm St, Everywhere</td>
+<td>2023-02-01</td>
+</tr>
+<tr>
+<td>5</td>
+<td>David Wilson</td>
+<td><a href="mailto:david@example.com">david@example.com</a></td>
+<td>654 Maple Dr, Anycity</td>
+<td>2023-02-05</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Sarah Miller</td>
+<td><a href="mailto:sarah@example.com">sarah@example.com</a></td>
+<td>987 Cedar Ln, Somecity</td>
+<td>2023-02-10</td>
+</tr>
+</tbody>
+</table>
+<h3 id="data-in-books2nf">Data in <strong>books2NF</strong> </h3>
+<table>
+<thead>
+<tr>
+<th>isbn</th>
+<th>title</th>
+<th>author</th>
+<th>price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>978-0061120084</td>
+<td>To Kill a Mockingbird</td>
+<td>Harper Lee</td>
+<td>14.99</td>
+</tr>
+<tr>
+<td>978-0141439518</td>
+<td>Pride and Prejudice</td>
+<td>Jane Austen</td>
+<td>9.99</td>
+</tr>
+<tr>
+<td>978-0439023481</td>
+<td>The Hunger Games</td>
+<td>Suzanne Collins</td>
+<td>11.99</td>
+</tr>
+<tr>
+<td>978-0451524935</td>
+<td>1984</td>
+<td>George Orwell</td>
+<td>12.99</td>
+</tr>
+<tr>
+<td>978-0544003415</td>
+<td>The Lord of the Rings</td>
+<td>J.R.R. Tolkien</td>
+<td>19.99</td>
+</tr>
+</tbody>
+</table>
+<h3 id="data-in-order_items2nf">Data in <strong>order_items2NF</strong> </h3>
+<table>
+<thead>
+<tr>
+<th>order_id</th>
+<th>book_isbn</th>
+<th>quantity</th>
+<th>total_price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>978-0141439518</td>
+<td>1</td>
+<td>9.99</td>
+</tr>
+<tr>
+<td>1</td>
+<td>978-0451524935</td>
+<td>2</td>
+<td>25.98</td>
+</tr>
+<tr>
+<td>2</td>
+<td>978-0061120084</td>
+<td>1</td>
+<td>14.99</td>
+</tr>
+<tr>
+<td>3</td>
+<td>978-0141439518</td>
+<td>1</td>
+<td>9.99</td>
+</tr>
+<tr>
+<td>4</td>
+<td>978-0544003415</td>
+<td>1</td>
+<td>19.99</td>
+</tr>
+<tr>
+<td>4</td>
+<td>978-0439023481</td>
+<td>3</td>
+<td>35.97</td>
+</tr>
+<tr>
+<td>5</td>
+<td>978-0451524935</td>
+<td>1</td>
+<td>12.99</td>
+</tr>
+<tr>
+<td>6</td>
+<td>978-0061120084</td>
+<td>2</td>
+<td>29.98</td>
+</tr>
+</tbody>
+</table>
+<p>✅ Now table is in <strong>2NF</strong>: all non-key attributes depend on the whole key.</p>
+<h2 id="6-conversion-to-3nf">6. Conversion to 3NF </h2>
+<p>The 2NF design still has <strong>transitive dependencies</strong> in the <code>orders2NF</code> table.</p>
+<h3 id="-why-not-3nf-transitive-dependencies">❌ Why not 3NF? (Transitive Dependencies) </h3>
+<ul>
+<li>
+<p>In <code>orders2NF</code> table:</p>
+<ul>
+<li><code>customer_email</code> and <code>customer_address</code> depend on <code>customer_name</code>.</li>
+<li><code>customer_name</code> itself depends on <code>order_id</code>.</li>
+</ul>
+</li>
+<li>
+<p>This creates a chain:<br>
+<strong>order_id → customer_name → customer_email, customer_address</strong></p>
+</li>
+</ul>
+<h3 id="example-proof">Example Proof </h3>
+<ul>
+<li>If <em>John Smith</em> changes his email, we’d need to update multiple rows.</li>
+<li>The same customer always has the same email and address across orders.</li>
+</ul>
+<hr>
+<h2 id="7-3nf-normalized-structure">7. 3NF Normalized Structure </h2>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> customers_3nf <span class="token punctuation">(</span>
+    customer_id <span class="token keyword keyword-INT">INT</span> <span class="token keyword keyword-AUTO_INCREMENT">AUTO_INCREMENT</span> <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">,</span>
+    name <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    email <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    address <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> orders_3nf <span class="token punctuation">(</span>
+    order_id <span class="token keyword keyword-INT">INT</span> <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">,</span>
+    customer_id <span class="token keyword keyword-INT">INT</span><span class="token punctuation">,</span>
+    order_date <span class="token keyword keyword-DATE">DATE</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-FOREIGN">FOREIGN</span> <span class="token keyword keyword-KEY">KEY</span> <span class="token punctuation">(</span>customer_id<span class="token punctuation">)</span> <span class="token keyword keyword-REFERENCES">REFERENCES</span> customers_3nf<span class="token punctuation">(</span>customer_id<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> books_3nf <span class="token punctuation">(</span>
+    isbn <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span><span class="token punctuation">,</span>
+    title <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    author <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    price <span class="token keyword keyword-DECIMAL">DECIMAL</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> order_items_3nf <span class="token punctuation">(</span>
+    order_id <span class="token keyword keyword-INT">INT</span><span class="token punctuation">,</span>
+    book_isbn <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    quantity <span class="token keyword keyword-INT">INT</span><span class="token punctuation">,</span>
+    total_price <span class="token keyword keyword-DECIMAL">DECIMAL</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-PRIMARY">PRIMARY</span> <span class="token keyword keyword-KEY">KEY</span> <span class="token punctuation">(</span>order_id<span class="token punctuation">,</span> book_isbn<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-FOREIGN">FOREIGN</span> <span class="token keyword keyword-KEY">KEY</span> <span class="token punctuation">(</span>order_id<span class="token punctuation">)</span> <span class="token keyword keyword-REFERENCES">REFERENCES</span> orders_3nf<span class="token punctuation">(</span>order_id<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-FOREIGN">FOREIGN</span> <span class="token keyword keyword-KEY">KEY</span> <span class="token punctuation">(</span>book_isbn<span class="token punctuation">)</span> <span class="token keyword keyword-REFERENCES">REFERENCES</span> books_3nf<span class="token punctuation">(</span>isbn<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><hr>
+<h2 id="8-sample-data-for-3nf-tables">8. Sample Data for 3NF Tables </h2>
+<h3 id="customers_3nf"><code>customers_3nf</code> </h3>
+<table>
+<thead>
+<tr>
+<th>customer_id</th>
+<th>name</th>
+<th>email</th>
+<th>address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>John Smith</td>
+<td><a href="mailto:john@example.com">john@example.com</a></td>
+<td>123 Main St, Anytown</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Mary Johnson</td>
+<td><a href="mailto:mary@example.com">mary@example.com</a></td>
+<td>456 Oak Ave, Somewhere</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Robert Brown</td>
+<td><a href="mailto:robert@example.com">robert@example.com</a></td>
+<td>789 Pine Rd, Nowhere</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Alice Davis</td>
+<td><a href="mailto:alice@example.com">alice@example.com</a></td>
+<td>321 Elm St, Everywhere</td>
+</tr>
+<tr>
+<td>5</td>
+<td>David Wilson</td>
+<td><a href="mailto:david@example.com">david@example.com</a></td>
+<td>654 Maple Dr, Anycity</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Sarah Miller</td>
+<td><a href="mailto:sarah@example.com">sarah@example.com</a></td>
+<td>987 Cedar Ln, Somecity</td>
+</tr>
+</tbody>
+</table>
+<h3 id="orders_3nf"><code>orders_3nf</code> </h3>
+<table>
+<thead>
+<tr>
+<th>order_id</th>
+<th>customer_id</th>
+<th>order_date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>2023-01-15</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>2023-01-20</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>2023-01-25</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>2023-02-01</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5</td>
+<td>2023-02-05</td>
+</tr>
+<tr>
+<td>6</td>
+<td>6</td>
+<td>2023-02-10</td>
+</tr>
+</tbody>
+</table>
+<h3 id="books_3nf"><code>books_3nf</code> </h3>
+<p>(Same as 2NF)</p>
+<table>
+<thead>
+<tr>
+<th>isbn</th>
+<th>title</th>
+<th>author</th>
+<th>price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>978-0061120084</td>
+<td>To Kill a Mockingbird</td>
+<td>Harper Lee</td>
+<td>14.99</td>
+</tr>
+<tr>
+<td>978-0141439518</td>
+<td>Pride and Prejudice</td>
+<td>Jane Austen</td>
+<td>9.99</td>
+</tr>
+<tr>
+<td>978-0439023481</td>
+<td>The Hunger Games</td>
+<td>Suzanne Collins</td>
+<td>11.99</td>
+</tr>
+<tr>
+<td>978-0451524935</td>
+<td>1984</td>
+<td>George Orwell</td>
+<td>12.99</td>
+</tr>
+<tr>
+<td>978-0544003415</td>
+<td>The Lord of the Rings</td>
+<td>J.R.R. Tolkien</td>
+<td>19.99</td>
+</tr>
+</tbody>
+</table>
+<h3 id="order_items_3nf"><code>order_items_3nf</code> </h3>
+<p>(Same as 2NF)</p>
+<table>
+<thead>
+<tr>
+<th>order_id</th>
+<th>book_isbn</th>
+<th>quantity</th>
+<th>total_price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>978-0141439518</td>
+<td>1</td>
+<td>9.99</td>
+</tr>
+<tr>
+<td>1</td>
+<td>978-0451524935</td>
+<td>2</td>
+<td>25.98</td>
+</tr>
+<tr>
+<td>2</td>
+<td>978-0061120084</td>
+<td>1</td>
+<td>14.99</td>
+</tr>
+<tr>
+<td>3</td>
+<td>978-0141439518</td>
+<td>1</td>
+<td>9.99</td>
+</tr>
+<tr>
+<td>4</td>
+<td>978-0544003415</td>
+<td>1</td>
+<td>19.99</td>
+</tr>
+<tr>
+<td>4</td>
+<td>978-0439023481</td>
+<td>3</td>
+<td>35.97</td>
+</tr>
+<tr>
+<td>5</td>
+<td>978-0451524935</td>
+<td>1</td>
+<td>12.99</td>
+</tr>
+<tr>
+<td>6</td>
+<td>978-0061120084</td>
+<td>2</td>
+<td>29.98</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="9--3nf-verification">9. ✅ 3NF Verification </h2>
+<ul>
+<li>
+<p>No partial dependencies (already handled in 2NF).</p>
+</li>
+<li>
+<p>No transitive dependencies:</p>
+<ul>
+<li><code>customers_3nf</code>: All attributes depend directly on <code>customer_id</code>.</li>
+<li><code>orders_3nf</code>: All attributes depend directly on <code>order_id</code>.</li>
+<li><code>books_3nf</code>: All attributes depend directly on <code>isbn</code>.</li>
+<li><code>order_items_3nf</code>: All attributes depend on the composite key <code>(order_id, book_isbn)</code>.</li>
+</ul>
+</li>
+</ul>
+<p>✅ Now the schema is in <strong>3NF</strong>.</p>
+<h2 id="1--what-is-bcnf">1. 🔑 What is BCNF? </h2>
+<ul>
+<li>
+<p>BCNF (Boyce-Codd Normal Form) is a stronger version of 3NF.</p>
+</li>
+<li>
+<p>A table is in <strong>BCNF</strong> if:</p>
+<ol>
+<li>It is in <strong>3NF</strong>.</li>
+<li>For every <strong>functional dependency (X → Y)</strong>, the determinant <strong>X</strong> must be a <strong>superkey</strong>.</li>
+</ol>
+<ul>
+<li><strong>(X → Y) -&gt;</strong> X functionally determines Y</li>
+</ul>
+</li>
+</ul>
+<p>⚠️ In some cases, a table may be in 3NF but <strong>not in BCNF</strong>, if a non-prime attribute (not part of a candidate key) is dependent on part of a key.</p>
+<hr>
+<h2 id="2--example-of-3nf-but-not-bcnf">2. ⚡ Example of 3NF but not BCNF </h2>
+<p>Consider a <strong>student_courses</strong> table:</p>
+<table>
+<thead>
+<tr>
+<th>student_id</th>
+<th>course_id</th>
+<th>instructor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>DBMS</td>
+<td>Prof. A</td>
+</tr>
+<tr>
+<td>2</td>
+<td>DBMS</td>
+<td>Prof. A</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Networks</td>
+<td>Prof. B</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Networks</td>
+<td>Prof. B</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Functional Dependencies:</strong></p>
+<ol>
+<li>(student_id, course_id) → instructor ✅ (composite primary key)</li>
+<li>course_id → instructor ❌ (Problem)</li>
+</ol>
+<ul>
+<li>Here, <code>course_id</code> is not a superkey.</li>
+<li>This violates <strong>BCNF</strong>, though the table is still in 3NF.</li>
+</ul>
+<hr>
+<h2 id="3--converting-to-bcnf">3. 🚀 Converting to BCNF </h2>
+<p>To remove this violation, we split the table:</p>
+<h3 id="table-1-courses_instructors">Table 1: courses_instructors </h3>
+<table>
+<thead>
+<tr>
+<th>course_id</th>
+<th>instructor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DBMS</td>
+<td>Prof. A</td>
+</tr>
+<tr>
+<td>Networks</td>
+<td>Prof. B</td>
+</tr>
+</tbody>
+</table>
+<h3 id="table-2-student_courses_bcnf">Table 2: student_courses_bcnf </h3>
+<table>
+<thead>
+<tr>
+<th>student_id</th>
+<th>course_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>DBMS</td>
+</tr>
+<tr>
+<td>2</td>
+<td>DBMS</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Networks</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Networks</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="4--verification-of-bcnf">4. ✅ Verification of BCNF </h2>
+<ul>
+<li><strong>courses_instructors</strong>: <code>course_id</code> is the key, and all attributes depend on it directly.</li>
+<li><strong>student_courses_bcnf</strong>: (student_id, course_id) is the key, and no other dependency exists.</li>
+</ul>
+<p>Thus, both tables are in <strong>BCNF</strong>.</p>
+<hr>
+<h2 id="5--summary-table">5. 📊 Summary Table </h2>
+<table>
+<thead>
+<tr>
+<th>Normal Form</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1NF</td>
+<td>Atomic values (no repeating groups)</td>
+</tr>
+<tr>
+<td>2NF</td>
+<td>No partial dependency on part of a composite key</td>
+</tr>
+<tr>
+<td>3NF</td>
+<td>No transitive dependency (non-key → non-key)</td>
+</tr>
+<tr>
+<td>BCNF</td>
+<td>For every FD X → Y, X must be a superkey</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

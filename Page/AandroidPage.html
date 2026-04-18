@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Android | Interview Prep</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #c8d1e3;
+      color: #222;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #1f4fd8;
+      text-decoration: none;
+    }
+    .topic {
+      background: #fff;
+      padding: 18px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border-left: 5px solid #1f4fd8;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+    .content { flex: 1; }
+    h2 { margin: 0 0 10px; color: #1f4fd8; }
+    ul { padding-left: 18px; margin: 0; line-height: 1.6; }
+
+    .topic-link {
+      color: #1f4fd8;
+      text-decoration: none;
+    }
+    .topic-link:hover {
+      color: #5579df;
+    }
+
+    .cb-wrap { cursor: pointer; display: inline-flex; margin-top: 4px; }
+    .cb-wrap input { display: none; }
+    .cb {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 2px solid #1f4fd8;
+      position: relative;
+    }
+    .cb::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 0;
+      width: 6px;
+      height: 11px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg) scale(0);
+      transition: 0.2s;
+    }
+    .cb-wrap input:checked + .cb {
+      background: #1f4fd8;
+    }
+    .cb-wrap input:checked + .cb::after {
+      transform: rotate(45deg) scale(1);
+    }
+
+    .completed .content { opacity: 0.6; }
+    .completed h2 { text-decoration: line-through; }
+
+    .reset-box { text-align: center; margin-top: 30px; }
+    button {
+      padding: 10px 22px;
+      font-size: 14px;
+      border: none;
+      border-radius: 6px;
+      background: #1f4fd8;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover { background: #163bb8; }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <a class="back" href="../index.html">⬅ Back to Home</a>
+  <h1>📱 Android – Interview Preparation</h1>
+
+  <!-- INDEX -->
+
+
+  <div id="topics"></div>
+
+  <div class="reset-box">
+    <button id="resetBtn">Reset Progress</button>
+  </div>
+</div>
+
+<script>
+  const topicsData = [
+    {
+      title: "Android Syllabus Index",
+      file: "android/AndroidIndex.html",
+      points: ["Complete syllabus", "Interview roadmap"]
+    },
+    {
+      title: "History of Android",
+      file: "android/History.html",
+      points: ["Android basics","Versions","Pros & Cons"]
+    },
+    {
+      title: "Activity Lifecycle",
+      file: "android/AndroidLifecycle.html",
+      points: ["Android LifeCycle","onCreate()" , "onStart()", "onResume()", "onStop()","onDestroy()"]
+    },
+    {
+      title: "Android Architecture",
+      file: "android/Architecture.html",
+      points: ["Linux Kernel","ART","Framework"]
+    },        
+    {
+      title: "Android Fundamentals",
+      file: "android/AndroidFundamental.html",
+      points: ["Studio","SDK","APK / AAB"]
+    },
+    {
+      title: "Android UI",
+      file: "android/Android%20UI.html",
+      points: ["Layouts","UI components","Inputs"]
+    },
+    {
+      title: "Android Components",
+      file: "android/Component.html",
+      points: ["Activity","Intent","Service"]
+    },
+    {
+      title: "Fragments & Adapters",
+      file: "android/FragmentAdapter.html",
+      points: ["Fragments","RecyclerView","Adapters"]
+    },
+    {
+      title: "Multimedia & Connectivity",
+      file: "android/MultimediaAndConnectivity.html",
+      points: ["Media","Bluetooth","Wi-Fi"]
+    },
+    {
+      title: "Notifications",
+      file: "android/Notification.html",
+      points: ["Channels","Push vs Local"]
+    },
+    {
+      title: "Data Storage",
+      file: "android/DataStorage.html",
+      points: ["SharedPreferences","SQLite","Room"]
+    },
+    {
+      title: "Web, XML & JSON",
+      file: "android/WebXmlJson.html",
+      points: ["WebView","REST","XML vs JSON"]
+    },
+    {
+      title: "Google Maps",
+      file: "#",
+      points: ["MapView","Location","Distance"]
+    },
+    {
+      title: "Material Design",
+      file: "#",
+      points: ["Themes","Components","Responsive UI"]
+    },
+    {
+      title: "Firebase",
+      file: "#",
+      points: ["Auth","Realtime DB","FCM"]
+    },
+    {
+      title: "Permissions & Security",
+      file: "#",
+      points: ["Runtime","Sandbox"]
+    },
+    {
+      title: "Background Processing",
+      file: "#",
+      points: ["Threads","WorkManager","Limits"]
+    },
+    {
+      title: "Lifecycle Management",
+      file: "#",
+      points: ["Activity","Fragment","Config changes"]
+    },
+    {
+      title: "Version Control",
+      file: "#",
+      points: ["Git","GitHub"]
+    },
+    {
+      title: "App Publishing",
+      file: "#",
+      points: ["Signing","Play Store"]
+    },
+    {
+      title: "Android Best Practices",
+      file: "#",
+      points: ["Performance","Memory","Battery"]
+    }
+  ];
+
+  const container = document.getElementById("topics");
+
+  topicsData.forEach((t, i) => {
+    const id = "android-" + (i + 1);
+    container.insertAdjacentHTML("beforeend", `
+      <div class="topic">
+        <div class="content">
+          <h2>
+            <a href="${t.file}" class="topic-link">
+              ${i + 1}. ${t.title}
+            </a>
+          </h2>
+          <ul>
+            ${t.points.map(p => `<li>${p}</li>`).join("")}
+          </ul>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="${id}">
+          <span class="cb"></span>
+        </label>
+      </div>
+    `);
+  });
+
+  document.querySelectorAll(".chk").forEach(cb => {
+    cb.checked = localStorage.getItem(cb.id) === "true";
+    if (cb.checked) cb.closest(".topic").classList.add("completed");
+
+    cb.addEventListener("change", () => {
+      localStorage.setItem(cb.id, cb.checked);
+      cb.closest(".topic").classList.toggle("completed", cb.checked);
+    });
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", () => {
+    document.querySelectorAll(".chk").forEach(cb => {
+      cb.checked = false;
+      localStorage.removeItem(cb.id);
+      cb.closest(".topic").classList.remove("completed");
+    });
+  });
+</script>
+</body>
+</html>

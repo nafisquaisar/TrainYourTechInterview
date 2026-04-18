@@ -1,0 +1,416 @@
+<!DOCTYPE html><html><head>
+      <title>ProcessManagement</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\nafis\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.20\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="-process-management--complete-notes-operating-systems">🧠 Process Management – Complete Notes (Operating Systems) </h1>
+<hr>
+<h2 id="1-what-is-a-process">1. What is a Process? </h2>
+<p>A <strong>process</strong> is a program in execution along with its <strong>current state</strong>, resources, and execution context.</p>
+<p>📌 <strong>One-line (GATE / Interview):</strong></p>
+<blockquote>
+<p>Program = passive, Process = active</p>
+</blockquote>
+<hr>
+<h2 id="2-program-vs-process-very-important">2. Program vs Process (Very Important) </h2>
+<table>
+<thead>
+<tr>
+<th>Program</th>
+<th>Process</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Static (stored on disk)</td>
+<td>Dynamic (in execution)</td>
+</tr>
+<tr>
+<td>No state</td>
+<td>Has state</td>
+</tr>
+<tr>
+<td>Single entity</td>
+<td>Multiple processes possible</td>
+</tr>
+<tr>
+<td>No resources</td>
+<td>Owns resources</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="3-process-states">3. Process States </h2>
+<h3 id="31-five-state-process-model">3.1 Five-State Process Model </h3>
+<ol>
+<li>🆕 <strong>New</strong> – Process is being created</li>
+<li>⏳ <strong>Ready</strong> – Waiting for CPU allocation</li>
+<li>▶️ <strong>Running</strong> – Executing on CPU</li>
+<li>⏸️ <strong>Waiting / Blocked</strong> – Waiting for I/O or event</li>
+<li>❌ <strong>Terminated</strong> – Execution finished</li>
+</ol>
+<p>📌 <strong>GATE Note:</strong> Scheduling occurs between <strong>Ready ↔ Running</strong></p>
+<hr>
+<h2 id="4-process-control-block-pcb-">4. Process Control Block (PCB) ⭐⭐⭐ </h2>
+<p>PCB is a <strong>data structure</strong> maintained by OS to store all information about a process.</p>
+<h3 id="41-information-stored-in-pcb">4.1 Information stored in PCB </h3>
+<ul>
+<li>🆔 Process ID (PID)</li>
+<li>📌 Process State</li>
+<li>🧮 Program Counter</li>
+<li>🧱 CPU Registers</li>
+<li>⏱️ CPU Scheduling Information</li>
+<li>📦 Memory Management Information</li>
+<li>📂 I/O Status Information</li>
+<li>🧾 Accounting Information</li>
+</ul>
+<p>📌 <strong>GATE Trap:</strong> PCB is stored in <strong>main memory</strong>, NOT on disk</p>
+<hr>
+<h2 id="5-context-switching">5. Context Switching </h2>
+<p>Context switching is the process of <strong>saving the state of one process</strong> and <strong>loading the state of another process</strong>.</p>
+<ul>
+<li>Causes overhead</li>
+<li>No useful work during switching</li>
+</ul>
+<p>📌 <strong>Dispatcher</strong> performs context switching</p>
+<hr>
+<h2 id="6-process-scheduling-queues">6. Process Scheduling Queues </h2>
+<ul>
+<li>📥 <strong>Job Queue</strong> – All processes in the system</li>
+<li>⏳ <strong>Ready Queue</strong> – Processes ready to execute</li>
+<li>⏸️ <strong>Device Queue</strong> – Waiting for I/O devices</li>
+</ul>
+<hr>
+<h2 id="7-types-of-processes">7. Types of Processes </h2>
+<h3 id="71-based-on-execution">7.1 Based on Execution </h3>
+<ul>
+<li>👤 <strong>User Process</strong></li>
+<li>⚙️ <strong>System Process</strong></li>
+</ul>
+<h3 id="72-based-on-interaction">7.2 Based on Interaction </h3>
+<ul>
+<li>🧑‍💻 <strong>Interactive Process</strong></li>
+<li>📦 <strong>Batch Process</strong></li>
+</ul>
+<hr>
+<h2 id="8-process-creation">8. Process Creation </h2>
+<p>Processes are created using <strong>system calls</strong>.</p>
+<h3 id="81-unix-process-creation">8.1 UNIX Process Creation </h3>
+<ul>
+<li><code>fork()</code> → creates child process</li>
+<li><code>exec()</code> → replaces process image</li>
+<li><code>wait()</code> → parent waits for child</li>
+<li><code>exit()</code> → terminates process</li>
+</ul>
+<p>📌 <strong>Interview Favorite:</strong> <code>fork()</code> returns 0 to child and PID to parent</p>
+<hr>
+<h2 id="9-process-termination">9. Process Termination </h2>
+<p>A process terminates when:</p>
+<ul>
+<li>It finishes execution normally</li>
+<li>Parent terminates child</li>
+<li>Fatal error occurs</li>
+</ul>
+<hr>
+<h2 id="10-orphan-and-zombie-processes-">10. Orphan and Zombie Processes ⭐⭐ </h2>
+<h3 id="101-orphan-process">10.1 Orphan Process </h3>
+<ul>
+<li>Parent terminates before child</li>
+<li>Child adopted by <strong>init</strong> process</li>
+</ul>
+<h3 id="102-zombie-process">10.2 Zombie Process </h3>
+<ul>
+<li>Child terminates but parent doesn’t collect exit status</li>
+<li>Entry remains in process table</li>
+</ul>
+<p>📌 <strong>Interview Trap:</strong> Zombie consumes <strong>PCB only</strong>, not CPU</p>
+<hr>
+<h2 id="11-inter-process-communication-ipc">11. Inter-Process Communication (IPC) </h2>
+<p>Mechanism to allow processes to communicate and synchronize.</p>
+<h3 id="111-ipc-methods">11.1 IPC Methods </h3>
+<ul>
+<li>📬 Pipes</li>
+<li>📪 Message Queues</li>
+<li>🧠 Shared Memory</li>
+<li>🔐 Semaphores</li>
+<li>🧷 Signals</li>
+</ul>
+<p>📌 <strong>GATE Note:</strong> Shared memory is <strong>fastest IPC</strong></p>
+<hr>
+<h2 id="12-threads-vs-processes-">12. Threads vs Processes ⭐⭐⭐ </h2>
+<table>
+<thead>
+<tr>
+<th>Process</th>
+<th>Thread</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Heavyweight</td>
+<td>Lightweight</td>
+</tr>
+<tr>
+<td>Separate address space</td>
+<td>Shared address space</td>
+</tr>
+<tr>
+<td>High context switch cost</td>
+<td>Low context switch cost</td>
+</tr>
+<tr>
+<td>Independent</td>
+<td>Dependent</td>
+</tr>
+</tbody>
+</table>
+<p>📌 <strong>Interview Line:</strong> Threads share code, data, and files</p>
+<hr>
+<h2 id="13-multithreading-models">13. Multithreading Models </h2>
+<ul>
+<li>1️⃣ One-to-One</li>
+<li>2️⃣ Many-to-One</li>
+<li>3️⃣ Many-to-Many</li>
+</ul>
+<p>📌 <strong>Modern OS uses:</strong> One-to-One</p>
+<hr>
+<h2 id="14-critical-section-problem-">14. Critical Section Problem ⭐⭐⭐ </h2>
+<p>Critical section is a part of code where <strong>shared resources</strong> are accessed.</p>
+<h3 id="requirements">Requirements: </h3>
+<ol>
+<li>Mutual Exclusion</li>
+<li>Progress</li>
+<li>Bounded Waiting</li>
+</ol>
+<hr>
+<h2 id="15-deadlock-relation-to-process-management">15. Deadlock (Relation to Process Management) </h2>
+<p>Deadlock occurs when processes are waiting indefinitely for resources.</p>
+<h3 id="coffman-conditions">Coffman Conditions: </h3>
+<ul>
+<li>Mutual Exclusion</li>
+<li>Hold and Wait</li>
+<li>No Preemption</li>
+<li>Circular Wait</li>
+</ul>
+<hr>
+<h2 id="16-gate-important-one-liners">16. GATE Important One-Liners </h2>
+<ul>
+<li>PCB is created when process is created</li>
+<li>Context switching is pure overhead</li>
+<li>Ready queue may be implemented using linked list</li>
+<li>fork() creates identical copy initially</li>
+<li>Zombie process is not dangerous</li>
+</ul>
+<hr>
+<h2 id="17-interview-oriented-questions">17. Interview-Oriented Questions </h2>
+<ul>
+<li>Difference between process and thread?</li>
+<li>What is PCB?</li>
+<li>Why context switching is costly?</li>
+<li>What happens if parent dies before child?</li>
+<li>Why shared memory is fastest IPC?</li>
+</ul>
+<hr>
+<h2 id="18-summary-last-day-revision">18. Summary (Last-Day Revision) </h2>
+<ul>
+<li>Process = program in execution</li>
+<li>PCB stores everything about process</li>
+<li>fork() creates, exec() replaces</li>
+<li>Zombie ≠ Orphan</li>
+<li>Threads are lightweight</li>
+</ul>
+<h1 id="️-deadlocks--complete-notes-gate--interview-oriented">☠️ Deadlocks – Complete Notes (GATE &amp; Interview Oriented) </h1>
+<hr>
+<h2 id="1-what-is-a-deadlock">1. What is a Deadlock? </h2>
+<p>A <strong>deadlock</strong> is a situation in which a set of processes are <strong>blocked forever</strong> because each process is holding a resource and waiting for another resource held by some other process.</p>
+<p>📌 <strong>One‑line (GATE / Interview):</strong></p>
+<blockquote>
+<p>Deadlock occurs when processes wait indefinitely for resources held by each other.</p>
+</blockquote>
+<hr>
+<h2 id="2-necessary-conditions-for-deadlock--coffman-conditions">2. Necessary Conditions for Deadlock ⭐⭐⭐ (Coffman Conditions) </h2>
+<p>Deadlock can occur <strong>if and only if all four conditions hold simultaneously</strong>.</p>
+<ol>
+<li>
+<p>🔒 <strong>Mutual Exclusion</strong><br>
+At least one resource must be non‑sharable.</p>
+</li>
+<li>
+<p>🤝 <strong>Hold and Wait</strong><br>
+A process holds at least one resource and waits for additional resources.</p>
+</li>
+<li>
+<p>🚫 <strong>No Preemption</strong><br>
+Resources cannot be forcibly taken away from a process.</p>
+</li>
+<li>
+<p>🔁 <strong>Circular Wait</strong><br>
+A circular chain of processes exists, where each process waits for a resource held by the next.</p>
+</li>
+</ol>
+<p>📌 <strong>GATE Trick:</strong><br>
+If <strong>any one condition is removed</strong>, deadlock <strong>cannot</strong> occur.</p>
+<hr>
+<h2 id="3-resource-allocation-graph-rag">3. Resource Allocation Graph (RAG) </h2>
+<p>A <strong>Resource Allocation Graph</strong> is a directed graph used to represent allocation and request of resources.</p>
+<h3 id="31-components">3.1 Components </h3>
+<ul>
+<li>🟢 <strong>Process nodes</strong> → Circle (P1, P2 …)</li>
+<li>🔵 <strong>Resource nodes</strong> → Rectangle (R1, R2 …)</li>
+<li>➡️ <strong>Request edge</strong> (P → R)</li>
+<li>⬅️ <strong>Assignment edge</strong> (R → P)</li>
+</ul>
+<hr>
+<h3 id="32-deadlock-detection-using-rag">3.2 Deadlock Detection using RAG </h3>
+<ul>
+<li>🔴 <strong>If graph has a cycle</strong> and <strong>each resource has single instance</strong> → Deadlock exists</li>
+<li>🟡 <strong>Cycle present + multiple instances</strong> → Deadlock <strong>may or may not</strong> exist</li>
+</ul>
+<p>📌 <strong>GATE Favorite Statement:</strong></p>
+<blockquote>
+<p>Cycle in RAG is a <strong>necessary but not sufficient</strong> condition for deadlock (multiple instances case)</p>
+</blockquote>
+<hr>
+<h2 id="4-safe-state-vs-unsafe-state-">4. Safe State vs Unsafe State ⭐⭐⭐ </h2>
+<h3 id="41-safe-state">4.1 Safe State </h3>
+<p>A system is in a <strong>safe state</strong> if there exists at least one sequence of processes such that each process can complete execution without leading to deadlock.</p>
+<p>➡️ This sequence is called <strong>Safe Sequence</strong>.</p>
+<hr>
+<h3 id="42-unsafe-state">4.2 Unsafe State </h3>
+<p>A system is in an <strong>unsafe state</strong> if no safe sequence exists.</p>
+<p>📌 <strong>Important Point (GATE Trap):</strong></p>
+<ul>
+<li>Unsafe state <strong>does NOT always mean</strong> deadlock</li>
+<li>But deadlock <strong>always implies</strong> unsafe state</li>
+</ul>
+<hr>
+<h2 id="5-handling-deadlocks-strategies">5. Handling Deadlocks (Strategies) </h2>
+<ol>
+<li>
+<p>❌ Deadlock Prevention<br>
+Ensure at least one Coffman condition never holds.</p>
+</li>
+<li>
+<p>🚨 Deadlock Avoidance<br>
+Decide dynamically whether allocation is safe (Banker’s Algorithm).</p>
+</li>
+<li>
+<p>🔍 Deadlock Detection &amp; Recovery<br>
+Detect deadlock and recover by killing processes or preempting resources.</p>
+</li>
+<li>
+<p>😴 Ignore Deadlock<br>
+Used in general‑purpose OS ("Ostrich Algorithm").</p>
+</li>
+</ol>
+<hr>
+<h2 id="6-bankers-algorithm-">6. Banker’s Algorithm ⭐⭐⭐ </h2>
+<p>Used for <strong>deadlock avoidance</strong>. System checks whether granting a request keeps the system in a <strong>safe state</strong>.</p>
+<h3 id="61-data-structures">6.1 Data Structures </h3>
+<ul>
+<li>📊 <strong>Available</strong> – Free resources</li>
+<li>📋 <strong>Max</strong> – Maximum demand</li>
+<li>📦 <strong>Allocation</strong> – Currently allocated resources</li>
+<li>📐 <strong>Need</strong> = Max − Allocation</li>
+</ul>
+<hr>
+<h3 id="62-bankers-algorithm--steps">6.2 Banker’s Algorithm – Steps </h3>
+<ol>
+<li>Check if request ≤ Need</li>
+<li>Check if request ≤ Available</li>
+<li>Pretend to allocate resources</li>
+<li>Run <strong>safety algorithm</strong> to check safe state</li>
+<li>If safe → allocate, else → deny</li>
+</ol>
+<hr>
+<h3 id="63-light-numerical-gate-level">6.3 Light Numerical (GATE Level) </h3>
+<p>If after allocation a <strong>safe sequence exists</strong>, then:</p>
+<p>✅ System is <strong>safe</strong> → allocation allowed<br>
+❌ No safe sequence → allocation denied</p>
+<p>📌 <strong>Exam Tip:</strong><br>
+Never fully calculate if clearly unsafe in first iterations.</p>
+<hr>
+<h2 id="7-deadlock-vs-starvation-">7. Deadlock vs Starvation ⭐⭐ </h2>
+<table>
+<thead>
+<tr>
+<th>Deadlock</th>
+<th>Starvation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Circular wait</td>
+<td>Resource never allocated</td>
+</tr>
+<tr>
+<td>Permanent</td>
+<td>Can be resolved by scheduling</td>
+</tr>
+<tr>
+<td>Involves multiple processes</td>
+<td>Can involve single process</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="8-gate-oneliners-must-revise">8. GATE One‑Liners (Must Revise) </h2>
+<ul>
+<li>All four Coffman conditions are necessary for deadlock</li>
+<li>Cycle + single instance → deadlock guaranteed</li>
+<li>Banker’s algorithm avoids deadlock</li>
+<li>Unsafe ≠ Deadlock</li>
+<li>Deadlock is permanent until external action</li>
+</ul>
+<hr>
+<h2 id="9-interviewfavorite-questions">9. Interview‑Favorite Questions </h2>
+<ul>
+<li>Difference between deadlock and starvation?</li>
+<li>Why banker’s algorithm is not used in modern OS?</li>
+<li>Can deadlock occur with single resource type?</li>
+<li>How to break deadlock?</li>
+</ul>
+<hr>
+<h2 id="10-lastday-revision-summary">10. Last‑Day Revision Summary </h2>
+<ul>
+<li>Deadlock = infinite waiting</li>
+<li>4 Coffman conditions</li>
+<li>RAG cycle logic</li>
+<li>Safe vs Unsafe state</li>
+<li>Banker’s Algorithm basics</li>
+</ul>
+<hr>
+<p>📌 These notes are <strong>GATE‑optimized</strong>, <strong>interview‑ready</strong>, and <strong>high‑scoring</strong>.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

@@ -1,0 +1,835 @@
+<!DOCTYPE html><html><head>
+      <title>BasicKotlin</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\nafis\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.20\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="-kotlin-basics">🟢 KOTLIN BASICS </h1>
+<h2 id="1️⃣-introduction-to-kotlin">1️⃣ Introduction to Kotlin </h2>
+<ul>
+<li>What is Kotlin</li>
+<li>Features of Kotlin</li>
+<li>Kotlin vs Java</li>
+<li>Kotlin JVM, JS, Native</li>
+<li>How Kotlin works internally</li>
+</ul>
+<hr>
+<h2 id="2️⃣-kotlin-basics--syntax">2️⃣ Kotlin Basics &amp; Syntax </h2>
+<ul>
+<li><code>main()</code> function</li>
+<li>Printing output</li>
+<li>Comments</li>
+<li>Keywords and identifiers</li>
+</ul>
+<hr>
+<h2 id="3️⃣-variables--data-types">3️⃣ Variables &amp; Data Types </h2>
+<ul>
+<li><code>var</code> vs <code>val</code></li>
+<li>Type inference</li>
+<li>Primitive data types</li>
+<li>Nullable and non-nullable types</li>
+<li>Type casting (<code>as</code>, <code>is</code>)</li>
+<li>Smart casting</li>
+</ul>
+<hr>
+<h2 id="4️⃣-operators">4️⃣ Operators </h2>
+<ul>
+<li>Arithmetic operators</li>
+<li>Relational operators</li>
+<li>Logical operators</li>
+<li>Assignment operators</li>
+<li>Unary operators</li>
+<li>Elvis operator (<code>?:</code>)</li>
+<li>Safe call (<code>?.</code>)</li>
+<li>Not-null assertion (<code>!!</code>)</li>
+</ul>
+<hr>
+<h2 id="5️⃣-control-flow">5️⃣ Control Flow </h2>
+<ul>
+<li><code>if</code>, <code>if-else</code></li>
+<li><code>when</code> expression</li>
+<li><code>for</code> loop</li>
+<li><code>while</code>, <code>do-while</code></li>
+<li><code>break</code>, <code>continue</code></li>
+<li>Labels (<code>@label</code>)</li>
+</ul>
+<hr>
+<h1 id="-kotlin-functions--oop">🟡 KOTLIN FUNCTIONS &amp; OOP </h1>
+<h2 id="6️⃣-functions">6️⃣ Functions </h2>
+<ul>
+<li>Function declaration</li>
+<li>Parameters and return types</li>
+<li>Default arguments</li>
+<li>Named arguments</li>
+<li>Single-expression functions</li>
+<li>Inline functions</li>
+</ul>
+<hr>
+<h2 id="7️⃣-object-oriented-programming">7️⃣ Object-Oriented Programming </h2>
+<ul>
+<li>Classes &amp; Objects</li>
+<li>Constructors (primary &amp; secondary)</li>
+<li><code>init</code> block</li>
+<li>Properties (getter/setter)</li>
+<li>Visibility modifiers</li>
+</ul>
+<hr>
+<h2 id="8️⃣-inheritance--polymorphism">8️⃣ Inheritance &amp; Polymorphism </h2>
+<ul>
+<li><code>open</code>, <code>override</code></li>
+<li>Method overriding</li>
+<li>Property overriding</li>
+<li><code>super</code> keyword</li>
+<li>Abstract classes</li>
+</ul>
+<hr>
+<h2 id="9️⃣-interfaces">9️⃣ Interfaces </h2>
+<ul>
+<li>Interface methods</li>
+<li>Default implementations</li>
+<li>Multiple inheritance via interfaces</li>
+</ul>
+<hr>
+<h2 id="-data-classes">🔟 Data Classes </h2>
+<ul>
+<li><code>data class</code></li>
+<li><code>copy()</code></li>
+<li><code>componentN()</code></li>
+<li>Destructuring declarations</li>
+</ul>
+<hr>
+<hr>
+<hr>
+<h1 id="-kotlin-basics-easy-notes">🟢 KOTLIN BASICS (Easy Notes) </h1>
+<p>These notes are written in <strong>simple language</strong>, with <strong>real examples</strong>, so you can easily understand and revise.</p>
+<hr>
+<h2 id="1️⃣-introduction-to-kotlin-1">1️⃣ Introduction to Kotlin </h2>
+<h3 id="what-is-kotlin">What is Kotlin? </h3>
+<ul>
+<li>Kotlin is a <strong>programming language</strong> used to write software</li>
+<li>Mostly used for <strong>Android app development</strong></li>
+<li>Created by <strong>JetBrains</strong></li>
+<li>It works with Java and runs on <strong>JVM</strong></li>
+</ul>
+<p>👉 Think of Kotlin as a <strong>better and simpler version of Java</strong>.</p>
+<hr>
+<h3 id="features-of-kotlin">Features of Kotlin </h3>
+<ul>
+<li><strong>Less code</strong> than Java (clean &amp; short)</li>
+<li><strong>Null safety</strong> (helps avoid app crashes)</li>
+<li>Works <strong>with Java code</strong> easily</li>
+<li>Supports <strong>OOP + Functional programming</strong></li>
+<li>Smart compiler (auto type casting)</li>
+</ul>
+<hr>
+<h3 id="kotlin-vs-java-easy--clear-notes">Kotlin vs Java (Easy &amp; Clear Notes) </h3>
+<table>
+<thead>
+<tr>
+<th>Kotlin</th>
+<th>Java</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Less code – same kaam kam lines me</td>
+<td>More code – zyada boilerplate</td>
+</tr>
+<tr>
+<td>Built-in null safety (<code>?</code>, safe calls)</td>
+<td>NullPointerException runtime me</td>
+</tr>
+<tr>
+<td>Modern language</td>
+<td>Older, traditional style</td>
+</tr>
+<tr>
+<td>Type inference supported</td>
+<td>Explicit data types needed</td>
+</tr>
+<tr>
+<td>Concise and readable syntax</td>
+<td>Verbose syntax</td>
+</tr>
+<tr>
+<td>Fully interoperable with Java</td>
+<td>Works with Kotlin</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="key-points">Key Points </h3>
+<ul>
+<li>Kotlin productivity ke liye design ki gayi hai</li>
+<li>Java me null safety nahi hoti</li>
+<li>Android development me Kotlin preferred hai</li>
+<li>Dono JVM par run karte hain</li>
+</ul>
+<hr>
+<h3 id="interview-one-liner">Interview One-Liner </h3>
+<p><strong>Kotlin is concise, null-safe, and modern, while Java is verbose and prone to runtime null pointer errors.</strong></p>
+<hr>
+<h3 id="kotlin-jvm-js-native">Kotlin JVM, JS, Native </h3>
+<ul>
+<li><strong>Kotlin JVM</strong> → Android apps, backend</li>
+<li><strong>Kotlin JS</strong> → Web apps</li>
+<li><strong>Kotlin Native</strong> → iOS, desktop apps</li>
+</ul>
+<hr>
+<h3 id="how-kotlin-works-internally">How Kotlin Works Internally </h3>
+<ol>
+<li>You write Kotlin code</li>
+<li>Kotlin compiler converts it to <strong>Java bytecode</strong></li>
+<li>JVM runs that bytecode</li>
+</ol>
+<p>👉 That’s why Kotlin + Java work together.</p>
+<hr>
+<h2 id="2️⃣-kotlin-basics--syntax-1">2️⃣ Kotlin Basics &amp; Syntax </h2>
+<h3 id="main-function">main() function </h3>
+<ul>
+<li>Program starts from <code>main()</code></li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-fun">fun</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Hello Kotlin"</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="printing-output">Printing Output </h3>
+<ul>
+<li><code>print()</code> → same line</li>
+<li><code>println()</code> → new line</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Hello "</span></span><span class="token punctuation">)</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"World"</span></span><span class="token punctuation">)</span>
+</code></pre><hr>
+<h3 id="comments">Comments </h3>
+<ul>
+<li>Used to explain code</li>
+<li>Ignored by compiler</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token comment">// Single line comment</span>
+<span class="token comment">/* Multi-line comment */</span>
+</code></pre><hr>
+<h3 id="keywords--identifiers">Keywords &amp; Identifiers </h3>
+<ul>
+<li><strong>Keywords</strong> → special words (<code>fun</code>, <code>val</code>, <code>if</code>)</li>
+<li><strong>Identifiers</strong> → names of variables, functions</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> age <span class="token operator">=</span> <span class="token number">20</span>
+<span class="token keyword keyword-fun">fun</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="3️⃣-variables--data-types-1">3️⃣ Variables &amp; Data Types </h2>
+<h3 id="var-vs-val">var vs val </h3>
+<ul>
+<li><code>val</code> → value cannot change</li>
+<li><code>var</code> → value can change</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> name <span class="token operator">=</span> <span class="token string-literal singleline"><span class="token string">"Nafis"</span></span>
+<span class="token keyword keyword-var">var</span> age <span class="token operator">=</span> <span class="token number">20</span>
+age <span class="token operator">=</span> <span class="token number">21</span>
+</code></pre><hr>
+<h3 id="type-inference">Type Inference </h3>
+<ul>
+<li>Kotlin decides type automatically</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> number <span class="token operator">=</span> <span class="token number">10</span>   <span class="token comment">// Int</span>
+</code></pre><hr>
+<h3 id="primitive-data-types">Primitive Data Types </h3>
+<ul>
+<li><code>Int</code>, <code>Double</code>, <code>Float</code>, <code>Char</code>, <code>Boolean</code></li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> score<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">100</span>
+</code></pre><hr>
+<h3 id="nullable--nonnullable-types">Nullable &amp; Non‑Nullable Types </h3>
+<ul>
+<li>By default, null not allowed</li>
+<li>Use <code>?</code> to allow null</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> a<span class="token operator">:</span> String <span class="token operator">=</span> <span class="token string-literal singleline"><span class="token string">"Hello"</span></span>
+<span class="token keyword keyword-val">val</span> b<span class="token operator">:</span> String<span class="token operator">?</span> <span class="token operator">=</span> <span class="token keyword keyword-null">null</span>
+</code></pre><hr>
+<h3 id="type-casting--smart-casting">Type Casting &amp; Smart Casting </h3>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> <span class="token keyword keyword-data">data</span><span class="token operator">:</span> Any <span class="token operator">=</span> <span class="token string-literal singleline"><span class="token string">"Kotlin"</span></span>
+
+<span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token keyword keyword-data">data</span> <span class="token keyword keyword-is">is</span> String<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword keyword-data">data</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token comment">// smart cast</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="4️⃣-operators-1">4️⃣ Operators </h2>
+<h3 id="arithmetic-operators">Arithmetic Operators </h3>
+<ul>
+<li><code>+  -  *  /  %</code></li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> sum <span class="token operator">=</span> <span class="token number">5</span> <span class="token operator">+</span> <span class="token number">3</span>
+</code></pre><hr>
+<h3 id="relational-operators">Relational Operators </h3>
+<ul>
+<li><code>&gt; &lt; &gt;= &lt;= == !=</code></li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">5</span> <span class="token operator">&gt;</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment">// true</span>
+</code></pre><hr>
+<h3 id="logical-operators">Logical Operators </h3>
+<ul>
+<li><code>&amp;&amp;</code> AND</li>
+<li><code>||</code> OR</li>
+<li><code>!</code> NOT</li>
+</ul>
+<hr>
+<h3 id="special-operators">Special Operators </h3>
+<h4 id="safe-call-">Safe Call <code>?.</code> </h4>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> name<span class="token operator">:</span> String<span class="token operator">?</span> <span class="token operator">=</span> <span class="token keyword keyword-null">null</span>
+<span class="token function">println</span><span class="token punctuation">(</span>name<span class="token operator">?</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span>
+</code></pre><h4 id="elvis-">Elvis <code>?:</code> </h4>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> length <span class="token operator">=</span> name<span class="token operator">?</span><span class="token punctuation">.</span>length <span class="token operator">?:</span> <span class="token number">0</span>
+</code></pre><h4 id="notnull--avoid">Not‑null <code>!!</code> (Avoid) </h4>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code>name<span class="token operator">!!</span><span class="token punctuation">.</span>length
+</code></pre><hr>
+<h2 id="5️⃣-control-flow-1">5️⃣ Control Flow </h2>
+<h3 id="if--ifelse">if / if‑else </h3>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>age <span class="token operator">&gt;=</span> <span class="token number">18</span><span class="token punctuation">)</span> <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Adult"</span></span><span class="token punctuation">)</span> <span class="token keyword keyword-else">else</span> <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Minor"</span></span><span class="token punctuation">)</span>
+</code></pre><hr>
+<h3 id="when-expression">when expression </h3>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-when">when</span><span class="token punctuation">(</span>day<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token number">1</span> <span class="token operator">-&gt;</span> <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Mon"</span></span><span class="token punctuation">)</span>
+  <span class="token keyword keyword-else">else</span> <span class="token operator">-&gt;</span> <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Other"</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="loops">Loops </h3>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span>i <span class="token keyword keyword-in">in</span> <span class="token number">1</span><span class="token operator">..</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+</code></pre><pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-while">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">)</span> i<span class="token operator">++</span>
+</code></pre><hr>
+<h3 id="break--continue">break &amp; continue </h3>
+<ul>
+<li><code>break</code> → stop loop</li>
+<li><code>continue</code> → skip iteration</li>
+</ul>
+<h4 id="labels-label">🔹Labels (@label) </h4>
+<ul>
+<li>Used to control nested loops</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token label symbol">outer@</span> <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span>i <span class="token keyword keyword-in">in</span> <span class="token number">1</span><span class="token operator">..</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span>j <span class="token keyword keyword-in">in</span> <span class="token number">1</span><span class="token operator">..</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">2</span> <span class="token operator">&amp;&amp;</span> j <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword keyword-break">break</span><span class="token label symbol">@outer</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$</span><span class="token expression">i</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$</span><span class="token expression">j</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="-kotlin-functions--oop-1">🟡 KOTLIN FUNCTIONS &amp; OOP </h2>
+<h2 id="6️⃣-functions-1">6️⃣ Functions </h2>
+<h3 id="simple-function">Simple Function </h3>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-fun">fun</span> <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Hello"</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="function-with-return">Function with Return </h3>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-fun">fun</span> <span class="token function">add</span><span class="token punctuation">(</span>a<span class="token operator">:</span> Int<span class="token punctuation">,</span> b<span class="token operator">:</span> Int<span class="token punctuation">)</span><span class="token operator">:</span> Int <span class="token punctuation">{</span>
+    <span class="token keyword keyword-return">return</span> a <span class="token operator">+</span> b
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="default--named-arguments">Default &amp; Named Arguments </h3>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-fun">fun</span> <span class="token function">show</span><span class="token punctuation">(</span>name<span class="token operator">:</span> String <span class="token operator">=</span> <span class="token string-literal singleline"><span class="token string">"User"</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">show</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string-literal singleline"><span class="token string">"Nafis"</span></span><span class="token punctuation">)</span>
+</code></pre><hr>
+<h3 id="single-expression-function">Single Expression Function </h3>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-fun">fun</span> <span class="token function">square</span><span class="token punctuation">(</span>x<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token operator">=</span> x <span class="token operator">*</span> x
+</code></pre><h3 id="-inline-functions">🔹 Inline Functions </h3>
+<ul>
+<li>
+<p>Function code is copied at call site</p>
+</li>
+<li>
+<p>Improves performance for small functions</p>
+</li>
+<li>
+<p>Mostly used with lambda functions</p>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code>Copy code
+<span class="token keyword keyword-inline">inline</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">printMessage</span><span class="token punctuation">(</span>message<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code>Copy code
+<span class="token function">printMessage</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Hello Inline"</span></span><span class="token punctuation">)</span>
+</code></pre><h4 id="-interview-question">🔹 Interview Question </h4>
+<p>Q: Why use inline functions?<br>
+Answer:</p>
+<blockquote>
+<p>To reduce function call overhead, especially with lambdas.</p>
+</blockquote>
+<hr>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<h2 id="7️⃣-object-oriented-programming-1">7️⃣ Object Oriented Programming </h2>
+<ul>
+<li>OOP helps to organize code using real-world concepts.</li>
+</ul>
+<h3 id="class--object">Class &amp; Object </h3>
+<h5 id="class">Class </h5>
+<ul>
+<li>A blueprint for creating objects</li>
+<li>Contains properties and functions</li>
+</ul>
+<h5 id="object">Object </h5>
+<ul>
+<li>An instance of a class</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-class">class</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token keyword keyword-val">val</span> name<span class="token operator">:</span> String<span class="token punctuation">)</span>
+<span class="token keyword keyword-val">val</span> p <span class="token operator">=</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Nafis"</span></span><span class="token punctuation">)</span>
+</code></pre><hr>
+<h3 id="constructors--init-block-kotlin">Constructors &amp; <code>init</code> Block (Kotlin) </h3>
+<hr>
+<h2 id="-constructors">🔹 Constructors </h2>
+<p>Constructors are used to <strong>initialize objects</strong> in Kotlin.</p>
+<hr>
+<h3 id="-primary-constructor">✅ Primary Constructor </h3>
+<ul>
+<li>Written in the <strong>class header</strong></li>
+<li>Used to initialize properties</li>
+<li>Main constructor of the class</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-class">class</span> <span class="token function">Student</span><span class="token punctuation">(</span><span class="token keyword keyword-val">val</span> name<span class="token operator">:</span> String<span class="token punctuation">,</span> <span class="token keyword keyword-var">var</span> age<span class="token operator">:</span> Int<span class="token punctuation">)</span>
+</code></pre><pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> s <span class="token operator">=</span> <span class="token function">Student</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Nafis"</span></span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span>
+</code></pre><hr>
+<h3 id="-secondary-constructor">✅ Secondary Constructor </h3>
+<ul>
+<li>Used when <strong>extra initialization</strong> is required</li>
+<li>Must call the <strong>primary constructor</strong> using <code>this()</code></li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-class">class</span> <span class="token function">Student</span><span class="token punctuation">(</span><span class="token keyword keyword-val">val</span> name<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword keyword-var">var</span> age<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">0</span>
+
+    <span class="token keyword keyword-constructor">constructor</span><span class="token punctuation">(</span>name<span class="token operator">:</span> String<span class="token punctuation">,</span> age<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token keyword keyword-this">this</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="-init-block">🔹 <code>init</code> Block </h2>
+<ul>
+<li>Runs <strong>automatically when an object is created</strong></li>
+<li>Used for initialization logic</li>
+<li>Executes <strong>before the secondary constructor body</strong></li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-class">class</span> <span class="token function">User</span><span class="token punctuation">(</span><span class="token keyword keyword-val">val</span> name<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword keyword-init">init</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"User created: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$</span><span class="token expression">name</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="-properties-getter--setter">🔹 Properties (Getter &amp; Setter) </h2>
+<ul>
+<li>Kotlin automatically generates <strong>getter and setter</strong></li>
+<li>Custom getter/setter can be added</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-class">class</span> Employee <span class="token punctuation">{</span>
+    <span class="token keyword keyword-var">var</span> salary<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword keyword-get">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> field
+        <span class="token keyword keyword-set">set</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            field <span class="token operator">=</span> value
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="-visibility-modifiers">🔹 Visibility Modifiers </h2>
+<p>Control access level of class members.</p>
+<table>
+<thead>
+<tr>
+<th>Modifier</th>
+<th>Access</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>public</code></td>
+<td>Accessible everywhere (default)</td>
+</tr>
+<tr>
+<td><code>private</code></td>
+<td>Only inside the class</td>
+</tr>
+<tr>
+<td><code>protected</code></td>
+<td>Class and subclasses</td>
+</tr>
+<tr>
+<td><code>internal</code></td>
+<td>Same module</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-class">class</span> Test <span class="token punctuation">{</span>
+    <span class="token keyword keyword-private">private</span> <span class="token keyword keyword-val">val</span> x <span class="token operator">=</span> <span class="token number">10</span>
+    <span class="token keyword keyword-fun">fun</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="-interview-question-1">🔹 Interview Question </h2>
+<p><strong>Q:</strong> What is the default visibility modifier in Kotlin?<br>
+<strong>A:</strong> <code>public</code></p>
+<hr>
+<h2 id="-key-takeaways">🔹 Key Takeaways </h2>
+<ul>
+<li>Class is a <strong>blueprint</strong>, object is a <strong>real instance</strong></li>
+<li>Primary constructor is the <strong>main constructor</strong></li>
+<li><code>init</code> block runs during <strong>object creation</strong></li>
+<li>Getters and setters are <strong>auto-generated</strong></li>
+<li>Visibility modifiers control <strong>access</strong></li>
+</ul>
+<hr>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<h2 id="8️⃣-inheritance--polymorphism-in-kotlin">8️⃣ Inheritance &amp; Polymorphism in Kotlin </h2>
+<hr>
+<h3 id="-inheritance">🔹 Inheritance </h3>
+<p>Inheritance allows one class to <strong>reuse another class’s code</strong>.</p>
+<h3 id="-polymorphism">🔹 Polymorphism </h3>
+<p>Polymorphism allows the <strong>same function to behave differently</strong> based on the object type.</p>
+<hr>
+<h2 id="-open-keyword">🔹 <code>open</code> Keyword </h2>
+<ul>
+<li>In Kotlin, classes and functions are <strong>final by default</strong></li>
+<li>To allow inheritance, the <code>open</code> keyword is required</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-open">open</span> <span class="token keyword keyword-class">class</span> Animal <span class="token punctuation">{</span>
+    <span class="token keyword keyword-fun">fun</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Eating"</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>❌ Without <code>open</code>, inheritance is not allowed.</p>
+<hr>
+<h2 id="-inheritance-syntax">🔹 Inheritance Syntax </h2>
+<ul>
+<li>Use <code>:</code> to inherit a class</li>
+<li>Parent class constructor must be called using <code>()</code></li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-class">class</span> Dog <span class="token operator">:</span> <span class="token function">Animal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-fun">fun</span> <span class="token function">bark</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Barking"</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="-override-keyword">🔹 <code>override</code> Keyword </h2>
+<ul>
+<li>Used to override methods or properties</li>
+<li>Parent members must be marked <code>open</code></li>
+</ul>
+<h3 id="method-overriding">Method Overriding </h3>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-open">open</span> <span class="token keyword keyword-class">class</span> Animal <span class="token punctuation">{</span>
+    <span class="token keyword keyword-open">open</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">sound</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Animal sound"</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-class">class</span> Dog <span class="token operator">:</span> <span class="token function">Animal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">sound</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Dog barks"</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="-property-overriding">🔹 Property Overriding </h2>
+<ul>
+<li>Parent property must be <code>open</code></li>
+<li>Child must use <code>override</code></li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-open">open</span> <span class="token keyword keyword-class">class</span> Vehicle <span class="token punctuation">{</span>
+    <span class="token keyword keyword-open">open</span> <span class="token keyword keyword-val">val</span> speed <span class="token operator">=</span> <span class="token number">60</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-class">class</span> Bike <span class="token operator">:</span> <span class="token function">Vehicle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-val">val</span> speed <span class="token operator">=</span> <span class="token number">100</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="-super-keyword">🔹 <code>super</code> Keyword </h2>
+<ul>
+<li>Used to call parent class methods or properties</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-open">open</span> <span class="token keyword keyword-class">class</span> Animal <span class="token punctuation">{</span>
+    <span class="token keyword keyword-open">open</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">sound</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Animal sound"</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-class">class</span> Cat <span class="token operator">:</span> <span class="token function">Animal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">sound</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-super">super</span><span class="token punctuation">.</span><span class="token function">sound</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Cat meows"</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="-polymorphism-important">🔹 Polymorphism (Important) </h2>
+<ul>
+<li>Parent reference holding child object</li>
+<li>Method call decided at <strong>runtime</strong></li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> animal<span class="token operator">:</span> Animal <span class="token operator">=</span> <span class="token function">Dog</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+animal<span class="token punctuation">.</span><span class="token function">sound</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><p><strong>Output</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Dog barks
+</code></pre><hr>
+<h2 id="-abstract-classes">🔹 Abstract Classes </h2>
+<ul>
+<li>Cannot create objects</li>
+<li>Used as base classes</li>
+<li>Can have abstract and non-abstract methods</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-abstract">abstract</span> <span class="token keyword keyword-class">class</span> Shape <span class="token punctuation">{</span>
+    <span class="token keyword keyword-abstract">abstract</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">area</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Int
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-class">class</span> <span class="token function">Square</span><span class="token punctuation">(</span><span class="token keyword keyword-val">val</span> side<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">Shape</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">area</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Int <span class="token punctuation">{</span>
+        <span class="token keyword keyword-return">return</span> side <span class="token operator">*</span> side
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="-interview-question-2">🔹 Interview Question </h2>
+<p><strong>Q:</strong> Difference between <code>open</code> and <code>abstract</code>?</p>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><code>open</code> → Method has body, overriding is optional</li>
+<li><code>abstract</code> → No body, overriding is mandatory</li>
+</ul>
+<hr>
+<h2 id="-key-takeaways-1">🔹 Key Takeaways </h2>
+<ul>
+<li>Use <code>open</code> to allow inheritance</li>
+<li><code>override</code> replaces parent behavior</li>
+<li><code>super</code> calls parent implementation</li>
+<li>Polymorphism provides flexibility</li>
+<li>Abstract classes give structure</li>
+</ul>
+<hr>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<h1 id="9️⃣-interfaces-1">9️⃣ Interfaces </h1>
+<p>An interface is used to define <strong>what a class should do</strong>, not <strong>how it does it</strong>.</p>
+<hr>
+<h2 id="-what-is-an-interface">🔹 What is an Interface? </h2>
+<ul>
+<li>Interface contains method declarations</li>
+<li>A class <strong>implements</strong> an interface</li>
+<li>Supports <strong>multiple inheritance</strong></li>
+</ul>
+<hr>
+<h2 id="-interface-methods">🔹 Interface Methods </h2>
+<ul>
+<li>Methods are <strong>abstract by default</strong></li>
+<li>Interfaces <strong>do not have constructors</strong></li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-interface">interface</span> Vehicle <span class="token punctuation">{</span>
+    <span class="token keyword keyword-fun">fun</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-fun">fun</span> <span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-class">class</span> Car <span class="token operator">:</span> Vehicle <span class="token punctuation">{</span>
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Car started"</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Car stopped"</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="-default-implementations">🔹 Default Implementations </h2>
+<ul>
+<li>Interfaces can have <strong>methods with body</strong></li>
+<li>Class may override or use default implementation</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-interface">interface</span> Printer <span class="token punctuation">{</span>
+    <span class="token keyword keyword-fun">fun</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Printing..."</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-class">class</span> HPPrinter <span class="token operator">:</span> Printer
+</code></pre><hr>
+<h2 id="-multiple-inheritance-via-interfaces">🔹 Multiple Inheritance via Interfaces </h2>
+<ul>
+<li>Kotlin does <strong>not support multiple class inheritance</strong></li>
+<li>Kotlin supports <strong>multiple interfaces</strong></li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-interface">interface</span> A <span class="token punctuation">{</span>
+    <span class="token keyword keyword-fun">fun</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-interface">interface</span> B <span class="token punctuation">{</span>
+    <span class="token keyword keyword-fun">fun</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-class">class</span> Test <span class="token operator">:</span> A<span class="token punctuation">,</span> B <span class="token punctuation">{</span>
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Implemented show"</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="-resolving-conflict">🔹 Resolving Conflict </h2>
+<p>If multiple interfaces have <strong>same method with implementation</strong>, conflict must be resolved explicitly.</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-interface">interface</span> A <span class="token punctuation">{</span>
+    <span class="token keyword keyword-fun">fun</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"A"</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-interface">interface</span> B <span class="token punctuation">{</span>
+    <span class="token keyword keyword-fun">fun</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"B"</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-class">class</span> C <span class="token operator">:</span> A<span class="token punctuation">,</span> B <span class="token punctuation">{</span>
+    <span class="token keyword keyword-override">override</span> <span class="token keyword keyword-fun">fun</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-super">super</span><span class="token operator">&lt;</span>A<span class="token operator">&gt;</span><span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-super">super</span><span class="token operator">&lt;</span>B<span class="token operator">&gt;</span><span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="-interface-vs-abstract-class">🔹 Interface vs Abstract Class </h2>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Abstract Class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multiple allowed</td>
+<td>Single inheritance</td>
+</tr>
+<tr>
+<td>No state</td>
+<td>Can have state</td>
+</tr>
+<tr>
+<td>No constructor</td>
+<td>Has constructor</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="-interview-question-3">🔹 Interview Question </h2>
+<p><strong>Q:</strong> Can an interface have a method body in Kotlin?<br>
+<strong>Answer:</strong> Yes, using <strong>default implementation</strong>.</p>
+<hr>
+<h2 id="-key-takeaways-2">🔹 Key Takeaways </h2>
+<ul>
+<li>Interface defines <strong>behavior</strong></li>
+<li>Supports <strong>multiple inheritance</strong></li>
+<li>Default methods reduce boilerplate code</li>
+<li>Conflicts resolved using <code>super&lt;InterfaceName&gt;</code></li>
+</ul>
+<hr>
+<h2 id="-data-classes-1">🔟 Data Classes </h2>
+<p>Data classes are used to <strong>store data</strong> and help reduce <strong>boilerplate code</strong>.</p>
+<hr>
+<h2 id="-what-is-a-data-class">🔹 What is a Data Class? </h2>
+<p>A special class designed to <strong>hold data</strong>.</p>
+<p>Kotlin automatically generates the following:</p>
+<ul>
+<li><code>toString()</code></li>
+<li><code>equals()</code></li>
+<li><code>hashCode()</code></li>
+<li><code>copy()</code></li>
+<li><code>componentN()</code> functions</li>
+</ul>
+<hr>
+<h2 id="-syntax-of-data-class">🔹 Syntax of Data Class </h2>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-data">data</span> <span class="token keyword keyword-class">class</span> <span class="token function">User</span><span class="token punctuation">(</span><span class="token keyword keyword-val">val</span> name<span class="token operator">:</span> String<span class="token punctuation">,</span> <span class="token keyword keyword-val">val</span> age<span class="token operator">:</span> Int<span class="token punctuation">)</span>
+
+<span class="token keyword keyword-val">val</span> u1 <span class="token operator">=</span> <span class="token function">User</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Nafis"</span></span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token function">println</span><span class="token punctuation">(</span>u1<span class="token punctuation">)</span>
+</code></pre><p><strong>Output</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>User(name=Nafis, age=20)
+</code></pre><hr>
+<h2 id="-copy-function">🔹 <code>copy()</code> Function </h2>
+<ul>
+<li>Creates a <strong>new object</strong></li>
+<li>Allows modification of selected values</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> u2 <span class="token operator">=</span> u1<span class="token punctuation">.</span><span class="token function">copy</span><span class="token punctuation">(</span>age <span class="token operator">=</span> <span class="token number">21</span><span class="token punctuation">)</span>
+<span class="token function">println</span><span class="token punctuation">(</span>u2<span class="token punctuation">)</span>
+</code></pre><hr>
+<h2 id="-componentn-functions">🔹 <code>componentN()</code> Functions </h2>
+<ul>
+<li>Used internally for <strong>destructuring</strong></li>
+<li>Generated for each constructor property</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token function">println</span><span class="token punctuation">(</span>u1<span class="token punctuation">.</span><span class="token function">component1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// Nafis</span>
+<span class="token function">println</span><span class="token punctuation">(</span>u1<span class="token punctuation">.</span><span class="token function">component2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 20</span>
+</code></pre><hr>
+<h2 id="-destructuring-declarations">🔹 Destructuring Declarations </h2>
+<ul>
+<li>Extract object values into variables</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin kotlin"><code><span class="token keyword keyword-val">val</span> <span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span> <span class="token operator">=</span> u1
+<span class="token function">println</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+<span class="token function">println</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span>
+</code></pre><hr>
+<h2 id="-interview-question-4">🔹 Interview Question </h2>
+<p><strong>Q:</strong> Why use a data class instead of a normal class?</p>
+<p><strong>Answer:</strong> Because it automatically generates useful methods and reduces boilerplate code.</p>
+<hr>
+<h2 id="-rules-for-data-class">🔹 Rules for Data Class </h2>
+<ul>
+<li>Must have <strong>at least one parameter</strong></li>
+<li>Primary constructor parameters must be <code>val</code> or <code>var</code></li>
+<li>Cannot be <code>abstract</code>, <code>open</code>, or <code>sealed</code></li>
+</ul>
+<hr>
+<h2 id="-key-takeaways-3">🔹 Key Takeaways </h2>
+<ul>
+<li>Data class = <strong>data holder</strong></li>
+<li><code>copy()</code> helps create modified objects</li>
+<li>Destructuring makes code cleaner</li>
+<li>Saves a lot of boilerplate code</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DBMS | TCS Interview Prep</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #c8d1e3;
+        color: #222;
+      }
+
+      .container {
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .back {
+        display: inline-block;
+        margin-bottom: 20px;
+        font-weight: bold;
+        color: #1f4fd8;
+        text-decoration: none;
+      }
+
+      /* CARD DESIGN */
+      .topic {
+        background: #ffffff;
+        padding: 18px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border-left: 5px solid #1f4fd8;
+
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .content {
+        flex: 1;
+      }
+
+      h2 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: #1f4fd8;
+      }
+
+      ul {
+        padding-left: 18px;
+        margin-top: 8px;
+        line-height: 1.6;
+      }
+
+      p {
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .item,
+      .project,
+      .topic {
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      }
+
+       .topic-link {
+      color: #1f4fd8;
+      text-decoration: none;
+    }
+
+    .topic-link:hover {
+      color: #5579df;
+    }
+
+      /* CUSTOM CHECKBOX */
+      .cb-wrap {
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        margin-top: 3px;
+      }
+
+      .cb-wrap input {
+        display: none;
+      }
+
+      .cb {
+        width: 18px;
+        height: 18px;
+        border-radius: 4px;
+        border: 2px solid #1f4fd8;
+        position: relative;
+      }
+
+      .cb::after {
+        content: "";
+        position: absolute;
+        left: 4px;
+        top: 0px;
+        width: 6px;
+        height: 11px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg) scale(0);
+        transition: 0.2s;
+      }
+
+      .cb-wrap input:checked + .cb {
+        background: #1f4fd8;
+        border-color: #1f4fd8;
+      }
+
+      .cb-wrap input:checked + .cb::after {
+        transform: rotate(45deg) scale(1);
+      }
+
+      /* COMPLETED STYLE (TEXT ONLY) */
+      .completed .content {
+        opacity: 0.6;
+      }
+
+      .completed h2 {
+        text-decoration: line-through;
+      }
+
+      .reset-box {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      button {
+        padding: 10px 22px;
+        font-size: 14px;
+        border: none;
+        border-radius: 6px;
+        background: #1f4fd8;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #163bb8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <a class="back" href="../index.html">⬅ Back to Home</a>
+
+      <h1>DBMS – Interview Preparation</h1>
+
+      <!-- BASIC -->
+      <div class="topic">
+        <div class="content">
+      <h2><a href="DBMSBasic.html" class="topic-link">DBMS Basic Concepts</a></h2>
+          <ul>
+            <li>What is DBMS and why it is used</li>
+            <li>DBMS vs File System</li>
+            <li>Types of databases (Relational, NoSQL)</li>
+            <li>Schema, Instance</li>
+            <li>Primary Key, Foreign Key</li>
+            <li>Constraints (NOT NULL, UNIQUE, CHECK)</li>
+          </ul>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="dbms-basic" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <!-- ADVANCED -->
+      <div class="topic">
+        <div class="content">
+      <h2><a href="AdvancedDBMS.html" class="topic-link">DBMS Advanced Concepts</a></h2>
+          <ul>
+            <li>ACID properties</li>
+            <li>Indexing (Clustered, Non-clustered)</li>
+            <li>Transactions</li>
+            <li>Deadlock and its prevention</li>
+            <li>Concurrency control</li>
+            <li>Views and Stored Procedures</li>
+          </ul>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="dbms-advanced" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <!-- NORMALIZATION -->
+      <div class="topic">
+        <div class="content">
+      <h2><a href="Normalization.html" class="topic-link">Normalization</a></h2>
+          <ul>
+            <li>1NF – Atomic values</li>
+            <li>2NF – No partial dependency</li>
+            <li>3NF – No transitive dependency</li>
+            <li>BCNF</li>
+            <li>Advantages and disadvantages of normalization</li>
+          </ul>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="dbms-normalization" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <!-- MOST ASKED -->
+      <div class="topic">
+        <div class="content">
+        <h2><a href="MostAskQuestionDBMS.html" class="topic-link">Most Asked DBMS Interview Questions</a></h2>
+
+          <ul>
+            <li>What is normalization?</li>
+            <li>Difference between DELETE, TRUNCATE, DROP</li>
+            <li>What is indexing?</li>
+            <li>What is a transaction?</li>
+            <li>Explain ACID properties</li>
+            <li>What is a foreign key?</li>
+            <li>Difference between WHERE and HAVING</li>
+          </ul>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="dbms-questions" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <!-- RESET -->
+      <div class="reset-box">
+        <button id="resetBtn">Reset Progress</button>
+      </div>
+    </div>
+
+    <script>
+      const topics = document.querySelectorAll(".topic");
+
+      topics.forEach((topic) => {
+        const checkbox = topic.querySelector(".chk");
+        const key = checkbox.id;
+
+        checkbox.checked = localStorage.getItem(key) === "true";
+        if (checkbox.checked) topic.classList.add("completed");
+
+        checkbox.addEventListener("change", () => {
+          localStorage.setItem(key, checkbox.checked);
+          topic.classList.toggle("completed", checkbox.checked);
+        });
+      });
+
+      document.getElementById("resetBtn").addEventListener("click", () => {
+        topics.forEach((topic) => {
+          const checkbox = topic.querySelector(".chk");
+          checkbox.checked = false;
+          topic.classList.remove("completed");
+          localStorage.removeItem(checkbox.id);
+        });
+      });
+    </script>
+  </body>
+</html>

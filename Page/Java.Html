@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Java | TCS Interview Prep</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #c8d1e3;
+        color: #222;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .back {
+        display: inline-block;
+        margin-bottom: 20px;
+        font-weight: bold;
+        color: #1f4fd8;
+        text-decoration: none;
+      }
+
+      .section {
+        background: #ffffff;
+        padding: 18px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        border-left: 5px solid #1f4fd8;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .content {
+        flex: 1;
+      }
+
+      h2 {
+        margin: 0 0 6px 0;
+        color: #1f4fd8;
+        font-size: 18px;
+      }
+
+      a {
+        color: #1f4fd8;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      /* ---------- CUSTOM CHECKBOX ---------- */
+      .cb-wrap {
+        position: relative;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .cb-wrap input {
+        display: none;
+      }
+
+      .cb {
+        width: 20px;
+        height: 20px;
+        border-radius: 5px;
+        border: 2px solid #0060c1;
+        position: relative;
+        transition: all 0.25s ease;
+      }
+
+      .cb::after {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 1px;
+        width: 6px;
+        height: 12px;
+        border: solid #fff;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg) scale(0);
+        transition: transform 0.2s ease;
+      }
+
+      .cb-wrap input:checked + .cb {
+        background: #001a60;
+        border-color: #1f4fd8;
+      }
+
+      .cb-wrap input:checked + .cb::after {
+        transform: rotate(45deg) scale(1);
+      }
+
+      .completed .content {
+        opacity: 0.6;
+      }
+
+      .completed h2 {
+        text-decoration: line-through;
+      }
+
+      button {
+        padding: 10px 22px;
+        font-size: 14px;
+        border: none;
+        border-radius: 6px;
+        background: #1f4fd8;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #163bb8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <a class="back" href="../index.html">⬅ Back to Home</a>
+
+      <h1>Java Interview Preparation</h1>
+
+      <div class="section" data-id="java-basic">
+        <div class="content">
+          <h2>Java Basics</h2>
+          <a href="JavaBasic.html">Open Java Basics →</a>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="java-basic" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <div class="section" data-id="java-diff">
+        <div class="content">
+          <h2>Java Term Differences</h2>
+          <a href="JavaTermDiff.html">Open Term Differences →</a>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="java-diff" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <div class="section" data-id="java-scenario">
+        <div class="content">
+          <h2>Scenario Based Questions</h2>
+          <a href="JavaSenerioBased.html">Practice Scenarios →</a>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="java-scenario" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <div class="section" data-id="java-multithreading">
+        <div class="content">
+          <h2>Multithreading</h2>
+          <a href="thread.html">Open Multithreading →</a>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="java-multithreading" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <div class="section" data-id="java-multithreading">
+        <div class="content">
+          <h2>Exceptional Handling</h2>
+          <a href="java/Exception.html">Exceptional Handling →</a>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="java-multithreading" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <div class="section" data-id="java-file">
+        <div class="content">
+          <h2>File Handling</h2>
+          <a href="JavaIOFileHandle.html">Open File Handling →</a>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" class="chk" id="java-file" />
+          <span class="cb"></span>
+        </label>
+      </div>
+
+      <div style="text-align: center; margin-top: 30px">
+        <button id="resetBtn">Reset Progress</button>
+      </div>
+    </div>
+
+    <script>
+      const sections = document.querySelectorAll(".section");
+
+      sections.forEach((section) => {
+        const checkbox = section.querySelector(".chk");
+        const key = checkbox.id;
+
+        checkbox.checked = localStorage.getItem(key) === "true";
+        if (checkbox.checked) section.classList.add("completed");
+
+        checkbox.addEventListener("change", () => {
+          localStorage.setItem(key, checkbox.checked);
+          section.classList.toggle("completed", checkbox.checked);
+        });
+      });
+
+      document.getElementById("resetBtn").addEventListener("click", () => {
+        sections.forEach((section) => {
+          const checkbox = section.querySelector(".chk");
+          checkbox.checked = false;
+          section.classList.remove("completed");
+          localStorage.removeItem(checkbox.id);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Computer Networks | Interview Prep</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #c8d1e3;
+      color: #222;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #1f4fd8;
+      text-decoration: none;
+    }
+    .topic {
+      background: #fff;
+      padding: 18px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border-left: 5px solid #1f4fd8;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+    .content { flex: 1; }
+    h2 { margin: 0; color: #1f4fd8; }
+
+    .topic-link {
+      color: #1f4fd8;
+      text-decoration: none;
+    }
+    .topic-link:hover { color: #5579df; }
+
+    .cb-wrap { cursor: pointer; display: inline-flex; margin-top: 4px; }
+    .cb-wrap input { display: none; }
+    .cb {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 2px solid #1f4fd8;
+      position: relative;
+    }
+    .cb::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 0;
+      width: 6px;
+      height: 11px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg) scale(0);
+      transition: 0.2s;
+    }
+    .cb-wrap input:checked + .cb {
+      background: #1f4fd8;
+    }
+    .cb-wrap input:checked + .cb::after {
+      transform: rotate(45deg) scale(1);
+    }
+
+    .completed .content { opacity: 0.6; }
+    .completed h2 { text-decoration: line-through; }
+
+    .reset-box {
+      text-align: center;
+      margin-top: 30px;
+    }
+    button {
+      padding: 10px 22px;
+      font-size: 14px;
+      border: none;
+      border-radius: 6px;
+      background: #1f4fd8;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover { background: #163bb8; }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <a class="back" href="../index.html">⬅ Back to Home</a>
+  <h1>🌐 Computer Networks – Interview Preparation</h1>
+
+  <!-- CARD 1 -->
+  <div class="topic">
+    <div class="content">
+      <h2>
+        <a href="CN/Basic.html" class="topic-link">
+          Basic
+        </a>
+      </h2>
+    </div>
+    <label class="cb-wrap">
+      <input type="checkbox" class="chk" id="cn-basic-1" />
+      <span class="cb"></span>
+    </label>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="topic">
+    <div class="content">
+      <h2>
+        <a href="CN/Basic2.html" class="topic-link">
+          Basic 2
+        </a>
+      </h2>
+    </div>
+    <label class="cb-wrap">
+      <input type="checkbox" class="chk" id="cn-basic-2" />
+      <span class="cb"></span>
+    </label>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="topic">
+    <div class="content">
+      <h2>
+        <a href="CN/IPAddress.html" class="topic-link">
+          IP Address
+        </a>
+      </h2>
+    </div>
+    <label class="cb-wrap">
+      <input type="checkbox" class="chk" id="cn-ip" />
+      <span class="cb"></span>
+    </label>
+  </div>
+
+  <!-- CARD 4 -->
+  <div class="topic">
+    <div class="content">
+      <h2>
+        <a href="CN/Protocol.html" class="topic-link">
+          Protocol
+        </a>
+      </h2>
+    </div>
+    <label class="cb-wrap">
+      <input type="checkbox" class="chk" id="cn-protocol" />
+      <span class="cb"></span>
+    </label>
+  </div>
+
+  <!-- CARD 5 -->
+  <!-- <div class="topic">
+    <div class="content">
+      <h2>
+        <a href="CNOverview.html" class="topic-link">
+          CN Overview
+        </a>
+      </h2>
+    </div>
+    <label class="cb-wrap">
+      <input type="checkbox" class="chk" id="cn-overview" />
+      <span class="cb"></span>
+    </label>
+  </div> -->
+
+  <div class="reset-box">
+    <button id="resetBtn">Reset Progress</button>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll(".chk").forEach(cb => {
+    cb.checked = localStorage.getItem(cb.id) === "true";
+    if (cb.checked) cb.closest(".topic").classList.add("completed");
+
+    cb.addEventListener("change", () => {
+      localStorage.setItem(cb.id, cb.checked);
+      cb.closest(".topic").classList.toggle("completed", cb.checked);
+    });
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", () => {
+    document.querySelectorAll(".chk").forEach(cb => {
+      cb.checked = false;
+      localStorage.removeItem(cb.id);
+      cb.closest(".topic").classList.remove("completed");
+    });
+  });
+</script>
+</body>
+</html>

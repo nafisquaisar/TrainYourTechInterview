@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SQL Basic Notes | TCS Prep</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#c8d1e3;
+}
+.container{
+  max-width:1100px;
+  margin:40px auto;
+  padding:20px;
+}
+.back{
+  font-weight:bold;
+  color:#1f4fd8;
+  text-decoration:none;
+}
+h1{text-align:center;margin-bottom:10px}
+h2{
+  margin-top:40px;
+  color:#1f4fd8;
+}
+
+/* card */
+.card{
+  background:#fff;
+  border-left:5px solid #1f4fd8;
+  border-radius:8px;
+  padding:16px;
+  margin-bottom:14px;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+  display:flex;
+  gap:14px;
+  justify-content:space-between;
+}
+.content{flex:1}
+.question{
+  font-weight:bold;
+  cursor:pointer;
+}
+.answer{
+  display:none;
+  margin-top:10px;
+}
+pre{
+  background:#f3f5f9;
+  padding:12px;
+  border-radius:6px;
+  white-space:pre-wrap;
+  font-size:14px;
+}
+
+/* checkbox */
+.cb-wrap{display:inline-flex;align-items:center;cursor:pointer}
+.cb-wrap input{display:none}
+.cb{
+  width:18px;height:18px;
+  border:2px solid #1f4fd8;
+  border-radius:4px;
+  position:relative;
+}
+.cb::after{
+  content:"";
+  position:absolute;
+  left:4px;top:0;
+  width:5px;height:10px;
+  border:solid #1f4fd8;
+  border-width:0 2px 2px 0;
+  transform:rotate(45deg) scale(0);
+}
+.cb-wrap input:checked + .cb::after{
+  transform:rotate(45deg) scale(1);
+}
+
+.done{opacity:.6}
+.done .question{text-decoration:line-through}
+
+.reset-box{text-align:center;margin-top:30px}
+button{
+  padding:10px 22px;
+  border:none;
+  border-radius:6px;
+  background:#1f4fd8;
+  color:#fff;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<a class="back" href="sql.html">⬅ Back</a>
+<h1>📘 SQL BASIC NOTES (TCS)</h1>
+
+<div id="app"></div>
+
+<div class="reset-box">
+  <button id="resetBtn">Reset Progress</button>
+</div>
+
+</div>
+
+<script>
+const sections = [
+
+/* ================= 1 ================= */
+{
+  heading:"🔹 1. Basic Commands",
+  questions:[
+    { q:"Show all databases", a:`SHOW DATABASES;` },
+    { q:"Create a new database", a:`CREATE DATABASE db_name;` },
+    { q:"Use a database", a:`USE db_name;` },
+    { q:"Delete a database", a:`DROP DATABASE db_name;` }
+  ]
+},
+
+/* ================= 2 ================= */
+{
+  heading:"🔹 2. Table Commands",
+  questions:[
+    { q:"Show all tables", a:`SHOW TABLES;` },
+
+    { q:"Create employees table", a:`CREATE TABLE employees (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    age INT,
+    department VARCHAR(50)
+);`},
+
+    { q:"Create salaries table", a:`CREATE TABLE salaries (
+    emp_id INT,
+    salary INT,
+    bonus INT,
+    FOREIGN KEY (emp_id) REFERENCES employees(id)
+);`},
+
+    { q:"Describe table structure", a:`DESCRIBE employees;
+DESC employees;`},
+
+    { q:"Rename table", a:`RENAME TABLE employees TO staff;` },
+
+    { q:"Drop table", a:`DROP TABLE staff;` },
+
+    { q:"Add new column using ALTER", a:`ALTER TABLE staff ADD Number INT(50);` },
+
+    { q:"Modify column using ALTER", a:`ALTER TABLE staff MODIFY Name VARCHAR(100) NOT NULL;` },
+
+    { q:"Rename column", a:`ALTER TABLE staff RENAME COLUMN Id TO St_Id;` },
+
+    { q:"Drop column", a:`ALTER TABLE staff DROP COLUMN city;` }
+  ]
+},
+
+/* ================= 3 ================= */
+{
+  heading:"🔹 3. Insert / Update / Delete",
+  questions:[
+    { q:"Insert single row", a:`INSERT INTO employees (id, name, age, department)
+VALUES (1, 'John Doe', 30, 'HR');` },
+
+    { q:"Insert multiple rows", a:`INSERT INTO employees VALUES
+(2, 'Alice', 28, 'IT'),
+(3, 'Bob', 35, 'Finance');` },
+
+    { q:"Update a row", a:`UPDATE employees
+SET age = 29
+WHERE name = 'Alice';` },
+
+    { q:"Delete a row", a:`DELETE FROM employees
+WHERE id = 2;` }
+  ]
+},
+
+/* ================= 4 ================= */
+{
+  heading:"🔹 4. Select Queries",
+  questions:[
+    { q:"Select all records", a:`SELECT * FROM employees;` },
+
+    { q:"Select specific columns", a:`SELECT name, age FROM employees;` },
+
+    { q:"Select with condition", a:`SELECT * FROM employees WHERE age > 30;` },
+
+    { q:"Alias example (column)", a:`SELECT name AS EmployeeName FROM employees;` },
+
+    { q:"Alias with space", a:`SELECT name AS "Employee Name" FROM employees;` },
+
+    { q:"Alias with table", a:`SELECT s.id AS Student_Id, s.Name AS Student_Name
+FROM students s;` }
+  ]
+},
+
+/* ================= 5 ================= */
+{
+  heading:"🔹 5. Filtering Data (WHERE, LIKE, IN)",
+  questions:[
+    { q:"WHERE clause", a:`SELECT * FROM employees WHERE department = 'IT';` },
+
+    { q:"BETWEEN clause", a:`SELECT * FROM employees WHERE age BETWEEN 25 AND 35;` },
+
+    { q:"IN clause", a:`SELECT * FROM employees WHERE department IN ('HR', 'IT');` },
+
+    { q:"LIKE - starts with", a:`SELECT * FROM employees WHERE name LIKE 'A%';` },
+
+    { q:"LIKE - ends with", a:`SELECT * FROM employees WHERE name LIKE '%e';` },
+
+    { q:"LIKE - contains", a:`SELECT * FROM employees WHERE name LIKE '%li%';` },
+
+    { q:"LIKE - single character wildcard", a:`SELECT * FROM employees WHERE name LIKE '_ob';` },
+
+    { q:"LIKE - multiple wildcard", a:`SELECT * FROM employees WHERE name LIKE '_a%';` },
+
+    { q:"Case insensitive LIKE", a:`SELECT * FROM employees WHERE LOWER(name) LIKE 'e%';` },
+
+    { q:"NOT LIKE", a:`SELECT * FROM employees WHERE name NOT LIKE 'A%';` },
+
+    { q:"IS NULL check", a:`SELECT * FROM employees WHERE department IS NULL;` }
+  ]
+},
+
+/* ================= 6 ================= */
+{
+  heading:"🔹 6. Sorting & Limiting",
+  questions:[
+    { q:"ORDER BY", a:`SELECT * FROM employees ORDER BY age DESC;` },
+
+    { q:"LIMIT", a:`SELECT * FROM employees LIMIT 5;` },
+
+    { q:"LIMIT with OFFSET", a:`SELECT * FROM employees LIMIT 5 OFFSET 5;` }
+  ]
+},
+
+/* ================= 7 ================= */
+{
+  heading:"🔹 7. Aggregate Functions",
+  questions:[
+    { q:"COUNT()", a:`SELECT COUNT(*) FROM employees;` },
+
+    { q:"SUM, AVG, MAX, MIN", a:`SELECT SUM(age), AVG(age), MAX(age), MIN(age)
+FROM employees;` },
+
+    { q:"GROUP BY", a:`SELECT department, COUNT(*)
+FROM employees
+GROUP BY department;` },
+
+    { q:"HAVING clause", a:`SELECT department, COUNT(*)
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 2;` }
+  ]
+},
+
+/* ================= 8 ================= */
+{
+  heading:"🔹 8. Joins",
+  questions:[
+    { q:"INNER JOIN", a:`SELECT a.name, b.salary
+FROM employees a
+INNER JOIN salaries b ON a.id = b.emp_id;` },
+
+    { q:"LEFT JOIN", a:`SELECT a.name, b.salary
+FROM employees a
+LEFT JOIN salaries b ON a.id = b.emp_id;` },
+
+    { q:"RIGHT JOIN", a:`SELECT a.name, b.salary
+FROM employees a
+RIGHT JOIN salaries b ON a.id = b.emp_id;` },
+
+    { q:"FULL OUTER JOIN (UNION)", a:`SELECT a.name, b.salary
+FROM employees a
+LEFT JOIN salaries b ON a.id = b.emp_id
+UNION
+SELECT a.name, b.salary
+FROM employees a
+RIGHT JOIN salaries b ON a.id = b.emp_id;` }
+  ]
+},
+
+/* ================= 9 ================= */
+{
+  heading:"🔹 9. Subqueries",
+  questions:[
+    { q:"Single row subquery", a:`SELECT name
+FROM employees
+WHERE age = (SELECT MAX(age) FROM employees);` },
+
+    { q:"Multiple row subquery", a:`SELECT name
+FROM employees
+WHERE department IN (
+    SELECT department
+    FROM departments
+    WHERE location = 'Mumbai'
+);` }
+  ]
+},
+
+/* ================= 10 ================= */
+{
+  heading:"🔹 10. Constraints",
+  questions:[
+    { q:"List of SQL constraints", a:`NOT NULL
+UNIQUE
+PRIMARY KEY
+FOREIGN KEY
+CHECK
+DEFAULT
+AUTO_INCREMENT` },
+
+    { q:"Primary key example", a:`CREATE TABLE test (
+    id INT PRIMARY KEY
+);` },
+
+    { q:"Foreign key example", a:`CREATE TABLE orders (
+    order_id INT,
+    emp_id INT,
+    FOREIGN KEY (emp_id) REFERENCES employees(id)
+);` }
+  ]
+},
+
+/* ================= 11 ================= */
+{
+  heading:"🔹 11. Indexes & Views",
+  questions:[
+    { q:"Create index", a:`CREATE INDEX idx_name ON employees(name);` },
+
+    { q:"Drop index", a:`DROP INDEX idx_name ON employees;` },
+
+    { q:"Create view", a:`CREATE VIEW hr_employees AS
+SELECT * FROM employees WHERE department = 'HR';` },
+
+    { q:"Drop view", a:`DROP VIEW hr_employees;` }
+  ]
+},
+
+/* ================= 12 ================= */
+{
+  heading:"🔹 12. Transactions (ACID)",
+  questions:[
+    { q:"Transaction example", a:`START TRANSACTION;
+UPDATE employees SET age = 40 WHERE id = 1;
+COMMIT;
+ROLLBACK;` },
+
+    { q:"Stored Procedure", a:`A stored procedure is a set of SQL commands
+saved in the database that can be executed together.` },
+
+    { q:"Trigger", a:`A trigger is automatically executed when
+INSERT, UPDATE, or DELETE occurs on a table.` }
+  ]
+}
+
+];
+
+
+const app=document.getElementById("app");
+
+sections.forEach((sec,si)=>{
+  app.innerHTML+=`<h2>${sec.heading}</h2>`;
+  sec.questions.forEach((it,qi)=>{
+    const id=`s${si}_q${qi}`;
+    app.innerHTML+=`
+      <div class="card">
+        <div class="content">
+          <div class="question">${it.q}</div>
+          <div class="answer"><pre>${it.a}</pre></div>
+        </div>
+        <label class="cb-wrap">
+          <input type="checkbox" id="${id}">
+          <span class="cb"></span>
+        </label>
+      </div>`;
+  });
+});
+
+/* toggle answer */
+document.querySelectorAll(".question").forEach(q=>{
+  q.onclick=()=> {
+    const a=q.nextElementSibling;
+    a.style.display=a.style.display==="block"?"none":"block";
+  };
+});
+
+/* storage */
+document.querySelectorAll(".card").forEach(card=>{
+  const cb=card.querySelector("input");
+  cb.checked=localStorage.getItem(cb.id)==="true";
+  if(cb.checked) card.classList.add("done");
+
+  cb.onchange=()=>{
+    localStorage.setItem(cb.id,cb.checked);
+    card.classList.toggle("done",cb.checked);
+  };
+});
+
+document.getElementById("resetBtn").onclick=()=>{
+  document.querySelectorAll(".card").forEach(c=>{
+    const cb=c.querySelector("input");
+    cb.checked=false;
+    c.classList.remove("done");
+    localStorage.removeItem(cb.id);
+  });
+};
+</script>
+
+</body>
+</html>

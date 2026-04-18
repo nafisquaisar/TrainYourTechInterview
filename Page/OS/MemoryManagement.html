@@ -1,0 +1,559 @@
+<!DOCTYPE html><html><head>
+      <title>MemoryManagement</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\nafis\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.20\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="operating-system--memory-management-complete-notes">OPERATING SYSTEM – MEMORY MANAGEMENT (COMPLETE NOTES) </h1>
+<hr>
+<h2 id="index">INDEX </h2>
+<p>1️⃣ Introduction to Memory Management<br>
+2️⃣ Objectives of Memory Management<br>
+3️⃣ Logical Address and Physical Address<br>
+4️⃣ Address Binding<br>
+5️⃣ Memory Management Unit (MMU)<br>
+6️⃣ Degree of Multiprogramming<br>
+7️⃣ Contiguous Memory Allocation<br>
+8️⃣ Fixed Size Partitioning<br>
+9️⃣ Internal Fragmentation<br>
+🔟 Variable Size Partitioning<br>
+1️⃣1️⃣ External Fragmentation<br>
+1️⃣2️⃣ Memory Allocation Strategies<br>
+1️⃣3️⃣ Memory Allocation with Timeline (GATE)<br>
+1️⃣4️⃣ Paging<br>
+1️⃣5️⃣ Need of Paging<br>
+1️⃣6️⃣ Paging Address Translation<br>
+1️⃣7️⃣ Paging Numericals<br>
+1️⃣8️⃣ Segmentation<br>
+1️⃣9️⃣ Paging vs Segmentation<br>
+2️⃣0️⃣ Virtual Memory<br>
+2️⃣1️⃣ Demand Paging<br>
+2️⃣2️⃣ Page Fault<br>
+2️⃣3️⃣ Effective Access Time (EAT)<br>
+2️⃣4️⃣ Page Replacement Algorithms<br>
+2️⃣5️⃣ FIFO Algorithm<br>
+2️⃣6️⃣ LRU Algorithm<br>
+2️⃣7️⃣ Optimal Algorithm<br>
+2️⃣8️⃣ Belady’s Anomaly<br>
+2️⃣9️⃣ Thrashing<br>
+3️⃣0️⃣ Working Set Model<br>
+3️⃣1️⃣ Translation Lookaside Buffer (TLB)<br>
+3️⃣2️⃣ Memory Protection<br>
+3️⃣3️⃣ Buddy System<br>
+3️⃣4️⃣ Interview and GATE Important Points</p>
+<hr>
+<h2 id="1-introduction-to-memory-management">1. Introduction to Memory Management </h2>
+<p>Memory management is a function of the operating system that manages main memory (RAM). It keeps track of which part of memory is used and which part is free. It also decides how memory is allocated to processes and released after use.</p>
+<p>Memory is a limited resource. Proper management is required to run multiple programs efficiently.</p>
+<img src="mem_manag_photo/memorymanagement.png" style="display:block; margin:auto; width:400px; height:400px;">
+<hr>
+<h2 id="2-objectives-of-memory-management">2. Objectives of Memory Management </h2>
+<ul>
+<li>✅ Efficient utilization of memory</li>
+<li>⚡ Fast access to data and instructions</li>
+<li>🔐 Protection between processes</li>
+<li>🧠 Support multiprogramming</li>
+<li>📉 Reduce fragmentation</li>
+</ul>
+<hr>
+<h2 id="3-logical-address-and-physical-address">3. Logical Address and Physical Address </h2>
+<h3 id="logical-address">Logical Address </h3>
+<p>📘 Logical address is generated by the CPU. It is also called virtual address. Programs use logical addresses.</p>
+<h3 id="physical-address">Physical Address </h3>
+<p>📙 Physical address is the actual address in the main memory. It is used by memory hardware.</p>
+<hr>
+<h2 id="4-address-binding">4. Address Binding </h2>
+<p>Address binding is the process of mapping logical addresses to physical addresses.</p>
+<h3 id="types-of-address-binding">Types of Address Binding </h3>
+<ul>
+<li>🛠 Compile Time Binding</li>
+<li>📦 Load Time Binding</li>
+<li>🔄 Execution Time Binding</li>
+</ul>
+<hr>
+<h2 id="5-memory-management-unit-mmu">5. Memory Management Unit (MMU) </h2>
+<p>MMU is a hardware device that converts logical addresses into physical addresses. It is present between CPU and main memory.</p>
+<hr>
+<h2 id="6-degree-of-multiprogramming">6. Degree of Multiprogramming </h2>
+<p>Degree of multiprogramming is the number of processes present in main memory at the same time.</p>
+<blockquote>
+<p>Degree of Multiprogramming = Number of processes in main memory</p>
+</blockquote>
+<ul>
+<li>👉 ek time par RAM me kitne processes loaded hain</li>
+<li>📈 Higher degree increases CPU utilization</li>
+<li>⚠ Very high degree can cause thrashing</li>
+</ul>
+<hr>
+<img src="mem_manag_photo/techniqMM.png" style="display:block; margin:auto; width:400px; height:400px;">
+<h2 id="7-contiguous-memory-allocation">7. Contiguous Memory Allocation </h2>
+<p>In contiguous memory allocation, each process is allocated a single continuous block of memory.</p>
+<h3 id="advantages">Advantages </h3>
+<ul>
+<li>✅ Simple to implement</li>
+<li>🧮 Easy address calculation</li>
+</ul>
+<h3 id="disadvantages">Disadvantages </h3>
+<ul>
+<li>❌ Internal and external fragmentation</li>
+<li>🗑 Memory wastage</li>
+</ul>
+<hr>
+<h2 id="8-fixed-size-partitioning">8. Fixed Size Partitioning </h2>
+<p>Main memory is divided into fixed-size partitions. Each partition can contain only one process.</p>
+<h3 id="example">Example </h3>
+<p>🧪 If memory is divided into 5 partitions of 100 MB each, maximum 5 processes can be loaded.</p>
+<hr>
+<h2 id="9-internal-fragmentation">9. Internal Fragmentation </h2>
+<p>Internal fragmentation occurs when allocated memory is more than required memory.</p>
+<h3 id="example-1">Example </h3>
+<p>🧪 A process needs 80 KB but is allocated 100 KB. Wasted memory is 20 KB.</p>
+<hr>
+<h2 id="10-variable-size-partitioning">10. Variable Size Partitioning </h2>
+<p>Memory is divided dynamically based on process requirement.</p>
+<h3 id="advantage">Advantage </h3>
+<ul>
+<li>✅ No internal fragmentation</li>
+</ul>
+<h3 id="disadvantage">Disadvantage </h3>
+<ul>
+<li>❌ External fragmentation</li>
+</ul>
+<hr>
+<h2 id="11-external-fragmentation">11. External Fragmentation </h2>
+<p>External fragmentation occurs when enough free memory is available but not in one continuous block.</p>
+<img src="mem_manag_photo/fragment.png" style="display:block; margin:auto; width:400px; height:400px;">
+<hr>
+<h2 id="12-memory-allocation-strategies">12. Memory Allocation Strategies </h2>
+<h3 id="first-fit">First Fit </h3>
+<p>➡ First available block that is sufficient is allocated.</p>
+<h3 id="best-fit">Best Fit </h3>
+<p>📏 Smallest suitable block is allocated.</p>
+<h3 id="worst-fit">Worst Fit </h3>
+<p>📦 Largest free block is allocated.</p>
+<h3 id="next-fit">Next Fit </h3>
+<p>🔁 Search continues from last allocation point.</p>
+<hr>
+<h2 id="13-memory-allocation-with-timeline-gate">13. Memory Allocation with Timeline (GATE) </h2>
+<p>⏱ Processes arrive and leave memory at different times. Allocation and deallocation are done dynamically. This concept is frequently asked in GATE.</p>
+<hr>
+<h2 id="-non-contiguous-memory-allocation">📌 Non-Contiguous Memory Allocation </h2>
+<p>In <strong>non-contiguous memory allocation</strong>, a process is not stored in one continuous block of memory. Instead, it is divided into parts and stored at different locations in main memory. This approach improves memory utilization and supports virtual memory.</p>
+<hr>
+<h3 id="-why-non-contiguous-allocation-is-used">🔹 Why Non-Contiguous Allocation is Used </h3>
+<ul>
+<li>🚫 Eliminates external fragmentation</li>
+<li>💾 Better memory utilization</li>
+<li>🧠 Supports virtual memory</li>
+<li>🚀 Efficient execution of large processes</li>
+</ul>
+<hr>
+<h2 id="1️⃣-paging">1️⃣ Paging </h2>
+<h3 id="definition">Definition </h3>
+<p>Paging divides logical memory into <strong>fixed-size pages</strong> and physical memory into <strong>fixed-size frames</strong>. Page size and frame size are equal.</p>
+<img src="mem_manag_photo/image-11.png" style="display:block; margin:auto; width:400px; height:400px;">
+<h1 id="-paging-numericals--gate-focused-notes">📘 Paging Numericals – GATE Focused Notes </h1>
+<p><em>(Based on Logical → Physical Address Translation Diagram)</em></p>
+<hr>
+<h2 id="a-given-from-diagram">A. Given (from Diagram) </h2>
+<ul>
+<li>🔢 Logical address size = <strong>13 bits</strong></li>
+<li>🧮 Physical address size = <strong>12 bits</strong></li>
+<li>📐 Offset bits = <strong>10 bits</strong></li>
+<li>🧷 Page number bits = <strong>3 bits</strong></li>
+<li>🧱 Frame number bits = <strong>2 bits</strong></li>
+</ul>
+<hr>
+<h2 id="b-page-size">B. Page Size </h2>
+<p>Offset bits = 10</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Page Size = 2 ^ (offset bits)
+Page Size = 2 ^ 10
+</code></pre><p>✅ <strong>Page Size = 1024 words</strong></p>
+<p>📌 <strong>GATE Point</strong>: Page size is always calculated using <strong>offset bits</strong>.</p>
+<hr>
+<h2 id="c-number-of-pages">C. Number of Pages </h2>
+<p>Page number bits = 3</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Number of Pages = 2 ^ (page number bits)
+Number of Pages = 2 ^ 3
+</code></pre><p>✅ <strong>Total Pages = 8</strong><br>
+(Page numbers: 0 to 7)</p>
+<hr>
+<h2 id="d-logical-address-space-size">D. Logical Address Space Size </h2>
+<p>Using address bits:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Logical Address Space = 2 ^ 13
+</code></pre><p>OR</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Logical Address Space = Number of Pages × Page Size
+                       = 8 × 1024
+</code></pre><p>✅ <strong>Logical Address Space = 8192 words</strong></p>
+<hr>
+<h2 id="e-frame-size">E. Frame Size </h2>
+<p>Offset bits in physical address = 10</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Frame Size = 2 ^ 10
+</code></pre><p>✅ <strong>Frame Size = 1024 words</strong></p>
+<p>📌 <strong>GATE Point</strong>: Page size = Frame size (always).</p>
+<hr>
+<h2 id="f-number-of-frames">F. Number of Frames </h2>
+<p>Frame number bits = 2</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Number of Frames = 2 ^ (frame number bits)
+Number of Frames = 2 ^ 2
+</code></pre><p>✅ <strong>Total Frames = 4</strong><br>
+(Frame numbers: 0 to 3)</p>
+<hr>
+<h2 id="g-physical-memory-size">G. Physical Memory Size </h2>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Physical Memory Size = Number of Frames × Frame Size
+                     = 4 × 1024
+</code></pre><p>✅ <strong>Physical Memory Size = 4096 words</strong></p>
+<hr>
+<h2 id="h-address-format-very-important">H. Address Format (Very Important) </h2>
+<h3 id="logical-address-1">Logical Address </h3>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>| Page Number (3 bits) | Offset (10 bits) |
+</code></pre><h3 id="physical-address-1">Physical Address </h3>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>| Frame Number (2 bits) | Offset (10 bits) |
+</code></pre><p>📌 <strong>GATE Point</strong>: Offset bits <strong>never change</strong> during address translation.</p>
+<hr>
+<h2 id="i-address-translation-numerical-flow">I. Address Translation (Numerical Flow) </h2>
+<p>If CPU wants to access <strong>page number = 3</strong>:</p>
+<ol>
+<li>🧠 CPU generates logical address → <code>(p = 3, d)</code></li>
+<li>🔁 MMU uses <code>p = 3</code> to access page table</li>
+<li>📋 Page table gives frame number (for example <code>f = 2</code>)</li>
+<li>📍 Physical address formed → <code>(f = 2, d)</code></li>
+</ol>
+<p>✅ Offset remains <strong>same</strong></p>
+<hr>
+<h2 id="j-frequently-asked-gate-points">J. Frequently Asked GATE Points </h2>
+<ul>
+<li>📐 Page size = <code>2 ^ offset bits</code></li>
+<li>🧷 Number of pages = <code>2 ^ page number bits</code></li>
+<li>🧱 Number of frames = <code>2 ^ frame number bits</code></li>
+<li>💽 Logical address size &gt; Physical address size → <strong>Virtual memory exists</strong></li>
+<li>🚫 Paging removes <strong>external fragmentation</strong></li>
+</ul>
+<hr>
+<h2 id="k-one-line-revision-before-exam">K. One-Line Revision (Before Exam) </h2>
+<ul>
+<li>🎯 Offset decides page and frame size</li>
+<li>🔗 Page table maps <strong>page number → frame number</strong></li>
+<li>📎 Offset is directly copied</li>
+<li>🔄 Page number is replaced by frame number</li>
+</ul>
+<hr>
+<h3 id="key-points">Key Points </h3>
+<ul>
+<li>Pages can be stored in any free frame</li>
+<li>Uses a page table for address mapping</li>
+<li>Removes external fragmentation</li>
+</ul>
+<h3 id="example-2">Example </h3>
+<p>If page size = 4 KB and process size = 16 KB, then total pages = 4.</p>
+<h3 id="pros--cons">Pros / Cons </h3>
+<ul>
+<li>✅ No external fragmentation</li>
+<li>❌ Internal fragmentation may occur</li>
+</ul>
+<hr>
+<h2 id="2️⃣-multi-level-paging">2️⃣ Multi-Level Paging </h2>
+<h3 id="definition-1">Definition </h3>
+<p>Multi-level paging divides a large page table into multiple levels to reduce memory usage.</p>
+<h3 id="key-points-1">Key Points </h3>
+<ul>
+<li>
+<p>Page table is also paged</p>
+</li>
+<li>
+<p>Used in large address space systems</p>
+</li>
+<li>
+<p>Multiple memory accesses needed</p>
+</li>
+<li>
+<p>✅ Saves page table memory</p>
+</li>
+<li>
+<p>❌ Slower address translation</p>
+</li>
+</ul>
+<hr>
+<h2 id="3️⃣-inverted-paging">3️⃣ Inverted Paging </h2>
+<h3 id="definition-2">Definition </h3>
+<p>In inverted paging, a <strong>single global page table</strong> is used for the entire system. Each entry represents a frame instead of a page.</p>
+<h3 id="key-points-2">Key Points </h3>
+<ul>
+<li>
+<p>Entry contains process ID and page number</p>
+</li>
+<li>
+<p>Hashing is used for fast lookup</p>
+</li>
+<li>
+<p>✅ Very small page table</p>
+</li>
+<li>
+<p>❌ Complex searching and sharing</p>
+</li>
+</ul>
+<hr>
+<h2 id="4️⃣-segmentation">4️⃣ Segmentation </h2>
+<h3 id="definition-3">Definition </h3>
+<p>Segmentation divides memory into <strong>logical units</strong> like code, data, and stack. Each segment has a base and limit.</p>
+<h3 id="address-format">Address Format </h3>
+<p>Segment Number + Offset</p>
+<ul>
+<li>✅ Matches program structure</li>
+<li>❌ External fragmentation possible</li>
+</ul>
+<hr>
+<h2 id="5️⃣-segmented-paging">5️⃣ Segmented Paging </h2>
+<h3 id="definition-4">Definition </h3>
+<p>Segmented paging combines <strong>segmentation and paging</strong>. Segments are divided into pages.</p>
+<img src="mem_manag_photo/segment.png" style="display:block; margin:auto; width:500px; height:300px;">
+<h3 id="address-format-1">Address Format </h3>
+<p>Segment Number → Page Number → Offset</p>
+<ul>
+<li>✅ Logical view + no external fragmentation</li>
+<li>❌ Complex address translation</li>
+</ul>
+<hr>
+<h2 id="-quick-summary">🔑 Quick Summary </h2>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Fragmentation</th>
+<th>Key Idea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Paging</td>
+<td>Internal</td>
+<td>Fixed-size pages &amp; frames</td>
+</tr>
+<tr>
+<td>Multi-Level Paging</td>
+<td>Internal</td>
+<td>Page table divided into levels</td>
+</tr>
+<tr>
+<td>Inverted Paging</td>
+<td>Internal</td>
+<td>Single global page table</td>
+</tr>
+<tr>
+<td>Segmentation</td>
+<td>External</td>
+<td>Logical memory division</td>
+</tr>
+<tr>
+<td>Segmented Paging</td>
+<td>Minimal</td>
+<td>Segmentation + Paging</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="14-need-of-paging">14. Need of Paging </h2>
+<p>Paging is required to:</p>
+<ul>
+<li>❌ Remove external fragmentation</li>
+<li>💾 Support virtual memory</li>
+</ul>
+<hr>
+<h2 id="15-paging">15. Paging </h2>
+<p>Paging divides logical memory into pages and physical memory into frames.</p>
+<h3 id="important-terms">Important Terms </h3>
+<ul>
+<li>📄 Page</li>
+<li>🧱 Frame</li>
+<li>🗂 Page Table</li>
+<li>📍 Offset</li>
+</ul>
+<hr>
+<h2 id="16-paging-address-translation">16. Paging Address Translation </h2>
+<p>🧮 Logical Address = Page Number + Offset</p>
+<p>🧮 Physical Address = Frame Number + Offset</p>
+<hr>
+<h2 id="17-paging-numericals">17. Paging Numericals </h2>
+<p>If logical address size is 32 bits and page size is 4 KB:</p>
+<ul>
+<li>🔢 Offset = 12 bits</li>
+<li>🔢 Page Number = 20 bits</li>
+</ul>
+<hr>
+<h2 id="18-segmentation">18. Segmentation </h2>
+<p>Segmentation divides memory based on logical units like:</p>
+<ul>
+<li>🧠 Code</li>
+<li>📊 Data</li>
+<li>🗃 Stack</li>
+</ul>
+<p>Each segment has base and limit.</p>
+<hr>
+<h2 id="image-segmentation-concept">IMAGE: Segmentation Concept </h2>
+<p>🖼 (Image showing segments with base and limit)</p>
+<hr>
+<h2 id="19-paging-vs-segmentation">19. Paging vs Segmentation </h2>
+<ul>
+<li>📄 Paging uses fixed-size blocks</li>
+<li>🧩 Segmentation uses variable-size blocks</li>
+</ul>
+<hr>
+<h2 id="20-virtual-memory">20. Virtual Memory </h2>
+<p>Virtual memory allows execution of programs larger than physical memory.</p>
+<hr>
+<h2 id="21-demand-paging">21. Demand Paging </h2>
+<p>📥 Pages are loaded into memory only when they are required.</p>
+<hr>
+<h2 id="22-page-fault">22. Page Fault </h2>
+<p>⚠ Page fault occurs when required page is not present in main memory.</p>
+<hr>
+<h2 id="23-effective-access-time-eat">23. Effective Access Time (EAT) </h2>
+<p>EAT is the average time required to access memory considering page faults.</p>
+<p>📐 Formula:<br>
+EAT = (1 − p) × Memory Access Time + p × Page Fault Time</p>
+<hr>
+<h2 id="24-page-replacement-algorithms">24. Page Replacement Algorithms </h2>
+<p>🔄 Used when memory is full and a page fault occurs.</p>
+<img src="mem_manag_photo/image-12.png" style="display:block; margin:auto; width:400px; height:200px;">
+<hr>
+<h2 id="25-fifo-algorithm">25. FIFO Algorithm </h2>
+<ul>
+<li>🕒 Oldest page is replaced first.</li>
+<li>Simple to understand.</li>
+<li>Can show Belady’s Anomaly (very important for GATE).</li>
+</ul>
+<img src="mem_manag_photo/image-13.png" style="display:block; margin:auto; width:400px; height:200px;">
+<hr>
+<h2 id="26-lru-least-recently-used-algorithm">26. LRU (Least Recently Used) Algorithm </h2>
+<ul>
+<li>⏳ Replaces the page that was used least recently.</li>
+<li>Practical and logical.</li>
+<li>No Belady’s anomaly.</li>
+</ul>
+<img src="mem_manag_photo/image-14.png" style="display:block; margin:auto; width:400px; height:200px;">
+<hr>
+<h2 id="27-optimal-algorithm">27. Optimal Algorithm </h2>
+<ul>
+<li>🎯 Replaces the page that will not be used for the longest time in future.</li>
+<li>Gives minimum possible page faults.</li>
+<li>Used as benchmark in questions</li>
+</ul>
+<img src="mem_manag_photo/image-15.png" style="display:block; margin:auto; width:400px; height:200px;">
+<h2 id="27-lfu-least-frequently-used-algorithm">27. LFU (Least Frequently Used) Algorithm </h2>
+<ul>
+<li>🎯 Page with lowest frequency count is replaced.</li>
+<li>Problem: old pages may stay forever.</li>
+</ul>
+<img src="mem_manag_photo/image-16.png" style="display:block; margin:auto; width:400px; height:200px;">
+<hr>
+<hr>
+<h2 id="28--beladys-anomaly">28. 🔴 Belady’s Anomaly </h2>
+<p><strong>Belady’s Anomaly</strong> is a phenomenon in Operating Systems where:</p>
+<blockquote>
+<p><strong>Increasing the number of page frames results in an <em>increase</em> in the number of page faults.</strong></p>
+</blockquote>
+<p>Normally, when more frames are added, page faults should decrease.<br>
+But in Belady’s Anomaly, the opposite happens.</p>
+<h2 id="-where-does-beladys-anomaly-occur">📌 Where does Belady’s Anomaly occur? </h2>
+<ul>
+<li>
+<p>Occurs <strong>only in FIFO (First In First Out)</strong> page replacement algorithm</p>
+</li>
+<li>
+<p>Does <strong>not occur</strong> in:</p>
+<ul>
+<li>LRU (Least Recently Used)</li>
+<li>Optimal (OPT)</li>
+</ul>
+</li>
+</ul>
+<h2 id="-simple-example">🧠 Simple Example </h2>
+<p>Page reference string:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>1 2 3 4 1 2 5 1 2 3 4 5
+</code></pre><table>
+<thead>
+<tr>
+<th>Number of Frames</th>
+<th>Page Faults</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3 frames</td>
+<td>9</td>
+</tr>
+<tr>
+<td>4 frames</td>
+<td>10 ❌</td>
+</tr>
+</tbody>
+</table>
+<p>➡ Increasing frames increases page faults → <strong>Belady’s Anomaly</strong></p>
+<h2 id="-important-gate-points">⭐ Important GATE Points </h2>
+<ul>
+<li>Belady’s Anomaly occurs <strong>only in FIFO</strong></li>
+<li>FIFO is <strong>not</strong> a stack algorithm</li>
+<li>LRU and OPT are <strong>stack algorithms</strong></li>
+<li>Stack algorithms <strong>never show Belady’s Anomaly</strong></li>
+</ul>
+<hr>
+<h2 id="-one-line-exam-definition">📝 One-Line Exam Definition </h2>
+<blockquote>
+<p><strong>Belady’s Anomaly is the condition in which increasing the number of page frames leads to an increase in page faults when using FIFO page replacement.</strong></p>
+</blockquote>
+<hr>
+<h2 id="29-thrashing">29. Thrashing </h2>
+<p>🔥 System spends more time in paging than executing processes.</p>
+<hr>
+<h2 id="30-working-set-model">30. Working Set Model </h2>
+<p>📚 Working set is the set of pages used by a process in a given time interval.</p>
+<hr>
+<h2 id="31-translation-lookaside-buffer-tlb">31. Translation Lookaside Buffer (TLB) </h2>
+<p>🚀 TLB is a high-speed cache that stores recent page table entries.</p>
+<hr>
+<h2 id="32-memory-protection">32. Memory Protection </h2>
+<p>🔐 Memory protection prevents illegal memory access using base and limit registers.</p>
+<hr>
+<h2 id="33-buddy-system">33. Buddy System </h2>
+<p>🧩 Buddy system allocates memory in powers of two.</p>
+<hr>
+<h2 id="34-interview-and-gate-important-points">34. Interview and GATE Important Points </h2>
+<ul>
+<li>✅ FIFO suffers from Belady’s anomaly</li>
+<li>✅ Paging removes external fragmentation</li>
+<li>✅ TLB improves access time</li>
+<li>✅ Thrashing reduces performance</li>
+</ul>
+<hr>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html><html><head>
+      <title>DBMS</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\nafis\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.20\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="-dbms-notes-wellstructured--exam-ready">📘 DBMS NOTES (Well‑Structured &amp; Exam Ready) </h1>
+<hr>
+<h4 id="-dbms-database-management-system">📘 DBMS (Database Management System) </h4>
+<p>A DBMS is software that is used to store, manage, and retrieve data from a database in an organized way.<br>
+It helps users create, update, delete, and access data easily and securely.</p>
+<p>👉 Example: MySQL, Oracle, SQL Server</p>
+<hr>
+<h4 id="-mysql">🐬 MySQL </h4>
+<p>MySQL is an open-source relational database management system (RDBMS).<br>
+It stores data in the form of tables (rows and columns) and uses SQL to manage data.</p>
+<p>👉 Commonly used in web and application development.</p>
+<hr>
+<h4 id="-sql-structured-query-language">💬 SQL (Structured Query Language) </h4>
+<p>SQL is a standard language used to communicate with a database.<br>
+It is used to create tables, insert data, update data, delete data, and retrieve data from databases.</p>
+<p>👉 Example commands: SELECT, INSERT, UPDATE, DELETE</p>
+<hr>
+<h4 id="-one-line-interview-summary">🎯 One-line Interview Summary </h4>
+<p>DBMS: Software to manage databases</p>
+<p>MySQL: A relational database system</p>
+<p>SQL: Language used to interact with databases</p>
+<hr>
+<h2 id="-sql-command-types-interview-notes">📂 SQL Command Types (Interview Notes) </h2>
+<p>SQL commands are divided into <strong>five main categories</strong>.</p>
+<h2 id="️-ddl-data-definition-language">🏗️ DDL (Data Definition Language) </h2>
+<p>Used to <strong>define or change the structure</strong> of database objects.</p>
+<p><strong>Commands:</strong></p>
+<ul>
+<li><code>CREATE</code> → Creates database or table</li>
+<li><code>ALTER</code> → Modifies table structure</li>
+<li><code>DROP</code> → Deletes table or database</li>
+<li><code>TRUNCATE</code> → Removes all records (structure remains)</li>
+<li><code>RENAME</code> → Renames a table</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-CREATE">CREATE</span> <span class="token keyword keyword-TABLE">TABLE</span> Student<span class="token punctuation">(</span>id <span class="token keyword keyword-INT">INT</span><span class="token punctuation">,</span> name <span class="token keyword keyword-VARCHAR">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><hr>
+<h2 id="-dml-data-manipulation-language">📝 DML (Data Manipulation Language) </h2>
+<p>Used to <strong>manipulate data</strong> inside tables.</p>
+<p><strong>Commands:</strong></p>
+<ul>
+<li><code>INSERT</code> → Adds new data</li>
+<li><code>UPDATE</code> → Modifies existing data</li>
+<li><code>DELETE</code> → Removes data</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-INSERT">INSERT</span> <span class="token keyword keyword-INTO">INTO</span> Student <span class="token keyword keyword-VALUES">VALUES</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'Rahul'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><hr>
+<h2 id="-dql-data-query-language">🔍 DQL (Data Query Language) </h2>
+<p>Used to <strong>retrieve data</strong> from the database.</p>
+<p><strong>Command:</strong></p>
+<ul>
+<li><code>SELECT</code></li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-SELECT">SELECT</span> <span class="token operator">*</span> <span class="token keyword keyword-FROM">FROM</span> Student<span class="token punctuation">;</span>
+</code></pre><hr>
+<h2 id="-dcl-data-control-language">🔐 DCL (Data Control Language) </h2>
+<p>Used to <strong>control access and permissions</strong>.</p>
+<p><strong>Commands:</strong></p>
+<ul>
+<li><code>GRANT</code> → Gives permission</li>
+<li><code>REVOKE</code> → Removes permission</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-GRANT">GRANT</span> <span class="token keyword keyword-SELECT">SELECT</span> <span class="token keyword keyword-ON">ON</span> Student <span class="token keyword keyword-TO">TO</span> user1<span class="token punctuation">;</span>
+</code></pre><hr>
+<h2 id="-tcl-transaction-control-language">🔄 TCL (Transaction Control Language) </h2>
+<p>Used to <strong>manage transactions</strong> in the database.</p>
+<p><strong>Commands:</strong></p>
+<ul>
+<li><code>COMMIT</code> → Saves changes permanently</li>
+<li><code>ROLLBACK</code> → Undoes changes</li>
+<li><code>SAVEPOINT</code> → Creates a rollback point</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql sql"><code><span class="token keyword keyword-ROLLBACK">ROLLBACK</span><span class="token punctuation">;</span>
+</code></pre><hr>
+<h2 id="-one-line-interview-trick">🎯 One-Line Interview Trick </h2>
+<ul>
+<li><strong>DDL</strong> → Structure</li>
+<li><strong>DML</strong> → Data</li>
+<li><strong>DQL</strong> → Fetch data</li>
+<li><strong>DCL</strong> → Permission</li>
+<li><strong>TCL</strong> → Transactions</li>
+</ul>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<h2 id="-topic-1-dependency">🔹 TOPIC 1: DEPENDENCY </h2>
+<h3 id="1-functional-dependency-fd">1. Functional Dependency (FD) </h3>
+<p>A <strong>functional dependency</strong> X → Y means attribute X uniquely determines attribute Y.</p>
+<p><strong>Example</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>RollNo → Name
+</code></pre><hr>
+<h3 id="2-types-of-functional-dependency">2. Types of Functional Dependency </h3>
+<p><strong>1. Trivial Dependency</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>A → A
+</code></pre><p><strong>2. Non‑Trivial Dependency</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>A → B
+</code></pre><p><strong>3. Full Functional Dependency</strong></p>
+<ul>
+<li>📌 Attribute depends on whole composite key</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>(A, B) → C
+</code></pre><p><strong>4. Partial Dependency</strong></p>
+<ul>
+<li>⚠️ Depends on part of composite key</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>(A, B) → C
+A → C
+</code></pre><p><strong>5. Transitive Dependency</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>A → B
+B → C
+A → C
+</code></pre><hr>
+<h3 id="3-candidate-key">3. Candidate Key </h3>
+<p>A <strong>candidate key</strong> is a minimal set of attributes that uniquely identify a tuple.</p>
+<p><strong>Types of Keys</strong></p>
+<ul>
+<li>🔑 Super Key</li>
+<li>🗝️ Candidate Key</li>
+<li>⭐ Primary Key</li>
+<li>🔁 Alternate Key</li>
+</ul>
+<h4 id="-super-key">🔐 Super Key </h4>
+<ul>
+<li>A Super Key is any key that can uniquely identify a record in a table.<br>
+It may contain extra attributes.</li>
+</ul>
+<blockquote>
+<p>Example:<br>
+StudentID<br>
+StudentID + Name</p>
+</blockquote>
+<h4 id="️-candidate-key">🗝️ Candidate Key </h4>
+<ul>
+<li>A Candidate Key is the smallest possible super key.</li>
+<li>It uniquely identifies a record without extra attributes.</li>
+</ul>
+<blockquote>
+<p>Example:<br>
+StudentID, Email</p>
+</blockquote>
+<h4 id="-primary-key">⭐ Primary Key </h4>
+<ul>
+<li>A Primary Key is the candidate key chosen to identify records in a table.<br>
+It cannot be NULL or duplicate.</li>
+</ul>
+<blockquote>
+<p>Example:<br>
+StudentID</p>
+</blockquote>
+<hr>
+<h3 id="4-multivalued-dependency-mvd">4. Multivalued Dependency (MVD) </h3>
+<p>A <strong>multivalued dependency</strong> occurs when one attribute determines multiple independent attributes.</p>
+<p><strong>Notation</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>A ↠ B
+</code></pre><p><strong>Example</strong></p>
+<ul>
+<li>📞 Employee has multiple phone numbers</li>
+<li>🧠 Employee has multiple skills</li>
+</ul>
+<hr>
+<h2 id="-topic-2-normalization">🔹 TOPIC 2: NORMALIZATION </h2>
+<h3 id="anomalies-in-dbms-interview-notes">Anomalies in DBMS (Interview Notes) </h3>
+<p><strong>Anomalies in DBMS</strong> are problems that occur when a database table is poorly designed and contains redundant data. These problems arise during normal database operations.</p>
+<h4 id="types-of-anomalies">Types of Anomalies </h4>
+<ol>
+<li>
+<p><strong>Insertion Anomaly</strong> ➕<br>
+Occurs when we cannot insert data without inserting unnecessary or unrelated data.</p>
+</li>
+<li>
+<p><strong>Update Anomaly</strong> 🔁<br>
+Occurs when the same data is present in multiple rows, and updating it in one place but not everywhere leads to inconsistency.</p>
+</li>
+<li>
+<p><strong>Deletion Anomaly</strong> ❌<br>
+Occurs when deleting a record unintentionally removes important information.</p>
+</li>
+</ol>
+<h4 id="cause">Cause </h4>
+<ul>
+<li>⚠️ Poor table design</li>
+<li>📄 Data redundancy</li>
+<li>🚫 Lack of normalization</li>
+</ul>
+<h4 id="solution">Solution </h4>
+<ul>
+<li>✅ Apply database normalization</li>
+<li>🗂️ Divide data into multiple related tables</li>
+<li>🔑 Use primary and foreign keys</li>
+</ul>
+<h4 id="one-line-interview-answer">One-Line Interview Answer </h4>
+<p><strong>Anomalies are errors caused by data redundancy during insert, update, or delete operations in DBMS.</strong></p>
+<h3 id="1-normalization">1. Normalization </h3>
+<p>Normalization is the process of organizing data to:</p>
+<ul>
+<li>♻️ Remove redundancy</li>
+<li>⚠️ Avoid anomalies</li>
+<li>🔐 Improve data integrity</li>
+</ul>
+<img src="DBMS/norma1.jpeg">
+<img src="DBMS/norma2.jpeg">
+<h3 id="2-first-normal-form-1nf">2. First Normal Form (1NF) </h3>
+<p><strong>Rules</strong></p>
+<p>A table is in First Normal Form (1NF) if:</p>
+<ol>
+<li>🔹 Atomic values</li>
+<li>🚫 No repeating groups</li>
+<li>🎯 Single‑valued attributes</li>
+</ol>
+<p>❌ Not 1NF</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Phone = 123, 456
+</code></pre><p>✅ 1NF</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Phone = 123
+Phone = 456
+</code></pre><hr>
+<h3 id="3-second-normal-form-2nf">3. Second Normal Form (2NF) </h3>
+<p><strong>Rules</strong></p>
+<p>A table is in Second Normal Form (2NF) if:</p>
+<ol>
+<li>✅ Must be in 1NF</li>
+<li>❌ No partial dependency</li>
+</ol>
+<p>👉 Partial Dependency means:</p>
+<blockquote>
+<p>A non-key attribute depends on part of a composite primary key</p>
+</blockquote>
+<hr>
+<h3 id="4-third-normal-form-3nf">4. Third Normal Form (3NF) </h3>
+<p><strong>Rules</strong></p>
+<p>A table is in Third Normal Form (3NF) if:</p>
+<ol>
+<li>✅ Must be in 2NF</li>
+<li>❌ No transitive dependency</li>
+</ol>
+<p>👉 Transitive Dependency:</p>
+<blockquote>
+<p>A non-key attribute depends on another non-key attribute</p>
+</blockquote>
+<hr>
+<h3 id="5-boyce-codd-normal-form-bcnf">5. Boyce Codd Normal Form (BCNF) </h3>
+<p><strong>Rule</strong></p>
+<p>A table is in BCNF if:</p>
+<ul>
+<li>
+<p>It is already in 3NF, and</p>
+</li>
+<li>
+<p>For every functional dependency X → Y, X must be a super key</p>
+</li>
+</ul>
+<p>For every dependency X → Y, X must be a super key.<br>
+“X functionally determines Y”</p>
+<hr>
+<h3 id="6-fourth-normal-form-4nf">6. Fourth Normal Form (4NF) </h3>
+<p>A table is in Fourth Normal Form (4NF) if:<br>
+<strong>Rules</strong></p>
+<ul>
+<li>✅ Must be in BCNF</li>
+<li>❌ No multivalued dependency</li>
+</ul>
+<hr>
+<h3 id="7-lossless-join-decomposition">7. Lossless Join Decomposition </h3>
+<p>After decomposition, if original table can be perfectly reconstructed, it is <strong>lossless</strong>.</p>
+<hr>
+<h3 id="8-dependency-preservation">8. Dependency Preservation </h3>
+<p>All functional dependencies should be preserved after decomposition without joining tables.</p>
+<hr>
+<h3 id="-normalization-flow">🔁 Normalization Flow </h3>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>1NF → 2NF → 3NF → BCNF → 4NF
+</code></pre><hr>
+<p>✅ <strong>These notes are fully aligned with your handwritten content and structured for exams and interviews.</strong></p>
+<hr>
+<hr>
+<h2 id="transactions">Transactions </h2>
+<ul>
+<li>A sequence of operations performed as a single logical unit of work.</li>
+</ul>
+<h2 id="acid-properties-in-dbms">ACID Properties in DBMS </h2>
+<p>ACID properties ensure that <strong>database transactions are reliable, safe, and consistent</strong>, especially when multiple users access the database at the same time.</p>
+<hr>
+<h3 id="1-atomicity">1. Atomicity </h3>
+<p><strong>Meaning:</strong> All or nothing.</p>
+<ul>
+<li>🔹 A transaction is treated as a single unit.</li>
+<li>🔹 Either <strong>all operations succeed</strong> or <strong>none are applied</strong>.</li>
+<li>🔹 If any part fails, the entire transaction is rolled back.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<ul>
+<li>💸 Transfer ₹5,000 from Account A to Account B</li>
+<li>✅ Debit from A</li>
+<li>✅ Credit to B</li>
+<li>❌ If credit fails → debit is rolled back</li>
+</ul>
+<hr>
+<h3 id="2-consistency">2. Consistency </h3>
+<p><strong>Meaning:</strong> Data must remain valid.</p>
+<ul>
+<li>📌 A transaction moves the database from one valid state to another.</li>
+<li>📌 All <strong>constraints, rules, triggers, and data types</strong> must be followed.</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>🚫 Balance cannot be negative</li>
+<li>🔑 Primary key must be unique</li>
+</ul>
+<hr>
+<h3 id="3-isolation">3. Isolation </h3>
+<p><strong>Meaning:</strong> Transactions work independently.</p>
+<ul>
+<li>🔁 Multiple transactions can run at the same time.</li>
+<li>🧍 Each transaction behaves as if it is the only one running.</li>
+<li>🛑 Prevents problems like dirty reads and incorrect data.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<ul>
+<li>👥 Two users updating the same account should not see each other’s incomplete data.</li>
+</ul>
+<hr>
+<h3 id="4-durability">4. Durability </h3>
+<p><strong>Meaning:</strong> Data is permanent after commit.</p>
+<ul>
+<li>💾 Once a transaction is committed, it is permanently saved.</li>
+<li>🔒 Data remains safe even after system crash or power failure.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<ul>
+<li>🔄 After a successful money transfer, the updated balance remains even if the system restarts.</li>
+</ul>
+<hr>
+<h3 id="interview-one-liner">Interview One-Liner </h3>
+<blockquote>
+<p>ACID properties ensure reliable database transactions by guaranteeing Atomicity, Consistency, Isolation, and Durability.</p>
+</blockquote>
+<hr>
+<h3 id="easy-way-to-remember">Easy Way to Remember </h3>
+<ul>
+<li><strong>A</strong> → 🔐 All or nothing</li>
+<li><strong>C</strong> → ✔️ Correct data</li>
+<li><strong>I</strong> → 🧍 Independent transactions</li>
+<li><strong>D</strong> → 💾 Data is permanent</li>
+</ul>
+<h2 id="-topic-3-er-diagram-entity-relationship-model">🔹 TOPIC 3: ER DIAGRAM (Entity Relationship Model) </h2>
+<h3 id="1-er-model">1. ER Model </h3>
+<p>The <strong>Entity Relationship (ER) Model</strong> is a conceptual model used to design a database by representing real‑world objects and their relationships.</p>
+<p><strong>Main Components</strong></p>
+<ul>
+<li>🧩 Entity</li>
+<li>🏷️ Attribute</li>
+<li>🔗 Relationship</li>
+</ul>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>✅ Simple and easy to understand</li>
+<li>🌍 Represents real‑world data clearly</li>
+<li>🛠️ Useful for database design</li>
+<li>🔄 Easy to convert into relational model</li>
+</ul>
+<hr>
+<h3 id="2-entity">2. Entity </h3>
+<p>An <strong>entity</strong> is a real‑world object that can be uniquely identified.</p>
+<h4 id="types-of-entity">Types of Entity </h4>
+<p><strong>1. Strong Entity</strong></p>
+<ul>
+<li>🔑 Has its own primary key</li>
+<li>🧱 Exists independently</li>
+<li>📌 Example: Student, Book</li>
+</ul>
+<p><strong>2. Weak Entity</strong></p>
+<ul>
+<li>❌ Does not have its own primary key</li>
+<li>🔗 Depends on a strong entity</li>
+<li>📌 Example: Edition (depends on Book)</li>
+</ul>
+<hr>
+<h3 id="3-attributes">3. Attributes </h3>
+<p>Attributes describe the properties of an entity.</p>
+<h4 id="types-of-attributes">Types of Attributes </h4>
+<ol>
+<li>🗝️ <strong>Key (Identifying) Attribute</strong> – Uniquely identifies an entity (Roll No, Book_ID)</li>
+<li>📝 <strong>Descriptive Attribute</strong> – Does not uniquely identify (Name, City)</li>
+<li>🧩 <strong>Simple Attribute</strong> – Cannot be divided further (Age)</li>
+<li>🧱 <strong>Composite Attribute</strong> – Can be divided (Address → City, State, Pin)</li>
+<li>🎯 <strong>Single‑Valued Attribute</strong> – Only one value (DOB)</li>
+<li>📚 <strong>Multi‑Valued Attribute</strong> – Multiple values (Phone, Email)</li>
+<li>💾 <strong>Stored Attribute</strong> – Stored in DB (DOB)</li>
+<li>🧮 <strong>Derived Attribute</strong> – Calculated (Age from DOB)</li>
+</ol>
+<hr>
+<h3 id="4-relationship">4. Relationship </h3>
+<p>A <strong>relationship</strong> shows how entities are connected.</p>
+<h4 id="types-of-relationships">Types of Relationships </h4>
+<ol>
+<li>🔁 <strong>Unary</strong> – Entity related to itself</li>
+<li>🔗 <strong>Binary</strong> – Relationship between two entities</li>
+<li>🔀 <strong>Ternary</strong> – Relationship among three entities</li>
+</ol>
+<hr>
+<h3 id="5-cardinality">5. Cardinality </h3>
+<p>Defines how many entities can participate in a relationship.</p>
+<ul>
+<li>1️⃣↔️1️⃣ One to One (1:1)</li>
+<li>1️⃣➡️♾️ One to Many (1:M)</li>
+<li>♾️↔️♾️ Many to Many (M:N)</li>
+</ul>
+<hr>
+<h3 id="6-er-diagram-example-online-book-database">6. ER Diagram Example: Online Book Database </h3>
+<h4 id="step-1-entities">Step 1: Entities </h4>
+<ul>
+<li>👤 Author</li>
+<li>📘 Book</li>
+<li>🏢 Publisher</li>
+<li>📄 Edition (Weak Entity)</li>
+</ul>
+<h4 id="step-2-relationships--cardinality">Step 2: Relationships &amp; Cardinality </h4>
+<ul>
+<li>✍️ Author <strong>writes</strong> Book (M:N)</li>
+<li>🧐 Author <strong>reviews</strong> Book (M:N)</li>
+<li>📑 Book <strong>has</strong> Edition (1:M)</li>
+<li>🏢 Book <strong>published by</strong> Publisher (M:1)</li>
+</ul>
+<h4 id="step-3-attributes">Step 3: Attributes </h4>
+<p><strong>Book</strong></p>
+<ul>
+<li>🆔 Book_ID (PK)</li>
+<li>📖 Title</li>
+<li>🗂️ Category</li>
+<li>💰 Price</li>
+</ul>
+<p><strong>Author</strong></p>
+<ul>
+<li>🆔 Author_ID (PK)</li>
+<li>👤 Name</li>
+<li>📧 Email (Multi‑valued)</li>
+<li>🧮 Date_written (Derived)</li>
+</ul>
+<p><strong>Publisher</strong></p>
+<ul>
+<li>🆔 Pub_ID (PK)</li>
+<li>🏢 Name</li>
+<li>🏠 Address</li>
+<li>📞 Phone (Multi‑valued)</li>
+<li>📧 Email</li>
+</ul>
+<p><strong>Edition (Weak Entity)</strong></p>
+<ul>
+<li>🔢 Edition_No (Partial Key)</li>
+<li>🏷️ Type</li>
+</ul>
+<hr>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
